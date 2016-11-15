@@ -3,12 +3,11 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
-    main: "./src/main"
+    main: path.resolve(__dirname, "src/main.js")
   },
   output: {
-    path: path.join(__dirname, "buildOutput"),
-    filename: "bundle.js",
-    publicPath: "/lesson4"
+    path: path.resolve(__dirname, "buildOutput"),
+    filename: "bundle.js"
   },
   module: {
     loaders: [{
@@ -23,7 +22,9 @@ module.exports = {
       loader: 'babel'
     }, {
       test: /\.css$/,
-      exclude: /(node_modules|bower_components)/,
+      include: [
+        path.resolve(__dirname, "src")
+      ],
       loader: 'style!css'
     }]
   },

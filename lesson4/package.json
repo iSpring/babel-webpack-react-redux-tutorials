@@ -7,8 +7,8 @@
     "clear": "rimraf buildOutput",
     "prebuild": "npm run clear",
     "build": "webpack",
-    "server": "webpack-dev-server",
-    "opener": "opener http://localhost:8080/lesson4",
+    "server": "webpack-dev-server --inline --hot",
+    "opener": "opener http://localhost:8080/",
     "start": "npm run build && npm run opener & npm run server"
   },
   "author": "",
