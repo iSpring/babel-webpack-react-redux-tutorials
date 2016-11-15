@@ -7,7 +7,8 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, "buildOutput"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "/lesson4"
   },
   module: {
     loaders: [{
@@ -20,19 +21,16 @@ module.exports = {
         path.resolve(__dirname, "node_modules/MyShape/index.js")
       ],
       loader: 'babel'
-      // query: {
-      //   presets: ['es2015']
-      // }
     }, {
       test: /\.css$/,
       exclude: /(node_modules|bower_components)/,
-      loader: 'style!css'//必须先经过css-loader处理，然后经过style-loader处理
+      loader: 'style!css'
     }]
   },
   plugins: [
     new HtmlWebpackPlugin({
       title: 'Webpack',
-      filename: '../index.html'
+      filename: 'index.html'
     })
   ]
 };
