@@ -1,4 +1,5 @@
 var path = require("path");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -27,5 +28,11 @@ module.exports = {
       exclude: /(node_modules|bower_components)/,
       loader: 'style!css'//必须先经过css-loader处理，然后经过style-loader处理
     }]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'Webpack',
+      filename: '../index.html'
+    })
+  ]
 };
