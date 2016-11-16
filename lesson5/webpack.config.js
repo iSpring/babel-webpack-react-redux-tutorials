@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = {
   entry: {
-    HelloWorld: path.resolve(__dirname, "src/HelloWorld.js")
+    HelloWorld: path.resolve(__dirname, "src/HelloWorld.jsx")
   },
   output: {
     path: path.resolve(__dirname, "buildOutput"),
@@ -10,14 +10,8 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.js$/,
-      include: [
-        path.resolve(__dirname, "src"),
-        path.resolve(__dirname, "node_modules/MyShape")
-      ],
-      exclude: [
-        path.resolve(__dirname, "node_modules/MyShape/index.js")
-      ],
+      test: /\.jsx?$/,
+      include: path.resolve(__dirname, "src"),
       loader: 'babel'
     }, {
       test: /\.css$/,
