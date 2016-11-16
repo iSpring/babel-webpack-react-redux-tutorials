@@ -4,17 +4,15 @@ module.exports = {
   entry: path.resolve(__dirname, "src/HelloWorld.jsx"),
   output: {
     path: path.resolve(__dirname, "buildOutput"),
-    filename: "bundle.js"
+    filename: "bundle.js",
+    publicPath: "/static/"
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      include: __dirname,
+      include: path.resolve(__dirname, "src"),
       exclude: /node_modules/,
-      loader: 'babel',
-      query: {
-        presets: [ "es2015", "react", "react-hmre" ]
-      }
+      loader: 'babel'
     }]
   }
 };
