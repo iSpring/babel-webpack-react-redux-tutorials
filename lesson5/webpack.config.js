@@ -1,24 +1,20 @@
 var path = require("path");
 
 module.exports = {
-  entry: {
-    HelloWorld: path.resolve(__dirname, "src/HelloWorld.jsx")
-  },
+  entry: path.resolve(__dirname, "src/HelloWorld.jsx"),
   output: {
     path: path.resolve(__dirname, "buildOutput"),
-    filename: "[name].bundle.js"
+    filename: "bundle.js"
   },
   module: {
     loaders: [{
       test: /\.jsx?$/,
-      include: path.resolve(__dirname, "src"),
-      loader: 'babel'
-    }, {
-      test: /\.css$/,
-      include: [
-        path.resolve(__dirname, "src")
-      ],
-      loader: 'style!css'
+      include: __dirname,
+      exclude: /node_modules/,
+      loader: 'babel',
+      query: {
+        presets: [ "es2015", "react", "react-hmre" ]
+      }
     }]
   }
 };
