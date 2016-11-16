@@ -9,13 +9,22 @@ ReactDOM.render(
 
 /*----------------------------------------------*/
 
+const name = "Zhang San";
+
+ReactDOM.render(
+  <h1>Hello, {name}!</h1>,
+  document.getElementById('container2')
+);
+
+/*----------------------------------------------*/
+
 function formatName(user) {
   return user.firstName + ' ' + user.lastName;
 }
 
 const user = {
-  firstName: 'Zhang',
-  lastName: 'San'
+  firstName: 'Li',
+  lastName: 'Si'
 };
 
 const element = (
@@ -26,5 +35,5 @@ const element = (
 
 ReactDOM.render(
   element,
-  document.getElementById('container2')
+  document.getElementById('container3')
 );
