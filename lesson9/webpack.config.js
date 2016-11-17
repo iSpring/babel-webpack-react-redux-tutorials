@@ -13,6 +13,11 @@ module.exports = {
       include: path.resolve(__dirname, "src"),
       exclude: /node_modules/,
       loader: 'babel'
+    }, {
+      test: /\.css$/,
+      include: path.resolve(__dirname, "src"),
+      exclude: /node_modules/,
+      loader: 'style!css'
     }]
   }
 };
