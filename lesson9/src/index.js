@@ -1,5 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Calculater from './Calculater';
+import ToggleButton from './ToggleButton';
 
-ReactDOM.render(<Calculater />, document.getElementById('root'));
+ReactDOM.render(<ToggleButton />, document.getElementById('root'));
