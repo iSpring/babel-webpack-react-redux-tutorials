@@ -7,7 +7,7 @@ class Clock extends Component{
   }
 
   componentDidMount(){
-    this.timerId = setInterval(()=>this.tick, 1000)
+    this.timerId = setInterval(()=>this.tick(), 1000)
   }
 
   componentWillUnmount(){
