@@ -1,0 +1,13 @@
+input{
+  width:100px;
+}
+
+.operator{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.equal{
+  margin-left: 10px;
+  margin-right: 10px;
+}
