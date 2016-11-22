@@ -7,14 +7,35 @@ import * as actions from './actions/index.js';
 
 const store = createStore(reducer);
 
-const render = () => ReactDOM.render(
-  <Calculater
-    onUpdateNumber1={(number1) => store.dispatch(actions.updateNumber1(number1))}
-    onUpdateNumber2={(number2) => store.dispatch(actions.updateNumber2(number2))}
-    onUpdateOperator={(isAddOperator) => store.dispatch(actions.updateOperator(isAddOperator))}
+const onUpdateNumber1 = (number1) => {
+  var action = actions.updateNumber1(number1);
+  store.dispatch(action);
+}
+
+const onUpdateNumber2 = (number2) => {
+  var action = actions.updateNumber2(number2);
+  store.dispatch(action);
+};
+
+const onUpdateOperator = (isAddOperator) => {
+  var action = actions.updateOperator(isAddOperator);
+  store.dispatch(action);
+};
+
+const render = () => {
+  const state = store.getState();
+  ReactDOM.render(
+  <Calculater 
+    number1={state.number1}
+    number2={state.number2}
+    isAddOperator={state.isAddOperator}
+    result={state.result}
+    onUpdateNumber1={onUpdateNumber1}
+    onUpdateNumber2={onUpdateNumber2}
+    onUpdateOperator={onUpdateOperator}
   />,
   document.getElementById('root')
-);
+)};
 
 render();
 

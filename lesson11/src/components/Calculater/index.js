@@ -15,16 +15,12 @@ class Calculater extends Component{
     this.number1Changed = this.number1Changed.bind(this);
     this.number2Changed = this.number2Changed.bind(this);
     this.operatorChanged = this.operatorChanged.bind(this);
-    this.state = {
-      number1: 0,
-      number2: 0,
-      isAddOperator: true,
-      result: 0
-    };
   }
 
   number1Changed(){
     const number1 = parseFloat(this.input1.value);
+    console.log("number1Changed", number1);
+    typeof this.props.onUpdateNumber1;
     this.props.onUpdateNumber1(number1);
   }
 
@@ -40,16 +36,17 @@ class Calculater extends Component{
   }
 
   render(){
+    const {number1, number2, isAddOperator, result} = this.props;
     return (
       <div>
-        <input type="number" value={this.state.number1} ref={(dom) => this.input1 = dom} onChange={this.number1Changed} />
-        <select className="operator" value={this.state.isAddOperator ? "add" : "minus"} ref={(dom) => this.operator = dom} onChange={this.operatorChanged}>
+        <input type="number" value={number1} ref={(dom) => this.input1 = dom} onChange={this.number1Changed} />
+        <select className="operator" value={isAddOperator ? "add" : "minus"} ref={(dom) => this.operator = dom} onChange={this.operatorChanged}>
           <option value="add">+</option>
           <option value="minus">-</option>
         </select>
-        <input type="number" value={this.state.number2} ref={(dom) => this.input2 = dom} onChange={this.number2Changed} />
+        <input type="number" value={number2} ref={(dom) => this.input2 = dom} onChange={this.number2Changed} />
         <span className="equal">=</span>
-        <span>{this.state.result}</span>
+        <span>{result}</span>
       </div>
     );
   }
