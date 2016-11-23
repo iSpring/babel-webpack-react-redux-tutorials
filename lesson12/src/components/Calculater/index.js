@@ -3,11 +3,11 @@ import './index.css';
 
 class Calculater extends Component{
 
-  // static propTypes = {
-  //   onUpdateNumber1: PropTypes.func.isRequired,
-  //   onUpdateNumber2: PropTypes.func.isRequired,
-  //   onUpdateOperator: PropTypes.func.isRequired
-  // }
+  static propTypes : {
+    onUpdateNumber1: PropTypes.func.isRequired,
+    onUpdateNumber2: PropTypes.func.isRequired,
+    onUpdateOperator: PropTypes.func.isRequired
+  }
 
   constructor(props){
     super(props);
