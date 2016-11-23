@@ -10,12 +10,22 @@ const reducer = (state = defaultState, action) => {
   switch(action.type){
     case actions.ACTION_INPUT_CHANGE:
       return Object.assign({}, state, {
-        keyword: action.keyword
+        keyword: action.keyword 
       });
-    case actions.ACTION_SEARCH:
+    case actions.ACTION_FETCH_DATA:
       return Object.assign({}, state, {
-        keyword: action.keyword,
-        loading: true
+        loading: true,
+        items: []
+      });
+    case actions.ACTION_FETCH_SUCCESS:
+      return Object.assign({}, state, {
+        loading: false,
+        items: action.items
+      });
+    case actions.ACTION_FETCH_FAILURE:
+      return Object.assign({}, state, {
+        loading: false,
+        items: action.items
       });
     default:
       return state;

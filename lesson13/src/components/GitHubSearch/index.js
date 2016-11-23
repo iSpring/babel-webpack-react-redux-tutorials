@@ -27,6 +27,7 @@ class GitHubSearch extends Component{
 
   render(){
     const {keyword, loading, items} = this.props;
+    console.log("render items", items);
     return (
       <div className="github-search">
         <div className="input-section">

@@ -9,7 +9,7 @@ import reducer from './reducers';
 import * as actions from './actions';
 import logger from './middlewares/Logger';
 
-var enhancer = applyMiddleware(logger, thunk);
+var enhancer = applyMiddleware(thunk);
 
 const store = createStore(reducer, enhancer);
 
@@ -19,7 +19,8 @@ const onInputChange = (keyword) => {
 };
 
 const onSearch = (keyword) => {
-  var action = actions.search(keyword);
+  //the action here is a function
+  var action = actions.fetchData(keyword);
   store.dispatch(action);
 };
 
