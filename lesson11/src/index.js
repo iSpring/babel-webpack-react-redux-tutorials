@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import Calculater from './components/Calculater/index.js';
-import reducer from './reducers/index.js';
-import * as actions from './actions/index.js';
+import Calculater from './components/Calculater';//import Calculater from './components/Calculater/index.js';
+import reducer from './reducers';//import reducer from './reducers/index.js';
+import * as actions from './actions';//import * as actions from './actions/index.js';
 
 const store = createStore(reducer);
 
@@ -25,7 +25,7 @@ const onUpdateOperator = (isAddOperator) => {
 const render = () => {
   const state = store.getState();
   ReactDOM.render(
-  <Calculater 
+  <Calculater
     number1={state.number1}
     number2={state.number2}
     isAddOperator={state.isAddOperator}

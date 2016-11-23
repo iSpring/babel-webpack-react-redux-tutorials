@@ -19,8 +19,6 @@ class Calculater extends Component{
 
   number1Changed(){
     const number1 = parseFloat(this.input1.value);
-    console.log("number1Changed", number1);
-    typeof this.props.onUpdateNumber1;
     this.props.onUpdateNumber1(number1);
   }
 
