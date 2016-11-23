@@ -1,3 +1,11 @@
 .github-search{
   width: 300px;
 }
+
+.github-search .keyword-input{
+  width: 200px;
+}
+
+.github-search .search-btn{
+  width: 100px;
+}

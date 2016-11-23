@@ -8,9 +8,8 @@ const defaultState = {
 const reducer = (state = defaultState, action) => {
   switch(action.type){
     case actions.ACTION_SEARCH:
-      console.log(action);
       return Object.assign({}, state, {
-        keyword
+        keyword: action.keyword
       });
     default:
       return state;
