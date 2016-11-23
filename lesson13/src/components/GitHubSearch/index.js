@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react';
+import RepoItem from '../RepoItem';
 import './index.css';
 
 class GitHubSearch extends Component{
@@ -27,7 +28,6 @@ class GitHubSearch extends Component{
 
   render(){
     const {keyword, loading, items} = this.props;
-    console.log("render items", items);
     return (
       <div className="github-search">
         <div className="input-section">
@@ -35,7 +35,13 @@ class GitHubSearch extends Component{
           <button onClick={this.searchButtonClicked} className="search-btn">Search</button>
         </div>
         {
-          !loading && <ul>items</ul>
+          !loading && (
+            <ul>
+              {
+                items.map(item=>(<RepoItem name={item.name} url={item.html_url} />))
+              }
+            </ul>
+          )
         }
         {
           loading && <div className="loading">Loading...</div>
