@@ -1,6 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
+import './index.css';
 
 class GitHubSearch extends Component{
+
+  static propTypes : {
+    keyword: PropTypes.string.isRequired,
+    loading: PropTypes.bool.isRequired,
+    items: PropTypes.array.isRequired
+  }
 
   constructor(props){
     super(props);
@@ -19,14 +26,19 @@ class GitHubSearch extends Component{
   }
 
   render(){
-    const {keyword, items} = this.props;
+    const {keyword, loading, items} = this.props;
     return (
       <div className="github-search">
-        <div>
+        <div className="input-section">
           <input value={this.props.keyword} ref={dom => this.input = dom} onChange={this.inputChanged} type="text" className="keyword-input" />
           <button onClick={this.searchButtonClicked} className="search-btn">Search</button>
         </div>
-        <ul></ul>
+        {
+          !loading && <ul>items</ul>
+        }
+        {
+          loading && <div className="loading">Loading...</div>
+        }
       </div>
     );
   }

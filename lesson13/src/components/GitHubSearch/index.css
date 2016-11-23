@@ -2,10 +2,20 @@
   width: 300px;
 }
 
+.github-search .input-section{
+  margin-bottom: 20px;
+}
+
 .github-search .keyword-input{
   width: 200px;
+  border-width: 2px;
 }
 
 .github-search .search-btn{
-  width: 100px;
+  width: 94px;
+}
+
+.github-search ul{
+  margin: 0;
+  padding: 0;
 }

@@ -21,9 +21,9 @@ const onSearch = (keyword) => {
 };
 
 const render = () => {
-  var {keyword, items} = store.getState();
+  var {keyword, loading, items} = store.getState();
   ReactDOM.render(
-    <GitHubSearch keyword={keyword} items={items} onInputChange={onInputChange} onSearch={onSearch} />,
+    <GitHubSearch keyword={keyword} loading={loading} items={items} onInputChange={onInputChange} onSearch={onSearch} />,
     document.getElementById('root')
   );
 };

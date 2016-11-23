@@ -2,6 +2,7 @@ import * as actions from '../actions';//<=> import actions from '../actions/inde
 
 const defaultState = {
   keyword: '',
+  loading: false,
   items: []
 };
 
@@ -13,7 +14,8 @@ const reducer = (state = defaultState, action) => {
       });
     case actions.ACTION_SEARCH:
       return Object.assign({}, state, {
-        keyword: action.keyword
+        keyword: action.keyword,
+        loading: true
       });
     default:
       return state;
