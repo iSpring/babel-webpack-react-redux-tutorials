@@ -28,17 +28,18 @@ const onUpdateOperator = (isAddOperator) => {
 const render = () => {
   const state = store.getState();
   ReactDOM.render(
-  <Calculater
-    number1={state.number1}
-    number2={state.number2}
-    isAddOperator={state.isAddOperator}
-    result={state.result}
-    onUpdateNumber1={onUpdateNumber1}
-    onUpdateNumber2={onUpdateNumber2}
-    onUpdateOperator={onUpdateOperator}
-  />,
-  document.getElementById('root')
-)};
+    <Calculater
+      number1={state.number1}
+      number2={state.number2}
+      isAddOperator={state.isAddOperator}
+      result={state.result}
+      onUpdateNumber1={onUpdateNumber1}
+      onUpdateNumber2={onUpdateNumber2}
+      onUpdateOperator={onUpdateOperator}
+    />,
+    document.getElementById('root')
+  );
+};
 
 render();
 
