@@ -1,12 +1,15 @@
+import 'babel-polyfill';
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
+import thunk from 'redux-thunk';
 import GitHubSearch from './components/GitHubSearch';
 import reducer from './reducers';
 import * as actions from './actions';
 import logger from './middlewares/Logger';
 
-var enhancer = applyMiddleware(logger);
+var enhancer = applyMiddleware(logger, thunk);
 
 const store = createStore(reducer, enhancer);
 
