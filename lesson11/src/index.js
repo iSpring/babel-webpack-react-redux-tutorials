@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore } from 'redux';
-import Calculater from './components/Calculater';//import Calculater from './components/Calculater/index.js';
-import reducer from './reducers';//import reducer from './reducers/index.js';
-import * as actions from './actions';//import * as actions from './actions/index.js';
+import Calculater from './components/Calculater';//<=> import Calculater from './components/Calculater/index.js';
+import reducer from './reducers';//<=> import reducer from './reducers/index.js';
+import * as actions from './actions';//<=> import * as actions from './actions/index.js';
 
 const store = createStore(reducer);
 

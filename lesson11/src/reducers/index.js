@@ -1,4 +1,4 @@
-import * as actions from '../actions';//<=>import actions from '../actions/index.js';
+import * as actions from '../actions';//<=> import actions from '../actions/index.js';
 
 const defaultState = {
   number1: 0,
