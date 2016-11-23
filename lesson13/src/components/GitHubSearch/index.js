@@ -10,7 +10,7 @@ class GitHubSearch extends Component{
 
   inputChanged(){
     var keyword = this.input.value;
-    console.log(keyword);
+    this.props.onInputChange(keyword);
   }
 
   searchButtonClicked(){

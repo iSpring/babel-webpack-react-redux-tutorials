@@ -10,15 +10,20 @@ var enhancer = applyMiddleware(logger);
 
 const store = createStore(reducer, enhancer);
 
+const onInputChange = (keyword) => {
+  var action = actions.inputChange(keyword);
+  store.dispatch(action);
+};
+
 const onSearch = (keyword) => {
-  var action =actions.search(keyword);
+  var action = actions.search(keyword);
   store.dispatch(action);
 };
 
 const render = () => {
   var {keyword, items} = store.getState();
   ReactDOM.render(
-    <GitHubSearch keyword={keyword} items={items} onSearch={onSearch} />,
+    <GitHubSearch keyword={keyword} items={items} onInputChange={onInputChange} onSearch={onSearch} />,
     document.getElementById('root')
   );
 };
