@@ -13,7 +13,7 @@ export const stackOverflowFetchData = (keyword) => {
 			type: ACTION_STACKOVERFLOW_FETCH_DATA
 		};
 		dispatch(actionFetchData);
-		const url = `http://api.stackexchange.com/2.2/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=votes&tagged={keyword}&filter=default`;
+		const url = `http://api.stackexchange.com/2.2/questions?key=U4DMV*8nvpm3EOpvf69Rxw((&site=stackoverflow&order=desc&sort=votes&tagged=${keyword}&filter=default`;
 		fetch(url).then((response)=>{
 			return response.json().then((data)=>{
 				const items = data.items.slice(0, 100);
