@@ -6,9 +6,9 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import GitHubSearch from './components/GitHubSearch';
-import * as gitHubActions from './actions/GitHub';
+import * as gitHubActions from './actions/gitHub';
 import StackOverflowSearch from './components/StackOverflowSearch';
-import * as stackOverflowActions from './actions/StackOverflow';
+import * as stackOverflowActions from './actions/stackOverflow';
 import reducer from './reducers';
 import logger from './middlewares/Logger';
 
