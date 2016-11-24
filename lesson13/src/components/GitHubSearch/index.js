@@ -30,6 +30,7 @@ class GitHubSearch extends Component{
     const {keyword, loading, items} = this.props;
     return (
       <div className="github-search">
+        <h1>GitHub</h1>
         <div className="input-section">
           <input value={this.props.keyword} ref={dom => this.input = dom} onChange={this.inputChanged} type="text" className="keyword-input" />
           <button onClick={this.searchButtonClicked} className="search-btn">Search</button>

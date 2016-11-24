@@ -10,6 +10,8 @@ import reducer from './reducers';
 import * as actions from './actions';
 import logger from './middlewares/Logger';
 
+import './index.css';
+
 var enhancer = applyMiddleware(thunk);
 
 const store = createStore(reducer, enhancer);
