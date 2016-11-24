@@ -4,13 +4,10 @@ import 'whatwg-fetch';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
-import GitHubSearch from './components/GitHubSearch';
-import * as gitHubActions from './actions/gitHub';
-import StackOverflowSearch from './components/StackOverflowSearch';
-import * as stackOverflowActions from './actions/stackOverflow';
 import reducer from './reducers';
-import logger from './middlewares/Logger';
+import App from './containers/App';
 
 import './index.css';
 
@@ -18,39 +15,14 @@ var enhancer = applyMiddleware(thunk);
 
 const store = createStore(reducer, enhancer);
 
-const onGitHubInputChange = (keyword) => {
-  var action = gitHubActions.gitHubInputChange(keyword);
-  store.dispatch(action);
-};
+const rootElement = document.getElementById('root');
 
-const onGitHubSearch = (keyword) => {
-  //the action here is a function
-  var action = gitHubActions.gitHubFetchData(keyword);
-  store.dispatch(action);
-};
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+  rootElement
+);
 
-const onStackOverflowInputChange = (keyword) => {
-  var action = stackOverflowActions.stackOverflowInputChange(keyword);
-  store.dispatch(action);
-};
-
-const onStackOverflowSearch = (keyword) => {
-  //the action here is a function
-  var action = stackOverflowActions.stackOverflowFetchData(keyword);
-  store.dispatch(action);
-};
-
-const render = () => {
-  var {gitHub, stackOverflow} = store.getState();
-  ReactDOM.render(
-    <div>
-      <GitHubSearch style={{float: 'left'}} keyword={gitHub.keyword} loading={gitHub.loading} items={gitHub.items} onInputChange={onGitHubInputChange} onSearch={onGitHubSearch} />
-      <StackOverflowSearch style={{float: 'left'}} keyword={stackOverflow.keyword} loading={stackOverflow.loading} items={stackOverflow.items} onInputChange={onStackOverflowInputChange} onSearch={onStackOverflowSearch} />
-    </div>,
-    document.getElementById('root')
-  );
-};
-
-render();
-
-store.subscribe(render);
+// render();
+// store.subscribe(render);
