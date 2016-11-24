@@ -1,117 +1,26 @@
-import * as gitHubActions from '../actions/gitHub';
-import * as stackOverflowActions from '../actions/stackOverflow';
+import { combineReducers } from 'redux';
+import gitHub from './gitHub';
+import stackOverflow from './stackOverflow';
 
-const defaultState = {
-  gitHub: {
-    keyword: '',
-    loading: false,
-    items: []
-  },
-  stackOverflow: {
-    keyword: '',
-    loading: false,
-    items: []
-  }
-};
+// function reducer(state = {}, action){
+//   return {
+//     gitHub: gitHub(state.gitHub, action),
+//     stackOverflow: stackOverflow(state.stackOverflow, action)
+//   }
+// }
 
-const reducer = (state = defaultState, action) => {
-  const {gitHub, stackOverflow} = state;
+//等价于
 
-  switch(action.type){
-    //GitHub actions
-    case gitHubActions.ACTION_GITHUB_INPUT_CHANGE:
-      return {
-        gitHub: {
-          ...gitHub,
-          keyword: action.keyword
-        },
-        stackOverflow: {
-          ...stackOverflow
-        }
-      };
-    case gitHubActions.ACTION_GITHUB_FETCH_DATA:
-      return {
-        gitHub: {
-          ...gitHub,
-          loading: true,
-          items: []
-        },
-        stackOverflow: {
-          ...stackOverflow
-        }
-      };
-    case gitHubActions.ACTION_GITHUB_FETCH_SUCCESS:
-      return {
-        gitHub: {
-          ...gitHub,
-          loading: false,
-          items: action.items
-        },
-        stackOverflow: {
-          ...stackOverflow
-        }
-      };
-    case gitHubActions.ACTION_GITHUB_FETCH_FAILURE:
-      return {
-        gitHub: {
-          ...gitHub,
-          loading: false,
-          items: action.items
-        },
-        stackOverflow: {
-          ...stackOverflow
-        }
-      };
+// const reducer = combineReducers({
+//   gitHub: gitHub,
+//   stackOverflow: stackOverflow
+// });
 
-    //StackOverflow actions
-    case stackOverflowActions.ACTION_STACKOVERFLOW_INPUT_CHANGE:
-      return {
-        gitHub: {
-          ...gitHub
-        },
-        stackOverflow: {
-          ...stackOverflow,
-          keyword: action.keyword
-        }
-      };
-    case stackOverflowActions.ACTION_STACKOVERFLOW_FETCH_DATA:
-      return {
-        gitHub: {
-          ...gitHub
-        },
-        stackOverflow: {
-          ...stackOverflow,
-          loading: true,
-          items: []
-        }
-      };
-    case stackOverflowActions.ACTION_STACKOVERFLOW_FETCH_SUCCESS:
-      return {
-        gitHub: {
-          ...gitHub
-        },
-        stackOverflow: {
-          ...stackOverflow,
-          loading: false,
-          items: action.items
-        }
-      };
-    case stackOverflowActions.ACTION_STACKOVERFLOW_FETCH_FAILURE:
-      return {
-        gitHub: {
-          ...gitHub
-        },
-        stackOverflow: {
-          ...stackOverflow,
-          loading: false,
-          items: []
-        }
-      };
+//等价于
 
-    //default
-    default:
-      return state;
-  }
-};
+const reducer = combineReducers({
+  gitHub,
+  stackOverflow
+});
 
 export default reducer;
