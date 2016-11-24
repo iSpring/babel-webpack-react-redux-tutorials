@@ -6,8 +6,10 @@ import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import GitHubSearch from './components/GitHubSearch';
-import reducer from './reducers';
 import * as gitHubActions from './actions/GitHub';
+import StackOverflowSearch from './components/StackOverflowSearch';
+import * as stackOverflowActions from './actions/StackOverflow';
+import reducer from './reducers';
 import logger from './middlewares/Logger';
 
 var enhancer = applyMiddleware(thunk);
@@ -25,10 +27,24 @@ const onGitHubSearch = (keyword) => {
   store.dispatch(action);
 };
 
+const onStackOverflowInputChange = (keyword) = {
+  var action = stackOverflowActions.stackOverflowInputChange(keyword);
+  store.dispatch(action);
+};
+
+const onStackOverflowSearch = (keyword) => {
+  //the action here is a function
+  var action = stackOverflowActions.stackOverflowFetchData(keyword);
+  store.dispatch(action);
+};
+
 const render = () => {
-  var {keyword, loading, items} = store.getState();
+  var {gitHub, stackOverflow} = store.getState();
   ReactDOM.render(
-    <GitHubSearch keyword={keyword} loading={loading} items={items} onInputChange={onGitHubInputChange} onSearch={onGitHubSearch} />,
+    <div>
+      <GitHubSearch keyword={gitHub.keyword} loading={gitHub.loading} items={gitHub.items} onInputChange={onGitHubInputChange} onSearch={onGitHubSearch} />
+      <StackOverflowSearch keyword={stackOverflow.keyword} loading={stackOverflow.loading} items={stackOverflow.items} onInputChange={onStackOverflowInputChange} onSearch={onStackOverflowSearch} />
+    </div>,
     document.getElementById('root')
   );
 };

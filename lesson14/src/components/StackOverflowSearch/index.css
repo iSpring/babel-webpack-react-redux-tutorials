@@ -1,0 +1,21 @@
+.stackoverflow-search{
+  width: 300px;
+}
+
+.stackoverflow-search .input-section{
+  margin-bottom: 20px;
+}
+
+.stackoverflow-search .keyword-input{
+  width: 200px;
+  border-width: 2px;
+}
+
+.stackoverflow-search .search-btn{
+  width: 94px;
+}
+
+.stackoverflow-search ul{
+  margin: 0;
+  padding: 0;
+}
