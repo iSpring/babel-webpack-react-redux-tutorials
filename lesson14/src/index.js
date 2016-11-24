@@ -44,8 +44,20 @@ const render = () => {
   var {gitHub, stackOverflow} = store.getState();
   ReactDOM.render(
     <div>
-      <GitHubSearch style={{float: 'left'}} keyword={gitHub.keyword} loading={gitHub.loading} items={gitHub.items} onInputChange={onGitHubInputChange} onSearch={onGitHubSearch} />
-      <StackOverflowSearch style={{float: 'left'}} keyword={stackOverflow.keyword} loading={stackOverflow.loading} items={stackOverflow.items} onInputChange={onStackOverflowInputChange} onSearch={onStackOverflowSearch} />
+      <GitHubSearch 
+        keyword={gitHub.keyword} 
+        loading={gitHub.loading} 
+        items={gitHub.items} 
+        onInputChange={onGitHubInputChange} 
+        onSearch={onGitHubSearch} 
+      />
+      <StackOverflowSearch 
+        keyword={stackOverflow.keyword} 
+        loading={stackOverflow.loading} 
+        items={stackOverflow.items} 
+        onInputChange={onStackOverflowInputChange} 
+        onSearch={onStackOverflowSearch} 
+      />
     </div>,
     document.getElementById('root')
   );
