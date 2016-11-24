@@ -20,47 +20,93 @@ const reducer = (state = defaultState, action) => {
   switch(action.type){
     //GitHub actions
     case gitHubActions.ACTION_GITHUB_INPUT_CHANGE:
-      return Object.assign({}, state, {
+      return {
         gitHub: {
+          ...gitHub,
           keyword: action.keyword
+        },
+        stackOverflow: {
+          ...stackOverflow
         }
-      });
+      };
     case gitHubActions.ACTION_GITHUB_FETCH_DATA:
-      return Object.assign({}, state, {
-        loading: true,
-        items: []
-      });
+      return {
+        gitHub: {
+          ...gitHub,
+          loading: true,
+          items: []
+        },
+        stackOverflow: {
+          ...stackOverflow
+        }
+      };
     case gitHubActions.ACTION_GITHUB_FETCH_SUCCESS:
-      return Object.assign({}, state, {
-        loading: false,
-        items: action.items
-      });
+      return {
+        gitHub: {
+          ...gitHub,
+          loading: false,
+          items: action.items
+        },
+        stackOverflow: {
+          ...stackOverflow
+        }
+      };
     case gitHubActions.ACTION_GITHUB_FETCH_FAILURE:
-      return Object.assign({}, state, {
-        loading: false,
-        items: action.items
-      });
+      return {
+        gitHub: {
+          ...gitHub,
+          loading: false,
+          items: action.items
+        },
+        stackOverflow: {
+          ...stackOverflow
+        }
+      };
 
     //StackOverflow actions
     case stackOverflowActions.ACTION_STACKOVERFLOW_INPUT_CHANGE:
-      return Object.assign({}, state, {
-        keyword: action.keyword
-      });
+      return {
+        gitHub: {
+          ...gitHub
+        },
+        stackOverflow: {
+          ...stackOverflow,
+          keyword: action.keyword
+        }
+      };
     case stackOverflowActions.ACTION_STACKOVERFLOW_FETCH_DATA:
-      return Object.assign({}, state, {
-        loading: true,
-        items: []
-      });
+      return {
+        gitHub: {
+          ...gitHub
+        },
+        stackOverflow: {
+          ...stackOverflow,
+          loading: true,
+          items: []
+        }
+      };
     case stackOverflowActions.ACTION_STACKOVERFLOW_FETCH_SUCCESS:
-      return Object.assign({}, state, {
-        loading: false,
-        items: action.items
-      });
+      return {
+        gitHub: {
+          ...gitHub
+        },
+        stackOverflow: {
+          ...stackOverflow,
+          loading: false,
+          items: action.items
+        }
+      };
     case stackOverflowActions.ACTION_STACKOVERFLOW_FETCH_FAILURE:
-      return Object.assign({}, state, {
-        loading: false,
-        items: []
-      });
+      return {
+        gitHub: {
+          ...gitHub
+        },
+        stackOverflow: {
+          ...stackOverflow,
+          loading: false,
+          items: []
+        }
+      };
 
     //default
     default:

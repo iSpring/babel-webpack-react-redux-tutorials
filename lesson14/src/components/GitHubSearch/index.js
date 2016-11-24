@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react';
-import RepoItem from '../Item';
+import Item from '../Item';
 import './index.css';
 
 class GitHubSearch extends Component{
@@ -39,7 +39,7 @@ class GitHubSearch extends Component{
           !loading && (
             <ul>
               {
-                items.map(item=>(<RepoItem name={item.name} url={item.html_url} />))
+                items.map((item, index) => (<Item key={index} name={item.name} url={item.html_url} />))
               }
             </ul>
           )

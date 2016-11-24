@@ -27,7 +27,7 @@ const onGitHubSearch = (keyword) => {
   store.dispatch(action);
 };
 
-const onStackOverflowInputChange = (keyword) = {
+const onStackOverflowInputChange = (keyword) => {
   var action = stackOverflowActions.stackOverflowInputChange(keyword);
   store.dispatch(action);
 };
