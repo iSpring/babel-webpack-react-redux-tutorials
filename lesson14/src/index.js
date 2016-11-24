@@ -7,28 +7,28 @@ import { createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import GitHubSearch from './components/GitHubSearch';
 import reducer from './reducers';
-import * as actions from './actions';
+import * as gitHubActions from './actions/GitHub';
 import logger from './middlewares/Logger';
 
 var enhancer = applyMiddleware(thunk);
 
 const store = createStore(reducer, enhancer);
 
-const onInputChange = (keyword) => {
-  var action = actions.inputChange(keyword);
+const onGitHubInputChange = (keyword) => {
+  var action = gitHubActions.gitHubInputChange(keyword);
   store.dispatch(action);
 };
 
-const onSearch = (keyword) => {
+const onGitHubSearch = (keyword) => {
   //the action here is a function
-  var action = actions.fetchData(keyword);
+  var action = gitHubActions.gitHubFetchData(keyword);
   store.dispatch(action);
 };
 
 const render = () => {
   var {keyword, loading, items} = store.getState();
   ReactDOM.render(
-    <GitHubSearch keyword={keyword} loading={loading} items={items} onInputChange={onInputChange} onSearch={onSearch} />,
+    <GitHubSearch keyword={keyword} loading={loading} items={items} onInputChange={onGitHubInputChange} onSearch={onGitHubSearch} />,
     document.getElementById('root')
   );
 };

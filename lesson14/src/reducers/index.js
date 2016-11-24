@@ -1,4 +1,4 @@
-import * as actions from '../actions';//<=> import actions from '../actions/index.js';
+import * as gitHubActions from '../actions/GitHub';
 
 const defaultState = {
   keyword: '',
@@ -8,21 +8,21 @@ const defaultState = {
 
 const reducer = (state = defaultState, action) => {
   switch(action.type){
-    case actions.ACTION_INPUT_CHANGE:
+    case gitHubActions.ACTION_GITHUB_INPUT_CHANGE:
       return Object.assign({}, state, {
-        keyword: action.keyword 
+        keyword: action.keyword
       });
-    case actions.ACTION_FETCH_DATA:
+    case gitHubActions.ACTION_GITHUB_FETCH_DATA:
       return Object.assign({}, state, {
         loading: true,
         items: []
       });
-    case actions.ACTION_FETCH_SUCCESS:
+    case gitHubActions.ACTION_GITHUB_FETCH_SUCCESS:
       return Object.assign({}, state, {
         loading: false,
         items: action.items
       });
-    case actions.ACTION_FETCH_FAILURE:
+    case gitHubActions.ACTION_GITHUB_FETCH_FAILURE:
       return Object.assign({}, state, {
         loading: false,
         items: action.items
