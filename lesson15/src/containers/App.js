@@ -33,8 +33,8 @@ class App extends Component{
 	}
 }
 
-//通过state得到传递给GitHubSearch和StackOverflowSearch的props
-function select(state){
+//将state映射到组件GitHubSearch和StackOverflowSearch的props参数
+function mapStateToProps(state){
 	return {
 		gitHubProps: {
 			...state.gitHub
@@ -45,4 +45,4 @@ function select(state){
 	};
 }
 
-export default connect(select)(App);
+export default connect(mapStateToProps)(App);
