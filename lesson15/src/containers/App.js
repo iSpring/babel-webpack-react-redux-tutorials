@@ -9,28 +9,31 @@ import * as stackOverflowActions from '../actions/stackOverflow';
 class App extends Component{
 
 	render(){
+		//dispatch, gitHubProps, stackOverflowProps都通过connect()方法注入进来
 		const {dispatch, gitHubProps, stackOverflowProps} = this.props;
+
 		return (
 			<div>
 		      <GitHubSearch
-		      	keyword={gitHubProps.keyword} 
-		      	loading={gitHubProps.loading} 
-		      	items={gitHubProps.items} 
-		      	onInputChange={(keyword) => {dispatch(gitHubActions.gitHubInputChange(keyword))}} 
-		      	onSearch={(keyword) => {dispatch(gitHubActions.gitHubFetchData(keyword))}} 
+		      	keyword={gitHubProps.keyword}
+		      	loading={gitHubProps.loading}
+		      	items={gitHubProps.items}
+		      	onInputChange={(keyword) => {dispatch(gitHubActions.gitHubInputChange(keyword))}}
+		      	onSearch={(keyword) => {dispatch(gitHubActions.gitHubFetchData(keyword))}}
 		      />
 		      <StackOverflowSearch
-		      	keyword={stackOverflowProps.keyword} 
-		      	loading={stackOverflowProps.loading} 
-		      	items={stackOverflowProps.items} 
-		      	onInputChange={(keyword) => {dispatch(stackOverflowActions.stackOverflowInputChange(keyword));}} 
-		      	onSearch={(keyword) => dispatch(stackOverflowActions.stackOverflowFetchData(keyword))} 
+		      	keyword={stackOverflowProps.keyword}
+		      	loading={stackOverflowProps.loading}
+		      	items={stackOverflowProps.items}
+		      	onInputChange={(keyword) => {dispatch(stackOverflowActions.stackOverflowInputChange(keyword))}}
+		      	onSearch={(keyword) => dispatch(stackOverflowActions.stackOverflowFetchData(keyword))}
 		      />
 		    </div>
 		);
 	}
 }
 
+//通过state得到传递给GitHubSearch和StackOverflowSearch的props
 function select(state){
 	return {
 		gitHubProps: {
