@@ -12,10 +12,15 @@ class App extends Component{
 	constructor(props){
 		super(props);
 		this.btnLoadGitHubSearchClicked = this.btnLoadGitHubSearchClicked.bind(this);
+		this.btnLoadStackOverflowSearchClicked = this.btnLoadStackOverflowSearchClicked.bind(this);
 	}
 
 	btnLoadGitHubSearchClicked(){
 		this.props.onLoadGitHubSearch();
+	}
+
+	btnLoadStackOverflowSearchClicked(){
+		this.props.onLoadStackOverflowSearch();
 	}
 
 	render(){
@@ -34,6 +39,7 @@ class App extends Component{
 		} = this.props;
 
 		const GitHubSearch = asyncLoadComponentsStatus.GitHubSearch.componentClass;
+		const StackOverflowSearch = asyncLoadComponentsStatus.StackOverflowSearch.componentClass;
 
 		// return (
 		// 	<div>
@@ -57,13 +63,22 @@ class App extends Component{
 		return (
 			<div>
 				{
-					GitHubSearch ? (<GitHubSearch
+					GitHubSearch ? <GitHubSearch
 										      	keyword = {gitHubProps.keyword}
 										      	loading = {gitHubProps.loading}
 										      	items = {gitHubProps.items}
 										      	onInputChange = {onGitHubInputChange}
 										      	onSearch = {onGitHubSearch}
-										      />) : (<button onClick={this.btnLoadGitHubSearchClicked}>load GitHubSearch component</button>)
+										      /> : <button onClick={this.btnLoadGitHubSearchClicked}>load GitHubSearch component</button>
+				}
+				{
+					StackOverflowSearch ? <StackOverflowSearch
+													      	keyword = {stackOverflowProps.keyword}
+													      	loading = {stackOverflowProps.loading}
+													      	items = {stackOverflowProps.items}
+													      	onInputChange = {onStackOverflowInputChange}
+													      	onSearch = {onStackOverflowSearch}
+													      /> : <button onClick={this.btnLoadStackOverflowSearchClicked}>load StackOverflowSearch component</button>
 				}
 			</div>
 		);
@@ -90,6 +105,7 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
 	return {
 		onLoadGitHubSearch: () => dispatch(asyncLoadComponentsStatusActions.asyncLoadComponentGitHubSearch()),
+		onLoadStackOverflowSearch: () => dispatch(asyncLoadComponentsStatusActions.asyncLoadComponentStackOverflowSearch()),
 		onGitHubInputChange: (keyword) => dispatch(gitHubActions.gitHubInputChange(keyword)),
 		onGitHubSearch: (keyword) => dispatch(gitHubActions.gitHubFetchData(keyword)),
 		onStackOverflowInputChange: (keyword) => dispatch(stackOverflowActions.stackOverflowInputChange(keyword)),

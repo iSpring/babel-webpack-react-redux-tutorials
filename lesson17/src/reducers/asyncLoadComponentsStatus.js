@@ -13,9 +13,10 @@ const defaultState = {
 
 const asyncLoadComponentsStatusReducer = (state = defaultState, action) => {
   switch(action.type){
+    //GitHubSearch component
     case asyncLoadComponentsStatusActions.ACTION_ASYNC_LOAD_COMPONENT_GITHUBSEARCH:
       return {
-        ...defaultState,
+        ...state,
         GitHubSearch: {
           componentStatus: 'loading',
           componentClass: null
@@ -23,7 +24,7 @@ const asyncLoadComponentsStatusReducer = (state = defaultState, action) => {
       };
     case asyncLoadComponentsStatusActions.ACTION_LOAD_COMPONENT_GITHUBSEARCH_SUCCESS:
       return {
-        ...defaultState,
+        ...state,
         GitHubSearch: {
           componentStatus: 'loaded',
           componentClass: action.componentClass
@@ -31,12 +32,38 @@ const asyncLoadComponentsStatusReducer = (state = defaultState, action) => {
       };
     case asyncLoadComponentsStatusActions.ACTION_LOAD_COMPONENT_GITHUBSEARCH_FAILURE:
       return {
-        ...defaultState,
+        ...state,
         GitHubSearch: {
           componentStatus: 'load-error',
           componentClass: null
         }
       };
+    //StackOverflowSearch component
+    case asyncLoadComponentsStatusActions.ACTION_ASYNC_LOAD_COMPONENT_STACKOVERFLOWSEARCH:
+      return {
+        ...state,
+        StackOverflowSearch: {
+          componentStatus: 'loading',
+          componentClass: null
+        }
+      };
+    case asyncLoadComponentsStatusActions.ACTION_LOAD_COMPONENT_STACKOVERFLOWSEARCH_SUCCESS:
+      return {
+        ...state,
+        StackOverflowSearch: {
+          componentStatus: 'loaded',
+          componentClass: action.componentClass
+        }
+      };
+    case asyncLoadComponentsStatusActions.ACTION_LOAD_COMPONENT_STACKOVERFLOWSEARCH_FAILURE:
+      return {
+        ...state,
+        StackOverflowSearch: {
+          componentStatus: 'load-error',
+          componentClass: null
+        }
+      };
+    //default
     default:
       return state;
   }
