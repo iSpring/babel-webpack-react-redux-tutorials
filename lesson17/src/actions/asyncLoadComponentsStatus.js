@@ -1,7 +1,5 @@
 import GitHubSearchAsyncLoader from '../components/GitHubSearch/asyncLoader';
 
-//------------------------------------GitHubSearch----------------------------------------------
-
 export const ACTION_ASYNC_LOAD_COMPONENT_GITHUBSEARCH = "ACTION_ASYNC_LOAD_COMPONENT_GITHUBSEARCH";
 export const asyncLoadComponentGitHubSearch = () => {
   return (dispatch) => {
@@ -17,13 +15,13 @@ export const asyncLoadComponentGitHubSearch = () => {
 }
 
 export const ACTION_LOAD_COMPONENT_GITHUBSEARCH_SUCCESS = "ACTION_LOAD_COMPONENT_GITHUBSEARCH_SUCCESS";
-export const loadComponentGitHubSearchSuccess = (componentClass) => {
+export const loadComponentGitHubSearchSuccess = (componentClass) => ({
   type: ACTION_LOAD_COMPONENT_GITHUBSEARCH_SUCCESS,
   componentClass
-};
+});
 
 export const ACTION_LOAD_COMPONENT_GITHUBSEARCH_FAILURE = "ACTION_LOAD_COMPONENT_GITHUBSEARCH_FAILURE";
-export const loadComponentGitHubSearchFailure = (err) => {
+export const loadComponentGitHubSearchFailure = (err) => ({
   type: ACTION_LOAD_COMPONENT_GITHUBSEARCH_FAILURE,
-  err
-};
+  error: err
+});

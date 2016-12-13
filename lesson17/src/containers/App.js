@@ -57,13 +57,13 @@ class App extends Component{
 		return (
 			<div>
 				{
-					GitHubSearch ? <GitHubSearch
+					GitHubSearch ? (<GitHubSearch
 										      	keyword = {gitHubProps.keyword}
 										      	loading = {gitHubProps.loading}
 										      	items = {gitHubProps.items}
 										      	onInputChange = {onGitHubInputChange}
 										      	onSearch = {onGitHubSearch}
-										      /> : <button onClick={this.btnLoadGitHubSearchClicked}>load GitHubSearch component</button>
+										      />) : (<button onClick={this.btnLoadGitHubSearchClicked}>load GitHubSearch component</button>)
 				}
 			</div>
 		);
