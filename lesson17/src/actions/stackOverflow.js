@@ -23,7 +23,7 @@ export const stackOverflowFetchData = (keyword) => {
 		}, ()=>{
 			const actionFetchFailure = stackOverflowFetchFailure();
 			dispatch(actionFetchFailure);
-		})
+		});
 	};
 }
 

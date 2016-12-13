@@ -23,7 +23,7 @@ export const gitHubFetchData = (keyword) => {
 		}, ()=>{
 			const actionFetchFailure = gitHubFetchFailure();
 			dispatch(actionFetchFailure);
-		})
+		});
 	};
 }
 
