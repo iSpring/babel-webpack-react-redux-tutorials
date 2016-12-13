@@ -37,6 +37,7 @@
     "webpack-dev-server": "^1.16.2"
   },
   "keywords": [
+    "dynamic-load-components",
     "async-load-components"
   ],
   "reference": [
