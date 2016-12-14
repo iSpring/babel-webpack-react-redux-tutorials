@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 
 import * as asyncLoadComponentsStatusActions from '../actions/asyncLoadComponentsStatus';
-// import GitHubSearch from '../components/GitHubSearch';
 import * as gitHubActions from '../actions/gitHub';
-// import StackOverflowSearch from '../components/StackOverflowSearch';
 import * as stackOverflowActions from '../actions/stackOverflow';
+// import GitHubSearch from '../components/GitHubSearch';
+// import StackOverflowSearch from '../components/StackOverflowSearch';
 
 class App extends Component{
 
@@ -24,8 +24,6 @@ class App extends Component{
 	}
 
 	render(){
-		//gitHubProps和stackOverflowProps是通过mapStateToProps()和connect()方法注入进来的
-		//onGitHubInputChange、onGitHubSearch、onStackOverflowInputChange和onStackOverflowSearch是通过mapDispatchToProps()和connect()方法注入进来的
 		const {
 			asyncLoadComponentsStatus,
 
@@ -63,13 +61,13 @@ class App extends Component{
 		return (
 			<div>
 				{
-					GitHubSearch ? <GitHubSearch
+					GitHubSearch ?  <GitHubSearch
 										      	keyword = {gitHubProps.keyword}
 										      	loading = {gitHubProps.loading}
 										      	items = {gitHubProps.items}
 										      	onInputChange = {onGitHubInputChange}
 										      	onSearch = {onGitHubSearch}
-										      /> : <button onClick={this.btnLoadGitHubSearchClicked}>load GitHubSearch component</button>
+										      /> : <button onClick={this.btnLoadGitHubSearchClicked}>load GitHubSearch component dynamically</button>
 				}
 				{
 					StackOverflowSearch ? <StackOverflowSearch
@@ -78,7 +76,7 @@ class App extends Component{
 													      	items = {stackOverflowProps.items}
 													      	onInputChange = {onStackOverflowInputChange}
 													      	onSearch = {onStackOverflowSearch}
-													      /> : <button onClick={this.btnLoadStackOverflowSearchClicked}>load StackOverflowSearch component</button>
+													      /> : <button onClick={this.btnLoadStackOverflowSearchClicked}>load StackOverflowSearch component dynamically</button>
 				}
 			</div>
 		);
