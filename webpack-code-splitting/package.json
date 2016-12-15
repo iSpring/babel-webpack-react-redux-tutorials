@@ -1,0 +1,23 @@
+{
+  "name": "webpack-code-splitting",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf buildOutput",
+    "prebuild": "npm run clear",
+    "build": "webpack",
+    "start": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "opener": "^1.4.2",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.3"
+  },
+  "reference": [
+    "https://webpack.github.io/docs/code-splitting.html",
+    "https://github.com/webpack/webpack/tree/master/examples/code-splitting"
+  ]
+}
