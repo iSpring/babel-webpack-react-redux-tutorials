@@ -25,7 +25,7 @@ export const gitHubFetchData = (keyword) => {
 			dispatch(actionFetchFailure);
 		})
 	};
-}
+};
 
 
 export const ACTION_GITHUB_FETCH_SUCCESS = 'ACTION_GITHUB_FETCH_SUCCESS';

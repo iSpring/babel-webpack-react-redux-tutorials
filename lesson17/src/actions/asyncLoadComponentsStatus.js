@@ -14,7 +14,7 @@ export const asyncLoadComponentGitHubSearch = () => {
       dispatch(loadComponentGitHubSearchFailure(err));
     });
   };
-}
+};
 
 export const ACTION_LOAD_COMPONENT_GITHUBSEARCH_SUCCESS = "ACTION_LOAD_COMPONENT_GITHUBSEARCH_SUCCESS";
 export const loadComponentGitHubSearchSuccess = (componentClass) => ({
@@ -42,7 +42,7 @@ export const asyncLoadComponentStackOverflowSearch = () => {
       dispatch(loadComponentStackOverflowSearchFailure(err));
     });
   };
-}
+};
 
 export const ACTION_LOAD_COMPONENT_STACKOVERFLOWSEARCH_SUCCESS = "ACTION_LOAD_COMPONENT_STACKOVERFLOWSEARCH_SUCCESS";
 export const loadComponentStackOverflowSearchSuccess = (componentClass) => ({

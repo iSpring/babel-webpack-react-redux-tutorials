@@ -25,7 +25,7 @@ export const stackOverflowFetchData = (keyword) => {
 			dispatch(actionFetchFailure);
 		})
 	};
-}
+};
 
 
 export const ACTION_STACKOVERFLOW_FETCH_SUCCESS = 'ACTION_STACKOVERFLOW_FETCH_SUCCESS';
