@@ -1,5 +1,5 @@
 {
-  "name": "basic-webpack-lesson",
+  "name": "use-webpack-to-build-babel-es6-modules",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
