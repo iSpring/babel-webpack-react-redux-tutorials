@@ -1,4 +1,6 @@
 var path = require("path");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
+var webpack = require('webpack');
 
 module.exports = {
   entry: {
@@ -20,5 +22,18 @@ module.exports = {
     }]
   },
   plugins: [
+    new HtmlWebpackPlugin()
+    // new webpack.HotModuleReplacementPlugin()
   ]
+  // --content-base buildOutput --port=3344 --colors --inline --hot --open
+  // devServer: {
+  //   contentBase: './buildOutput',
+  //   port: '3344',
+  //   stats: {
+  //     colors: true
+  //   },
+  //   inline: true,
+  //   hot: true,
+  //   open: true
+  // }
 };
