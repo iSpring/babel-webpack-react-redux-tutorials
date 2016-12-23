@@ -1,10 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
-  <title>Webpack</title>
-  <script type="text/javascript" src="buildOutput/bundle.js"></script>
+  <title><%= htmlWebpackPlugin.options.description %></title>
+  <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.options.bootstrap %>">
+  <script type="text/javascript" href="<%= htmlWebpackPlugin.options.jQuery %>"></script>
 </head>
 <body>
-
+  <div id="root"></div>
 </body>
 </html>

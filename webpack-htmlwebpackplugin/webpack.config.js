@@ -22,10 +22,18 @@ module.exports = {
   },
   plugins: [
     // new HtmlWebpackPlugin()
+
+    // new HtmlWebpackPlugin({
+    //   title: 'Use HtmlWebpackPlugin',
+    //   filename: 'index.html',
+    //   favicon: './logo.png'
+    // })
+
     new HtmlWebpackPlugin({
-      title: 'Use HtmlWebpackPlugin',
-      filename: 'index.html',
-      favicon: './logo.png'
+      template: '!!ejs!./template.html',
+      description: 'Use HtmlWebpackPlugin',
+      bootstrap: 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+      jQuery: 'http://code.jquery.com/jquery-1.12.4.min.js'
     })
   ]
 };
