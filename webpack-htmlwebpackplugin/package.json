@@ -21,6 +21,7 @@
     "webpack": "^1.13.3"
   },
   "reference": [
-    "https://github.com/ampedandwired/html-webpack-plugin"
+    "https://github.com/ampedandwired/html-webpack-plugin",
+    "https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md"
   ]
 }
