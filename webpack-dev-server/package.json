@@ -4,9 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "server": "webpack-dev-server --content-base buildOutput --port=3344 --colors --inline --hot --open",
-    "prestart": "rimraf buildOutput",
-    "start": "concurrently \"npm run server\"  \"webpack\" "
+    "start": "webpack-dev-server --content-base buildOutput --port=3344 --colors --inline --hot --open"
   },
   "author": "",
   "license": "ISC",
