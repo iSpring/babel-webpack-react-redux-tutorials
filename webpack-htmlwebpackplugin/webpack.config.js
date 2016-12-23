@@ -24,7 +24,8 @@ module.exports = {
     // new HtmlWebpackPlugin()
     new HtmlWebpackPlugin({
       title: 'Use HtmlWebpackPlugin',
-      filename: '../main.html'
+      filename: 'index.html',
+      favicon: './logo.png'
     })
   ]
 };
