@@ -1,20 +1,24 @@
 # react-step-by-step-tutorials
 React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技术
 
-<div>
-    <a width="25%" href="https://github.com/facebook/react">
-        <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/React2.png" />
-    </a>
-    <a width="25%" href="https://github.com/babel/babel">
-        <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Babel.png" />
-    </a>
-    <a width="25%" href="https://github.com/reactjs/redux">
-        <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Redux3.png" />
-    </a>
-    <a width="25%" href="https://github.com/webpack/webpack">
-        <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Webpack1.png" />
-    </a>
-</div>
+<table width="100%" border="0">
+    <tbody>
+        <tr>
+            <td width="25%">
+                <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/React2.png" />
+            </td>
+            <td width="25%">
+                <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Babel.png" />
+            </td>
+            <td width="25%">
+                <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Redux3.png" />
+            </td>
+            <td width="25%">
+                <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Webpack1.png" />
+            </td>
+        </tr>
+    </tbody>
+</table>
 
 目录
 
