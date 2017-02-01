@@ -1,6 +1,13 @@
 # react-step-by-step-tutorials
 React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技术
 
+<div>
+    <img style="width:20%;margin:0 4px;" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/React2.png" />
+    <img style="width:20%;margin:0 4px;" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Babel.png" />
+    <img style="width:20%;margin:0 4px;" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Redux3.png" />
+    <img style="width:20%;margin:0 4px;" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Webpack1.png" />
+</div>
+
 目录
 
 - 前言
