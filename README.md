@@ -4,16 +4,18 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 <table width="100%" border="0">
     <tbody>
         <tr>
-            <td width="25%">
-                <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/React2.png" />
+            <td width="25%" border="0">
+                <a href="https://github.com/facebook/react">
+                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/React2.png" />
+                </a>                
             </td>
-            <td width="25%">
+            <td width="25%" border="0">
                 <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Babel.png" />
             </td>
-            <td width="25%">
+            <td width="25%" border="0">
                 <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Redux3.png" />
             </td>
-            <td width="25%">
+            <td width="25%" border="0">
                 <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Webpack1.png" />
             </td>
         </tr>
