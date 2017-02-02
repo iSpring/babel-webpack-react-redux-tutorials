@@ -14,7 +14,10 @@
 
 1994年5月，第一届万维网大会在日内瓦召开。
 
-![image](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/WWWConference.jpg)
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/WWWConference.jpg">
+  <p align="center">从左至右依次为：Joseph Hardin,Robert Cailliau, Tim Berners-Lee, Dan Connolly</p>
+</p>
 
 1994年7月，HTML2规范发布。
 
@@ -24,6 +27,9 @@
 
 1994年底，由Tim牵头的万维网联盟（World Wide Web Consortium）成立，这标志着万维网的正式诞生。
 
-![](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/WWWConsortium.jpg)
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/WWWConsortium.jpg">
+  <p align="center">万维网部分成员</p>
+</p>
 
 此时的网页以HTML为主，是纯静态的网页。
