@@ -4,7 +4,7 @@
 1989年，在欧洲粒子物理实验室（European Laboratory for Particle Physics）的IT部门工作的Tim Berners-Lee向其领导提出了一项名为`Information Management: A Proposal`的提议：粒子物理研究通常与来自世界各地的研究所进行合作。 蒂姆有一个想法，使来自世界各地的远程站点的研究人员能够组织和汇集信息，使其能够将在个人计算机上访问大量的科研文献，并建议在文档中链接其他文档，这就是Web的原型。
 
 <p align="center">
-  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/Tim.jpg">
+  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/Tim.jpg">
   <p align="center">Tim Berners-Lee</p>
 </p>
 
