@@ -33,3 +33,28 @@
 </p>
 
 此时的网页以HTML为主，是纯静态的网页。
+
+## JavaScript的诞生
+1995年，在网景工程师[Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)花了10天时间设计了JavaScript语言。起初这种脚本语言叫做Mocha，后改名LiveScript，后来为了借助Java语言创造良好的营销效果最终改名为JavaScript。网景公司把这种脚本语言嵌入到了Navigator 2.0之中，使其能在浏览器中运行。
+
+与此相对的是，1996年，微软发布了[VBScript](https://en.wikipedia.org/wiki/VBScript)和[JScript](https://en.wikipedia.org/wiki/JScript)。JScript是对JavaScript进行逆向工程的实现，并内置于Internet Explorer 3中。但是JavaScript与JScript两种语言的实现存在差别，这导致了程序员开发的网页不能同时兼容Navigator和Internet Explorer浏览器。Internet Explorer开始抢夺Navigator的市场份额，这导致了第一次[浏览器战争](https://en.wikipedia.org/wiki/Browser_wars)。
+
+1996年11月，为了确保JavaScript的市场领导地位，网景将JavaScript提交到欧洲计算机制造商协会（European Computer Manufacturers Association）以便将其进行国际标准化。
+
+1997年6月，ECMA以JavaScript语言为基础制定了ECMAScript标准规范ECMA-262。JavaScript是ECMAScript规范最著名的实现之一，除此之外，ActionScript和JScript也都是ECMAScript规范的实现语言。自此，浏览器厂商都开始逐步实现ECMAScript规范。
+
+1998年6月，ECMAScript2规范发布，并通过ISO生成了正式的国际标准ISO/IEC 16262 。
+
+1999年11月，ECMAScript3规范发布，在此后的十年间，ECMAScript规范基本没有发生变动。ECMAScript3成为当今主流浏览器最广泛使用和实现的语言规范基础。
+
+
+
+参考：
+
+[1] W3C, [A history of HTML](https://www.w3.org/People/Raggett/book4/ch02.html)
+
+[2] W3C, [A Short History of JavaScript](https://www.w3.org/community/webed/wiki/A_Short_History_of_JavaScript)
+
+[3] Wikipedia, [Browser wars](https://en.wikipedia.org/wiki/Browser_wars)
+
+[4] Wikipedia, [Netscape Navigator usage data](https://en.wikipedia.org/wiki/File:Netscape-navigator-usage-data.svg)
