@@ -35,9 +35,14 @@
 此时的网页以HTML为主，是纯静态的网页。
 
 ## JavaScript的诞生
-1995年，在网景工程师[Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)花了10天时间设计了JavaScript语言。起初这种脚本语言叫做Mocha，后改名LiveScript，后来为了借助Java语言创造良好的营销效果最终改名为JavaScript。网景公司把这种脚本语言嵌入到了Navigator 2.0之中，使其能在浏览器中运行。
+1995年，网景工程师[Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)花了10天时间设计了JavaScript语言。起初这种脚本语言叫做Mocha，后改名LiveScript，后来为了借助Java语言创造良好的营销效果最终改名为JavaScript。网景公司把这种脚本语言嵌入到了Navigator 2.0之中，使其能在浏览器中运行。
 
 与此相对的是，1996年，微软发布了[VBScript](https://en.wikipedia.org/wiki/VBScript)和[JScript](https://en.wikipedia.org/wiki/JScript)。JScript是对JavaScript进行逆向工程的实现，并内置于Internet Explorer 3中。但是JavaScript与JScript两种语言的实现存在差别，这导致了程序员开发的网页不能同时兼容Navigator和Internet Explorer浏览器。Internet Explorer开始抢夺Navigator的市场份额，这导致了第一次[浏览器战争](https://en.wikipedia.org/wiki/Browser_wars)。
+
+<p align="center">
+  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/Netscape-navigator-usage-data.png">
+  <p align="center">Internet Explorer逐渐蚕食Navigator的市场份额</p>
+</p>
 
 1996年11月，为了确保JavaScript的市场领导地位，网景将JavaScript提交到欧洲计算机制造商协会（European Computer Manufacturers Association）以便将其进行国际标准化。
 
