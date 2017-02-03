@@ -41,7 +41,7 @@
 
 <p align="center">
   <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/Netscape-navigator-usage-data.png">
-  <p align="center">Internet Explorer逐渐蚕食Navigator的市场份额</p>
+  <p align="center">Navigator的市场份额逐年萎缩</p>
 </p>
 
 1996年11月，为了确保JavaScript的市场领导地位，网景将JavaScript提交到欧洲计算机制造商协会（European Computer Manufacturers Association）以便将其进行国际标准化。
