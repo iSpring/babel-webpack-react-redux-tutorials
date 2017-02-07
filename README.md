@@ -31,7 +31,7 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 目录
 
 - 前言
-  1. 前端发展简史
+  1. [前端发展简史](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/web-brief-history)
   2. React技术栈的使命
 - Babel
   1. Babel简介

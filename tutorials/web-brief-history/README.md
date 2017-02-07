@@ -4,7 +4,7 @@
 1989年，在欧洲粒子物理实验室（European Laboratory for Particle Physics）的IT部门工作的Tim Berners-Lee向其领导提出了一项名为[Information Management: A Proposal](https://www.w3.org/History/1989/proposal.html)的提议：粒子物理研究通常与来自世界各地的研究所进行合作。 蒂姆有一个想法，使来自世界各地的远程站点的研究人员能够组织和汇集信息，使其能够将在个人计算机上访问大量的科研文献，并建议在文档中链接其他文档，这就是Web的原型。
 
 <p align="center">
-  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/Tim.jpg">
+  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/Tim.jpg">
   <p align="center">Tim Berners-Lee</p>
 </p>
 
@@ -15,7 +15,7 @@
 1994年5月，第一届万维网大会在日内瓦召开。
 
 <p align="center">
-  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/WWWConference.jpg">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/WWWConference.jpg">
   <p align="center">从左至右依次为：Joseph Hardin,Robert Cailliau, Tim Berners-Lee, Dan Connolly</p>
 </p>
 
@@ -28,7 +28,7 @@
 1994年底，由Tim牵头的万维网联盟（World Wide Web Consortium）成立，这标志着万维网的正式诞生。
 
 <p align="center">
-  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/WWWConsortium.jpg">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/WWWConsortium.jpg">
   <p align="center">万维网部分成员</p>
 </p>
 
@@ -40,7 +40,7 @@
 与此相对的是，1996年，微软发布了[VBScript](https://en.wikipedia.org/wiki/VBScript)和[JScript](https://en.wikipedia.org/wiki/JScript)。JScript是对JavaScript进行逆向工程的实现，并内置于Internet Explorer 3中。但是JavaScript与JScript两种语言的实现存在差别，这导致了程序员开发的网页不能同时兼容Navigator和Internet Explorer浏览器。Internet Explorer开始抢夺Navigator的市场份额，这导致了第一次[浏览器战争](https://en.wikipedia.org/wiki/Browser_wars)。
 
 <p align="center">
-  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/web-brief-history/images/Netscape-navigator-usage-data.png">
+  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/Netscape-navigator-usage-data.png">
   <p align="center">Navigator的市场份额逐年萎缩</p>
 </p>
 
