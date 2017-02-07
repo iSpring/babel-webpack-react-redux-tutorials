@@ -6,23 +6,23 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
         <tr>
             <td width="25%" border="0">
                 <a href="https://github.com/facebook/react">
-                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/React2.png" />
-                </a>                
+                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/images/React2.png" />
+                </a>
             </td>
             <td width="25%" border="0">
                 <a href="https://github.com/babel/babel">
-                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Babel.png" />
-                </a>                
+                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/images/Babel.png" />
+                </a>
             </td>
             <td width="25%" border="0">
                 <a href="https://github.com/reactjs/redux">
-                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Redux3.png" />
-                </a>                
+                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/images/Redux3.png" />
+                </a>
             </td>
             <td width="25%" border="0">
                 <a href="https://github.com/webpack/webpack">
-                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/logos/Webpack1.png" />
-                </a>                
+                    <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/images/Webpack1.png" />
+                </a>
             </td>
         </tr>
     </tbody>
