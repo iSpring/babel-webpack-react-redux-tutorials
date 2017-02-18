@@ -80,12 +80,28 @@ AJAX使得浏览器客户端可以更方便地向服务器发送数据信息，�
 
 <p align="center">
   <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/AJAX.png">
-  <p align="center">Google Trend: 从2005年开始流行起来</p>
+  <p align="center">Google Trend: AJAX从2005年开始得到开发人员广泛的关注</p>
 </p>
 
-## 前端兼容性Library的出现
+## 前端兼容性Framework的出现
+IE在第一次浏览器大战中击败Netscape赢得胜利，垄断了浏览器市场。作为独裁者，IE并不遵循W3C的标准，IE成了事实标准。
 
-## SPA和前端MVC
+Netscape于1998年被AOL收购前创建了Mozilla社区,Firefox于2004年11月首次发布，并且9个月内下载量超过6000万，获取了巨大的成功，Internet Explorer的主导地位首次受到了挑战，Firefox被认为是Netscape的精神续作。
+
+之后Firefox浏览器一路奋起直追，逐渐蚕食IE市场份额，这引发了第二次浏览器战争。在2008年底时，Firefox的市场份额达到了25%以上，IE则跌至65%以下。
+
+第二次浏览器战争中，随着以Firefox和Opera为首的W3C阵营与IE的对抗程度的加剧，浏览器碎片化问题越来越严重，不同的浏览器执行不同的标准，对于开发人员来说这是一个恶梦。
+
+为了解决浏览器兼容性问题，Dojo、jQuery、YUI、ExtJS、MooTools等前端Framework相继诞生。前端开发人员用这些Framework频繁发送AJAX请求到后台，在得到数据后，再用这些Framework更新DOM树。
+
+其中，jQuery独领风骚，几乎成了所有网站的标配。Dojo、YUI、ExtJS等提供了很多组件，这使得开发复杂的企业级Web应用成为可能。
+
+<p align="center">
+  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/libs.png">
+  <p align="center">Google Trend: 蓝色jQuery，红色Dojo，绿色YUI，紫色ExtJS，黄色MooTools</p>
+</p>
+
+## 前端MVC和SPA
 因为有了AJAX，前端不再是人们眼中的小玩意，许多以前只能在后台完成的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
 
 ## HTML5和移动Web
@@ -106,4 +122,6 @@ AJAX使得浏览器客户端可以更方便地向服务器发送数据信息，�
 
 [5] WittyCookie, [What are the major differences among Web 1.0, 2.0 and 3.0?](https://wittycookie.wordpress.com/2012/06/04/what-are-the-major-differences-among-web-1-0-2-0-and-3-0/)
 
-[6] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
+[6] Wikipedia, [Firefox](https://zh.wikipedia.org/wiki/Firefox)
+
+[7] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
