@@ -32,16 +32,16 @@
   <p align="center">万维网部分成员</p>
 </p>
 
-此时的网页以HTML为主，是纯静态的网页。
+此时的网页以HTML为主，是纯静态的网页，网页是“只读”的，信息流只能通过服务器到客户端单向流通，由此世界进入了Web 1.0时代。
 
 ## JavaScript的诞生
 1995年，网景工程师[Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich)花了10天时间设计了JavaScript语言。起初这种脚本语言叫做Mocha，后改名LiveScript，后来为了借助Java语言创造良好的营销效果最终改名为JavaScript。网景公司把这种脚本语言嵌入到了Navigator 2.0之中，使其能在浏览器中运行。
 
-与此相对的是，1996年，微软发布了[VBScript](https://en.wikipedia.org/wiki/VBScript)和[JScript](https://en.wikipedia.org/wiki/JScript)。JScript是对JavaScript进行逆向工程的实现，并内置于Internet Explorer 3中。但是JavaScript与JScript两种语言的实现存在差别，这导致了程序员开发的网页不能同时兼容Navigator和Internet Explorer浏览器。Internet Explorer开始抢夺Navigator的市场份额，这导致了第一次[浏览器战争](https://en.wikipedia.org/wiki/Browser_wars)。
+与此相对的是，1996年，微软发布了[VBScript](https://en.wikipedia.org/wiki/VBScript)和[JScript](https://en.wikipedia.org/wiki/JScript)。JScript是对JavaScript进行逆向工程的实现，并内置于Internet Explorer 3中。但是JavaScript与JScript两种语言的实现存在差别，这导致了程序员开发的网页不能同时兼容Navigator和Internet Explorer浏览器。Internet Explorer开始抢夺Netscape的市场份额，这导致了第一次[浏览器战争](https://en.wikipedia.org/wiki/Browser_wars)。
 
 <p align="center">
   <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/Netscape-navigator-usage-data.png">
-  <p align="center">Navigator的市场份额逐年萎缩</p>
+  <p align="center">Netscape的市场份额逐年萎缩</p>
 </p>
 
 1996年11月，为了确保JavaScript的市场领导地位，网景将JavaScript提交到欧洲计算机制造商协会（European Computer Manufacturers Association）以便将其进行国际标准化。
@@ -51,6 +51,8 @@
 1998年6月，ECMAScript2规范发布，并通过ISO生成了正式的国际标准ISO/IEC 16262 。
 
 1999年11月，ECMAScript3规范发布，在此后的十年间，ECMAScript规范基本没有发生变动。ECMAScript3成为当今主流浏览器最广泛使用和实现的语言规范基础。
+
+第一次浏览器战争以IE浏览器完胜Netscape而结束，IE开始统领浏览器市场，份额的最高峰达到2002年的96%。随着第一轮大战的结束，浏览器的创新也随之减少。
 
 ## 动态页面的崛起
 JavaScript诞生之后，可以用来更改前端DOM的样式，实现一些类似于时钟之类的小功能。那时候的JavaScript仅限于此，大部分的前端界面还很简单，显示的都是纯静态的文本和图片。这种静态页面不能读取后台数据库中的数据，为了使得Web更加充满活力，以PHP、JSP、ASP.NET为代表的动态页面技术相继诞生。
@@ -65,10 +67,32 @@ ASP（Active Server Pages）1.0 在1996年随着IIS 3.0 而发布。2002年，AS
 
 随着动态页面技术的不断发展，后台代码变得庞大臃肿，后端逻辑也越来越复杂，逐渐难以维护。此时，后端的各种MVC框架逐渐发展起来，以JSP为例，Struct、Spring等框架层出不穷。
 
-从Web至2005年之前，一直处后端重、前端轻的状态。
+从Web诞生至2005年之前，一直处于后端重、前端轻的状态。
 
+## AJAX的流行
+在Web最初发展的阶段，前端页面要想获取后台信息需要刷新整个页面，这是很糟糕的用户体验。
 
+Google分别在2004年和2005年先后发布了两款重量级的Web产品：Gmail和Google Map。这两款Web产品都大量使用了AJAX技术，不需要刷新页面就可以使得前端与服务器进行网络通信，这虽然在当今看来是理所应当的，但是在十几年前AJAX却是一项革命性的技术，颠覆了用户体验。
 
+随着AJAX的流行，越来越多的网站使用AJAX动态获取数据，这使得动态网页内容变成可能，像Facebook这样的社交网络开始变得繁荣起来，前端一时间呈现出了欣欣向荣的局面。
+
+AJAX使得浏览器客户端可以更方便地向服务器发送数据信息，这促进了Web 2.0的发展。
+
+<p align="center">
+  <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/AJAX.png">
+  <p align="center">Google Trend: 从2005年开始流行起来</p>
+</p>
+
+## 前端兼容性Library的出现
+
+## SPA和前端MVC
+因为有了AJAX，前端不再是人们眼中的小玩意，许多以前只能在后台完成的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
+
+## HTML5和移动Web
+
+## Node.js的诞生
+
+## ES6
 
 参考：
 
@@ -79,3 +103,7 @@ ASP（Active Server Pages）1.0 在1996年随着IIS 3.0 而发布。2002年，AS
 [3] Wikipedia, [Browser wars](https://en.wikipedia.org/wiki/Browser_wars)
 
 [4] Wikipedia, [Netscape Navigator usage data](https://en.wikipedia.org/wiki/File:Netscape-navigator-usage-data.svg)
+
+[5] WittyCookie, [What are the major differences among Web 1.0, 2.0 and 3.0?](https://wittycookie.wordpress.com/2012/06/04/what-are-the-major-differences-among-web-1-0-2-0-and-3-0/)
+
+[6] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
