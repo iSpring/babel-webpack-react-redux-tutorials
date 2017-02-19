@@ -80,17 +80,17 @@ AJAX使得浏览器客户端可以更方便地向服务器发送数据信息，�
 
 <p align="center">
   <img width="80%" src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/AJAX.png">
-  <p align="center">Google Trend: AJAX从2005年开始得到开发人员广泛的关注</p>
+  <p align="center">Google Trend: AJAX从2005年开始得到开发人员的广泛关注</p>
 </p>
 
 ## 前端兼容性Framework的出现
 IE在第一次浏览器大战中击败Netscape赢得胜利，垄断了浏览器市场。作为独裁者，IE并不遵循W3C的标准，IE成了事实标准。
 
-Netscape于1998年被AOL收购前创建了Mozilla社区,Firefox于2004年11月首次发布，并且9个月内下载量超过6000万，获取了巨大的成功，Internet Explorer的主导地位首次受到了挑战，Firefox被认为是Netscape的精神续作。
+Netscape于1998年被AOL收购前创建了Mozilla社区，Firefox于2004年11月首次发布，并且9个月内下载量超过6000万，获取了巨大的成功，IE的主导地位首次受到了挑战，Firefox被认为是Netscape的精神续作。
 
 之后Firefox浏览器一路奋起直追，逐渐蚕食IE市场份额，这引发了第二次浏览器战争。在2008年底时，Firefox的市场份额达到了25%以上，IE则跌至65%以下。
 
-第二次浏览器战争中，随着以Firefox和Opera为首的W3C阵营与IE的对抗程度的加剧，浏览器碎片化问题越来越严重，不同的浏览器执行不同的标准，对于开发人员来说这是一个恶梦。
+第二次浏览器战争中，随着以Firefox和Opera为首的W3C阵营与IE对抗程度的加剧，浏览器碎片化问题越来越严重，不同的浏览器执行不同的标准，对于开发人员来说这是一个恶梦。
 
 为了解决浏览器兼容性问题，Dojo、jQuery、YUI、ExtJS、MooTools等前端Framework相继诞生。前端开发人员用这些Framework频繁发送AJAX请求到后台，在得到数据后，再用这些Framework更新DOM树。
 
@@ -102,7 +102,19 @@ Netscape于1998年被AOL收购前创建了Mozilla社区,Firefox于2004年11月�
 </p>
 
 ## 前端MVC和SPA
-因为有了AJAX，前端不再是人们眼中的小玩意，许多以前只能在后台完成的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
+随着AJAX和jQuery等的流行，前端不再是人们眼中的小玩意，许多以前只能在后台完成的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
+
+以前只用于后台的`MV*`等架构在前端逐渐使用起来，以下列举了部分常用的`MV*`框架.
+
+框架 | 架构 | 最初发布时间 | GitHub Stars
+------ | ------ | ------ | ------
+Knockout | MVVM | 2010年7月 | [![Knockout Repo](https://img.shields.io/github/stars/knockout/knockout.svg)](https://github.com/knockout/knockout)
+Backbone | MVP | 2010年10月 | [![Backbone Repo](https://img.shields.io/github/stars/jashkenas/backbone.svg)](https://github.com/jashkenas/backbone)
+Angular | MVC->MVVM | 2010年10月 | [![Angular Repo](https://img.shields.io/github/stars/angular/angular.svg)](https://github.com/angular/angular.js)
+Ember | MVVM | 2011年12月 | [![Ember Repo](https://img.shields.io/github/stars/emberjs/ember.js.svg)](https://github.com/emberjs/ember.js)
+Meteor | MVC | 2012年1月 | [![Meteor Repo](https://img.shields.io/github/stars/meteor/meteor.svg)](https://github.com/meteor/meteor)
+Vue | MVVM | 2014年7月 |[![Vue Repo](https://img.shields.io/github/stars/vuejs/vue.svg)](https://github.com/vuejs/vue)
+
 
 ## HTML5和移动Web
 
@@ -124,4 +136,8 @@ Netscape于1998年被AOL收购前创建了Mozilla社区,Firefox于2004年11月�
 
 [6] Wikipedia, [Firefox](https://zh.wikipedia.org/wiki/Firefox)
 
-[7] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
+[7] InfoQ, [Top JavaScript MVC Frameworks](https://www.infoq.com/research/top-javascript-mvc-frameworks)
+
+[8] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
+
+[9] [Browser Wars](https://36kr.com/p/114876.html)
