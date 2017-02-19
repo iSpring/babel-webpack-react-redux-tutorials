@@ -102,7 +102,7 @@ Netscape于1998年被AOL收购前创建了Mozilla社区，Firefox于2004年11月
 </p>
 
 ## 前端MV*架构和SPA
-随着AJAX和jQuery等的流行，前端不再是人们眼中的小玩意，许多以前只能在后台完成的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
+随着AJAX和jQuery等的流行，前端不再是人们眼中的小玩意，以前在C/S中实现的桌面软件的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
 
 以前只用于后台的`MV*`等架构在前端逐渐使用起来，以下列举了部分常用的`MV*`框架.
 
@@ -115,8 +115,32 @@ Ember | MVVM | 2011年12月 | [![Ember Repo](https://img.shields.io/github/stars
 Meteor | MVC | 2012年1月 | [![Meteor Repo](https://img.shields.io/github/stars/meteor/meteor.svg)](https://github.com/meteor/meteor)
 Vue | MVVM | 2014年7月 |[![Vue Repo](https://img.shields.io/github/stars/vuejs/vue.svg)](https://github.com/vuejs/vue)
 
+随着这些MV*框架的出现，网页逐渐由Web Site演变成了Web App，最终导致了单页应用（ Single Page Application）的出现。
 
 ## HTML5和移动Web
+1999年，W3C发布了HTML 4.0.1版本，在之后的几年，没有再发布更新的Web标准。随着Web的迅猛发展，旧的Web标准已不能满足Web应用的快速增长。
+
+2004年6月，Mozilla基金会和Opera软件公司在万维网联盟（W3C）所主办的研讨会上提出了一份联合建议书，其中包括Web Forms 2.0的初步规范草案。建议举行一次投票，以表决W3C是否应该扩展HTML和DOM，从而满足Web应用中的新需求。研讨会最后以8票赞成，14票反对否决此建议，这引起一些人的不满，不久后，部分浏览器厂商宣布成立网页超文本技术工作小组（WHATWG），以继续推动该规范的开发工作，该组织再度提出Web Applications 1.0规范草案，后来这两种规范合并形成HTML5。2007年，获得W3C接纳，并成立了新的HTML工作团队。2008年1月22日，第一份正式草案发布。
+
+HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入了第二次浏览器大战当中。Chrome使用了Safari开源的WebKit作为布局引擎，并且研发了高效的JavaScript引擎V8。
+
+在第二次浏览器大战中，各个浏览器厂商都以提升JavaScript运行效率和支持HTML5各种新特性为主要目标，这促进了浏览器的良性竞争。在这一场战争中，Chrome攻城略地，抢夺IE市场份额。2013年，Chrome超过IE，成为市场份额最高的浏览器。2016年，Chrome占据了浏览器市场的半壁江山。
+
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/StatCounter-browser-200901-201701.png">
+  <p align="center">全球浏览器市场份额（2009-2017）</p>
+</p>
+
+自2008年以来，浏览器中不断支持的HTML5新特性让开发者激动不已：WebWorker可以让JavaScript运行在多线程中，WebSocket可以在前端实现与后台的双工通信，WebGL可以创建Web3D网页游戏...
+
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/h5-destokp.svg">
+  <p align="center">桌面浏览器对HTML5支持程度（2009-2017）</p>
+</p>
+
+尽管HTML5已经在网络开发人员中非常出名了，但是它成为主流媒体的一个话题是在2010年的4月，当时苹果公司的CEO乔布斯发表一篇题为“对Flash的思考”的文章，指出随着HTML5的发展，观看视频或其它内容时，Adobe Flash将不再是必须的。这引发了开发人员间的争论，包括HTML5虽然提供了加强的功能，但开发人员必须考虑到不同浏览器对标准不同部分的支持程度的不同，以及HTML5和Flash间的功能差异。
+
+2014年10月28日，W3C正式发布HTML 5.0推荐标准。
 
 ## Node.js的诞生
 
@@ -137,6 +161,10 @@ Vue | MVVM | 2014年7月 |[![Vue Repo](https://img.shields.io/github/stars/vuejs
 [6] Wikipedia, [Firefox](https://zh.wikipedia.org/wiki/Firefox)
 
 [7] InfoQ, [Top JavaScript MVC Frameworks](https://www.infoq.com/research/top-javascript-mvc-frameworks)
+
+[8] Wikipedia, [HTML5](https://zh.wikipedia.org/wiki/HTML5)
+
+[9] HTML5Test, [Desktop Browsers](https://html5test.com/results/desktop.html)
 
 [8] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
 
