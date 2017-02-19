@@ -144,7 +144,8 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 
 2014年10月28日，W3C正式发布HTML 5.0推荐标准。
 
-## Node.js
+## Node.js的爆发
+Node.js诞生于2009年，是Ryan Dahl利用Google的V8引擎打造的基于事件循环的异步I/0框架。
 
 ## 移动Web和Hybrid App
 
@@ -171,13 +172,14 @@ Hybrid技术指的是利用Web开发技术，调用Native相关API，实现移�
 
 根据实现原理，Hybrid技术可以分为两大类：
 
-- 将HTML5的代码放到Native App的WebView控件中运行，WebView中的JavaScript代码通过WebView调用Native API。典型代表有[PhoneGap(Cordova)](https://cordova.apache.org/)以及国内的[AppCan](http://www.appcan.cn/)等。
+- 将HTML5的代码放到Native App的WebView控件中运行，WebView为Web提供宿主环境，JavaScript代码通过WebView调用Native API。典型代表有[PhoneGap(Cordova)](https://cordova.apache.org/)以及国内的[AppCan](http://www.appcan.cn/)等。
 
 - 将HTML5代码针对不同平台编译成不同的原生应用，实现了Web开发，Native部署。这一类的典型代表有[Titanium](http://www.appcelerator.com/)和[NativeScript](https://www.nativescript.org/)。
  
 Hybrid一系列技术中很难找出一种方案适应所有应用场景，我们需要根据自身需求对不同技术进行筛选与整合。
 
 ## ES6
+待续...
 
 参考：
 
@@ -202,7 +204,3 @@ Hybrid一系列技术中很难找出一种方案适应所有应用场景，我�
 [10] HTML5Test, [Mobile Browsers](https://html5test.com/results/mobile.html)
 
 [11] Wikipedia, [Appcelerator Titanium](https://en.wikipedia.org/wiki/Appcelerator_Titanium)
-
-
-
-[9] [Browser Wars](https://36kr.com/p/114876.html)
