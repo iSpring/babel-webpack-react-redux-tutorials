@@ -101,7 +101,7 @@ Netscape于1998年被AOL收购前创建了Mozilla社区，Firefox于2004年11月
   <p align="center">Google Trend: 蓝色jQuery，红色Dojo，绿色YUI，紫色ExtJS，黄色MooTools</p>
 </p>
 
-## 前端MVC和SPA
+## 前端MV*架构和SPA
 随着AJAX和jQuery等的流行，前端不再是人们眼中的小玩意，许多以前只能在后台完成的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
 
 以前只用于后台的`MV*`等架构在前端逐渐使用起来，以下列举了部分常用的`MV*`框架.
