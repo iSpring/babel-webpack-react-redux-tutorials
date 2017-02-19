@@ -150,7 +150,7 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 
 <p align="center">
   <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/mobile-web.png">
-  <p align="center">Web成为跨平台的最佳选择</p>
+  <p align="center"></p>
 </p>
 
 
@@ -167,7 +167,15 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 
 相比于Native App，移动Web开发成本低、跨平台、发布周期短的优势愈发明显，但是Native App的性能和UI体验要远胜于移动Web。移动Web与Native App孰优孰劣的争论愈演愈烈，在无数开发者的实践中，人们发现两者不是替代关系，而是应该将两者结合起来，取长补短，Hybrid技术逐渐得到认同。
 
-PhoneGap / Cordova 
+Hybrid技术指的是利用Web开发技术，调用Native相关API，实现移动与Web二者的有机结合，既能体现Web开发周期短的优势，又能为用户提供Native体验。
+
+根据实现原理，Hybrid技术可以分为两大类：
+
+- 将HTML5的代码放到Native App的WebView控件中运行，WebView中的JavaScript代码通过WebView调用Native API。典型代表有[PhoneGap(Cordova)](https://cordova.apache.org/)以及国内的[AppCan](http://www.appcan.cn/)等。
+
+- 将HTML5代码针对不同平台编译成不同的原生应用，实现了Web开发，Native部署。这一类的典型代表有[Titanium](http://www.appcelerator.com/)和[NativeScript](https://www.nativescript.org/)。
+ 
+Hybrid一系列技术中很难找出一种方案适应所有应用场景，我们需要根据自身需求对不同技术进行筛选与整合。
 
 ## ES6
 
@@ -193,6 +201,8 @@ PhoneGap / Cordova
 
 [10] HTML5Test, [Mobile Browsers](https://html5test.com/results/mobile.html)
 
-[8] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
+[11] Wikipedia, [Appcelerator Titanium](https://en.wikipedia.org/wiki/Appcelerator_Titanium)
+
+
 
 [9] [Browser Wars](https://36kr.com/p/114876.html)
