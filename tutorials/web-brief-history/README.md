@@ -133,19 +133,24 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
   <p align="center">全球浏览器市场份额（2009-2017）</p>
 </p>
 
+
 自2008年以来，浏览器中不断支持的HTML5新特性让开发者激动不已：WebWorker可以让JavaScript运行在多线程中，WebSocket可以在前端实现与后台的双工通信，WebGL可以创建Web3D网页游戏...
+
 
 <p align="center">
   <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/h5-destokp.png">
   <p align="center">桌面浏览器对HTML5支持程度（2009-2017）</p>
 </p>
 
+
 随着iOS和Android等智能手机的广泛使用，移动浏览器也逐步加强了对HTML5特性的支持力度。
+
 
 <p align="center">
   <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/h5-mobile.png">
   <p align="center">移动浏览器对HTML5支持程度（2009-2017）</p>
 </p>
+
 
 移动浏览器的发展，导致了Web站点逐渐从PC分流到移动平台，这是Web发展的新机遇。移动Web面临着更大的碎片化和兼容性问题，相应的移动Web框架也随之出现。
 
