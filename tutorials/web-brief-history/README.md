@@ -124,6 +124,8 @@ Vue | MVVM | 2014年7月 |[![Vue Repo](https://img.shields.io/github/stars/vuejs
 
 HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入了第二次浏览器大战当中。Chrome使用了Safari开源的WebKit作为布局引擎，并且研发了高效的JavaScript引擎V8。
 
+尽管HTML5在网络开发人员中非常出名了，但是它成为主流媒体的一个话题是在2010年的4月，当时苹果公司的CEO乔布斯发表一篇题为“对Flash的思考”的文章，指出随着HTML5的发展，观看视频或其它内容时，Adobe Flash将不再是必须的。这引发了开发人员间的争论，包括HTML5虽然提供了加强的功能，但开发人员必须考虑到不同浏览器对标准不同部分的支持程度的不同，以及HTML5和Flash间的功能差异。
+
 在第二次浏览器大战中，各个浏览器厂商都以提升JavaScript运行效率和支持HTML5各种新特性为主要目标，这促进了浏览器的良性竞争。在这一场战争中，Chrome攻城略地，抢夺IE市场份额。2013年，Chrome超过IE，成为市场份额最高的浏览器。2016年，Chrome占据了浏览器市场的半壁江山。
 
 <p align="center">
@@ -134,11 +136,18 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 自2008年以来，浏览器中不断支持的HTML5新特性让开发者激动不已：WebWorker可以让JavaScript运行在多线程中，WebSocket可以在前端实现与后台的双工通信，WebGL可以创建Web3D网页游戏...
 
 <p align="center">
-  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/h5-destokp.svg">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/h5-destokp.png">
   <p align="center">桌面浏览器对HTML5支持程度（2009-2017）</p>
 </p>
 
-尽管HTML5已经在网络开发人员中非常出名了，但是它成为主流媒体的一个话题是在2010年的4月，当时苹果公司的CEO乔布斯发表一篇题为“对Flash的思考”的文章，指出随着HTML5的发展，观看视频或其它内容时，Adobe Flash将不再是必须的。这引发了开发人员间的争论，包括HTML5虽然提供了加强的功能，但开发人员必须考虑到不同浏览器对标准不同部分的支持程度的不同，以及HTML5和Flash间的功能差异。
+随着iOS和Android等智能手机的广泛使用，移动浏览器也逐步加强了对HTML5特性的支持力度。
+
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/h5-mobile.png">
+  <p align="center">移动浏览器对HTML5支持程度（2009-2017）</p>
+</p>
+
+移动浏览器的发展，导致了Web站点逐渐从PC分流到移动平台，这是Web发展的新机遇。移动Web面临着更大的碎片化和兼容性问题，相应的移动Web框架也随之出现。
 
 2014年10月28日，W3C正式发布HTML 5.0推荐标准。
 
@@ -165,6 +174,8 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 [8] Wikipedia, [HTML5](https://zh.wikipedia.org/wiki/HTML5)
 
 [9] HTML5Test, [Desktop Browsers](https://html5test.com/results/desktop.html)
+
+[10] HTML5Test, [Mobile Browsers](https://html5test.com/results/mobile.html)
 
 [8] [Total number of Websites](http://www.internetlivestats.com/total-number-of-websites/)
 
