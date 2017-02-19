@@ -144,7 +144,15 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 
 2014年10月28日，W3C正式发布HTML 5.0推荐标准。
 
-## 移动Web和Hybrid
+## Node.js
+
+## 移动Web和Hybrid App
+
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/mobile-web.png">
+  <p align="center">Web成为跨平台的最佳选择</p>
+</p>
+
 
 随着iOS和Android等智能手机的广泛使用，移动浏览器也逐步加强了对HTML5特性的支持力度。
 
@@ -155,11 +163,11 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 </p>
 
 
-移动浏览器的发展，导致了流量入口逐渐从PC分流到移动平台，这是Web发展的新机遇。移动Web面临着更大的碎片化和兼容性问题，相应的移动Web框架也随之出现。
+移动浏览器的发展，导致了流量入口逐渐从PC分流到移动平台，这是Web发展的新机遇。移动Web面临着更大的碎片化和兼容性问题，[jQuery Mobile](http://jquerymobile.com/demos/)、[Sencha Touch](https://www.sencha.com/products/touch/)、[Framework7](https://framework7.io)、[Ionic](http://ionicframework.com/)等移动Web框架也随之出现。
 
 相比于Native App，移动Web开发成本低、跨平台、发布周期短的优势愈发明显，但是Native App的性能和UI体验要远胜于移动Web。移动Web与Native App孰优孰劣的争论愈演愈烈，在无数开发者的实践中，人们发现两者不是替代关系，而是应该将两者结合起来，取长补短，Hybrid技术逐渐得到认同。
 
-## Node.js
+PhoneGap / Cordova 
 
 ## ES6
 
