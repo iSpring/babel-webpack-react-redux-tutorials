@@ -221,6 +221,6 @@ Hybrid一系列技术中很难找出一种方案适应所有应用场景，我�
 
 [14] Wikipedia, [Comparison of server-side JavaScript solutions](https://en.wikipedia.org/wiki/Comparison_of_server-side_JavaScript_solutions)
 
-[14] Wikipedia, [Rhino](https://en.wikipedia.org/wiki/Rhino_(JavaScript_engine))
+[15] Wikipedia, [Rhino](https://en.wikipedia.org/wiki/Rhino_(JavaScript_engine))
 
-[15] Wikipedia, [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey)
+[16] Wikipedia, [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey)
