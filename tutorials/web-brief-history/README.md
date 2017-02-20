@@ -145,6 +145,16 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 2014年10月28日，W3C正式发布HTML 5.0推荐标准。
 
 ## Node.js的爆发
+早在1994年，Netspace就公布了其Netspace Enterprise Server中的一种服务器脚本实现，叫做LiveWire，是最早的服务器端JavaScript，甚至早于浏览器中的JavaScript公布。对于这门图灵完备的语言，Netspace很早就开始尝试将它用在后端。
+
+微软在1996年发布的IE 3.0中内嵌了自己的JScript语言，其兼容JavaScript语法。1997年年初，微软在它的服务器IIS 3.0中也包含了JScript，这就是我们在ASP中能使用的脚本语言。
+
+1997年，Netspace为了用Java实现JavaScript而创建了Rhino项目，最终Rhino演变成一个基于Java实现的JavaScript引擎，由Mozilla维护并[开源](https://github.com/mozilla/rhino)。Rhino可以为Java应用程序提供脚本能力，2006年12月，J2S3 6将Rhino作为Java默认的脚本引擎。
+
+SpiderMonkey是Mozilla用C/C++语言实现的一个JavaScript引擎，从Firefox 3.5开始作为JavaScript编译引擎，并被CouchDB等项目作为服务端脚本语言使用。
+
+可以看到，JavaScript最开始就能同时运行在前后端，但时在前后端的待遇却不尽相同。随着Java、PHP、.Net等服务器端技术的风靡，与前端浏览器中的JavaScript越来越流行相比，服务端JavaScript逐渐式微。
+
 Node.js诞生于2009年，是Ryan Dahl利用Google的V8引擎打造的基于事件循环的异步I/0框架。
 
 ## 移动Web和Hybrid App
@@ -204,3 +214,13 @@ Hybrid一系列技术中很难找出一种方案适应所有应用场景，我�
 [10] HTML5Test, [Mobile Browsers](https://html5test.com/results/mobile.html)
 
 [11] Wikipedia, [Appcelerator Titanium](https://en.wikipedia.org/wiki/Appcelerator_Titanium)
+
+[12] 朴灵, 《深入浅出Node.js》前言
+
+[13] Wikipedia, [List of ECMAScript engines](https://en.wikipedia.org/wiki/List_of_ECMAScript_engines)
+
+[14] Wikipedia, [Comparison of server-side JavaScript solutions](https://en.wikipedia.org/wiki/Comparison_of_server-side_JavaScript_solutions)
+
+[14] Wikipedia, [Rhino](https://en.wikipedia.org/wiki/Rhino_(JavaScript_engine))
+
+[15] Wikipedia, [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey)
