@@ -50,7 +50,7 @@
 
 1998年6月，ECMAScript2规范发布，并通过ISO生成了正式的国际标准ISO/IEC 16262 。
 
-1999年11月，ECMAScript3规范发布，在此后的十年间，ECMAScript规范基本没有发生变动。ECMAScript3成为当今主流浏览器最广泛使用和实现的语言规范基础。
+1999年12月，ECMAScript3规范发布，在此后的十年间，ECMAScript规范基本没有发生变动。ECMAScript3成为当今主流浏览器最广泛使用和实现的语言规范基础。
 
 第一次浏览器战争以IE浏览器完胜Netscape而结束，IE开始统领浏览器市场，份额的最高峰达到2002年的96%。随着第一轮大战的结束，浏览器的创新也随之减少。
 
@@ -134,7 +134,7 @@ HTML5草案发布不久，Google在2008年12月发布了Chrome浏览器，加入
 
 微软在1996年发布的IE 3.0中内嵌了自己的JScript语言，其兼容JavaScript语法。1997年年初，微软在它的服务器IIS 3.0中也包含了JScript，这就是我们在ASP中能使用的脚本语言。
 
-1997年，Netspace为了用Java实现JavaScript而创建了Rhino项目，最终Rhino演变成一个基于Java实现的JavaScript引擎，由Mozilla维护并[开源](https://github.com/mozilla/rhino)。Rhino可以为Java应用程序提供脚本能力，2006年12月，J2S3 6将Rhino作为Java默认的脚本引擎。
+1997年，Netspace为了用Java实现JavaScript而创建了Rhino项目，最终Rhino演变成一个基于Java实现的JavaScript引擎，由Mozilla维护并[开源](https://github.com/mozilla/rhino)。Rhino可以为Java应用程序提供脚本能力，2006年12月，J2SE 6将Rhino作为Java默认的脚本引擎。
 
 SpiderMonkey是Mozilla用C/C++语言实现的一个JavaScript引擎，从Firefox 3.5开始作为JavaScript编译引擎，并被CouchDB等项目作为服务端脚本语言使用。
 
@@ -157,9 +157,7 @@ Node.js出现吸引了很多前端开发人员开始用JavaScript开发服务器
   <p align="center">2016年常见包管理系统模块数量，NPM高居榜首</p>
 </p>
 
-Node.js也催生了node-webkit等项目，使得用JavaScript开发跨平台的桌面软件也成为可能。
-
-Node.js给开发人员带来了无穷的想象，使得JavaScript大有一统天下的趋势。
+Node.js也催生了node-webkit等项目，用JavaScript开发跨平台的桌面软件也成为可能。Node.js给开发人员带来了无穷的想象，JavaScript大有一统天下的趋势。
 
 ## 前端MV*架构
 随着HTML5的流行，前端不再是人们眼中的小玩意，以前在C/S中实现的桌面软件的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
@@ -208,8 +206,28 @@ Hybrid技术指的是利用Web开发技术，调用Native相关API，实现移�
 
 Hybrid一系列技术中很难找出一种方案适应所有应用场景，我们需要根据自身需求对不同技术进行筛选与整合。
 
-## ES6
-待续...
+## ECMAScript6
+JavaScript语言是ECMAScript标准的一种实现，截止到2017年2月，ECMAScript一共发布了7个版本。
+
+- 1997年6月， ECMAScript 1.0标准发布。
+
+- 1998年6月，ECMAScript 2.0发布。
+
+- 1999年12月，ECMAScript 3.0发布。
+
+- 2007年10月，Mozilla主张的ECMAScript 4.0版草案发布，对3.0版做了大幅升级，该草案遭到了以Yahoo、Microsoft、Google为首的大公司的强烈反对，JavaScript语言的创造者Eich和IE架构师Chris Wilson甚至在博客上就ES4向后兼容性问题打起了口水仗，最后由于各方分歧太大，ECMA开会决定废弃中止ECMAScript 4.0草案。经各方妥协，在保证向下兼容的情况下，将部分增强的功能放到ECMAScript 3.1标准中，将原有ECMAScript 4.0草案中激进的功能放到以后的标准中。不久，ECMAScript 3.1就改名为ECMAScript 5。
+
+- 2009年12月，本着"Don’t break the web"原则，ECMAScript 5发布。新增了strict模式、属性getter和setter等。
+
+- 2011年6月，ECMAScript 5.1发布。
+
+- 2015年6月，ECMAScript 6.0发布。该版本增加了许多新的语法，包括支持let、const、Arrow function、Class、Module、Promise、Iterator、Generator、Set、Map、async、Symbol、Proxy、Reflect、Decorator等。TC39委员会计划以后每年都发布一个新版本的ECMAScript，所以ECMAScript 6.0改名为ECMAScript 2015。
+
+- 2016年6月，在ECMAScript 2015的基础上进行了部分增强，发布了ECMAScript 2016。
+
+在ECMAScript的各个版本中，ECMAScript 6.0无疑最受人瞩目的，它增加了许多新特性，极大拓展了JavaScript语法和能力，以至于许多浏览器都只能支持部分ES6中的新特性。随之，Babel和TypeScript逐渐流行起来，编写ES6代码，然后用Babel或TypeScript将其编译为ES5等浏览器支持的JavaScript。
+
+ECMAScript以后每年将会发布一个新版本，这无疑将持续促使浏览器厂商不断为JavaScript注入新的功能与特性，JavaScript走上了快速发展的正轨。
 
 参考：
 
@@ -246,3 +264,7 @@ Hybrid一系列技术中很难找出一种方案适应所有应用场景，我�
 [16] Wikipedia, [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey)
 
 [17] Module Counts, [Module Counts](http://www.modulecounts.com/)
+
+[18] Wikipedia, [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+
+[19] InfoQ, [ECMAScript 5: What’s New in JavaScript Programming](https://www.infoq.com/news/2011/04/ECMAScript-5)
