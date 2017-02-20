@@ -101,21 +101,6 @@ Netscape于1998年被AOL收购前创建了Mozilla社区，Firefox于2004年11月
   <p align="center">Google Trend: 蓝色jQuery，红色Dojo，绿色YUI，紫色ExtJS，黄色MooTools</p>
 </p>
 
-## 前端MV*架构和SPA
-随着AJAX和jQuery等的流行，前端不再是人们眼中的小玩意，以前在C/S中实现的桌面软件的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
-
-以前只用于后台的`MV*`等架构在前端逐渐使用起来，以下列举了部分常用的`MV*`框架.
-
-框架 | 架构 | 最初发布时间 | GitHub Stars
------- | ------ | ------ | ------
-Knockout | MVVM | 2010年7月 | [![Knockout Repo](https://img.shields.io/github/stars/knockout/knockout.svg)](https://github.com/knockout/knockout)
-Backbone | MVP | 2010年10月 | [![Backbone Repo](https://img.shields.io/github/stars/jashkenas/backbone.svg)](https://github.com/jashkenas/backbone)
-Angular | MVC->MVVM | 2010年10月 | [![Angular Repo](https://img.shields.io/github/stars/angular/angular.svg)](https://github.com/angular/angular.js)
-Ember | MVVM | 2011年12月 | [![Ember Repo](https://img.shields.io/github/stars/emberjs/ember.js.svg)](https://github.com/emberjs/ember.js)
-Meteor | MVC | 2012年1月 | [![Meteor Repo](https://img.shields.io/github/stars/meteor/meteor.svg)](https://github.com/meteor/meteor)
-Vue | MVVM | 2014年7月 |[![Vue Repo](https://img.shields.io/github/stars/vuejs/vue.svg)](https://github.com/vuejs/vue)
-
-随着这些MV*框架的出现，网页逐渐由Web Site演变成了Web App，最终导致了单页应用（ Single Page Application）的出现。
 
 ## HTML5
 1999年，W3C发布了HTML 4.0.1版本，在之后的几年，没有再发布更新的Web标准。随着Web的迅猛发展，旧的Web标准已不能满足Web应用的快速增长。
@@ -155,7 +140,42 @@ SpiderMonkey是Mozilla用C/C++语言实现的一个JavaScript引擎，从Firefox
 
 可以看到，JavaScript最开始就能同时运行在前后端，但时在前后端的待遇却不尽相同。随着Java、PHP、.Net等服务器端技术的风靡，与前端浏览器中的JavaScript越来越流行相比，服务端JavaScript逐渐式微。
 
-Node.js诞生于2009年，是Ryan Dahl利用Google的V8引擎打造的基于事件循环的异步I/0框架。
+2008年Chrome发布，其JavaScript引擎V8的高效执行引起了Ryan Dahl的注意。2009年，Ryan利用Chrome的V8引擎打造了基于事件循环的异步I/O框架，Node.js诞生。
+
+Node.js具有以下特点：
+
+ - 基于事件循环的异步I/O框架，能够提高I/O吞吐量
+ - 单线程运行，能够避免了多线程变量同步的问题
+ - 使得JavaScript可以编写后台代码，前后端编程语言统一
+
+Node.js出现吸引了很多前端开发人员开始用JavaScript开发服务器代码，其异步编程风格也深受开发人员的喜爱。Node.js的伟大不仅在于拓展了JavaScript在服务器端的无限可能，更重要的是它构建了一个庞大的生态系统。
+
+2010年1月，NPM作为Node.js的包管理系统首次发布。开发人员可以按照CommonJS的规范编写Node.js模块，然后将其发布到NPM上面供其他开发人员使用。目前NPM具有40万左右的模块，是世界上最大的包模块管理系统。
+
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/web-brief-history/images/module-count.png">
+  <p align="center">2016年常见包管理系统模块数量，NPM高居榜首</p>
+</p>
+
+Node.js也催生了node-webkit等项目，使得用JavaScript开发跨平台的桌面软件也成为可能。
+
+Node.js给开发人员带来了无穷的想象，使得JavaScript大有一统天下的趋势。
+
+## 前端MV*架构
+随着HTML5的流行，前端不再是人们眼中的小玩意，以前在C/S中实现的桌面软件的功能逐步迁移到了前端，前端的代码逻辑逐渐变得复杂起来。
+
+以前只用于后台的`MV*`等架构在前端逐渐使用起来，以下列举了部分常用的`MV*`框架.
+
+框架 | 架构 | 最初发布时间 | GitHub Stars
+------ | ------ | ------ | ------
+Knockout | MVVM | 2010年7月 | [![Knockout Repo](https://img.shields.io/github/stars/knockout/knockout.svg)](https://github.com/knockout/knockout)
+Backbone | MVP | 2010年10月 | [![Backbone Repo](https://img.shields.io/github/stars/jashkenas/backbone.svg)](https://github.com/jashkenas/backbone)
+Angular | MVC->MVVM | 2010年10月 | [![Angular Repo](https://img.shields.io/github/stars/angular/angular.svg)](https://github.com/angular/angular.js)
+Ember | MVVM | 2011年12月 | [![Ember Repo](https://img.shields.io/github/stars/emberjs/ember.js.svg)](https://github.com/emberjs/ember.js)
+Meteor | MVC | 2012年1月 | [![Meteor Repo](https://img.shields.io/github/stars/meteor/meteor.svg)](https://github.com/meteor/meteor)
+Vue | MVVM | 2014年7月 |[![Vue Repo](https://img.shields.io/github/stars/vuejs/vue.svg)](https://github.com/vuejs/vue)
+
+随着这些`MV*`框架的出现，网页逐渐由Web Site演变成了Web App，最终导致了复杂的单页应用（ Single Page Application）的出现。
 
 ## 移动Web和Hybrid App
 
@@ -185,7 +205,7 @@ Hybrid技术指的是利用Web开发技术，调用Native相关API，实现移�
 - 将HTML5的代码放到Native App的WebView控件中运行，WebView为Web提供宿主环境，JavaScript代码通过WebView调用Native API。典型代表有[PhoneGap(Cordova)](https://cordova.apache.org/)以及国内的[AppCan](http://www.appcan.cn/)等。
 
 - 将HTML5代码针对不同平台编译成不同的原生应用，实现了Web开发，Native部署。这一类的典型代表有[Titanium](http://www.appcelerator.com/)和[NativeScript](https://www.nativescript.org/)。
- 
+
 Hybrid一系列技术中很难找出一种方案适应所有应用场景，我们需要根据自身需求对不同技术进行筛选与整合。
 
 ## ES6
@@ -224,3 +244,5 @@ Hybrid一系列技术中很难找出一种方案适应所有应用场景，我�
 [15] Wikipedia, [Rhino](https://en.wikipedia.org/wiki/Rhino_(JavaScript_engine))
 
 [16] Wikipedia, [SpiderMonkey](https://en.wikipedia.org/wiki/SpiderMonkey)
+
+[17] Module Counts, [Module Counts](http://www.modulecounts.com/)
