@@ -1,5 +1,5 @@
 {
-    "name": "pack-es6-modules-with-webpack",
+    "name": "bundle-es6-modules-with-webpack",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",

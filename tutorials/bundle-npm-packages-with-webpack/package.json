@@ -1,5 +1,5 @@
 {
-  "name": "pack-npm-packages-with-webpack",
+  "name": "bundle-npm-packages-with-webpack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
