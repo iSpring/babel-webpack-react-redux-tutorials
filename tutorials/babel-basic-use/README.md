@@ -72,6 +72,9 @@ babel example.js -o compolied-example.js --presets es2015
 
 也可以通过`--presets`参数指定多个预设，预设名字之间用逗号分隔。
 
+还可以设置参数`--ignore [regex]`或`-i [regex]`，不会对指定正则表达式文件进行编译，默认值是`node_modules`,即默认情况下不会对`node_modules`下的文件进行编译。
+
+还可以设置参数`--extensions`或`-x`，指定只对特定后缀名的文件进行编译，默认值是`".js",".jsx",".es6",".es"`，即默认会对这些后缀名的文件进行编译。
 
 ## 在项目中使用Babel
 尽管你可以把 Babel CLI 全局安装在你的机器上，但是按项目逐个安装在本地会更好。
@@ -376,4 +379,37 @@ define(['exports', './Shape'], function (exports, _Shape2) {
 
 可以看到编译后的`Circle.js`中在代码首行就通过`define`引入了依赖`Shape`，输出结果是一个AMD模块。
 
-## presets and plugins
+## 常见预设和插件
+
+Babel官方提供了如下七种预设:
+
+ - [es2015](https://babeljs.io/docs/plugins/preset-es2015/) 该预设用于编译ES2015新语法。
+
+ - [es2016](https://babeljs.io/docs/plugins/preset-es2016/) 该预设用于编译ES2016新语法。
+
+ - [es2017](https://babeljs.io/docs/plugins/preset-es2017/) 该预设用于编译ES2017新语法。
+
+ - [latest](https://babeljs.io/docs/plugins/preset-latest/) 该预设会包含从2015年之后每年ECMAScript版本的新语法，目前包含es2015、es2016、es2017，只需要引入latest预设，就无需再分别引入以上三个预设。
+
+ - [react](https://babeljs.io/docs/plugins/preset-react/) 该预设用于编译react的JSX语法。
+
+ - [flow](https://babeljs.io/docs/plugins/transform-flow-strip-types/) 该预设只是用来删除掉代码中的类型声明，在以后的文章中会进行介绍。
+
+ - [env](https://babeljs.io/docs/plugins/preset-env/) 该预设根据项目需要支持的环境自动选择Babel插件。
+ 
+我们此处只列举部分插件：
+ - [es2015-modules-amd](https://babeljs.io/docs/plugins/transform-es2015-modules-amd/) 该插件用于将ES6模块转换为AMD模块。
+
+ - [es2015-modules-commonjs](https://babeljs.io/docs/plugins/transform-es2015-modules-commonjs/) 该插件用于将ES6模块转换成CommonJS模块。
+
+ - [es2015-modules-systemjs](https://babeljs.io/docs/plugins/transform-es2015-modules-systemjs/) 该插件用于将ES6模块转换为SystemJS模块。
+
+ - [es2015-modules-umd](https://babeljs.io/docs/plugins/transform-es2015-modules-umd/) 该插件用于将ES6模块转换成UMD模块。
+
+ - [object-assign](https://babeljs.io/docs/plugins/transform-object-assign/) 该插件用于为ES6中新增的API`Object.assign()`提供兼容性的模拟代码。
+
+ - [object-set-prototype-of-to-assign](https://babeljs.io/docs/plugins/transform-object-set-prototype-of-to-assign/) 该插件用于为ES6中新增的API`Object.setPrototypeOf()`提供兼容性的模拟代码。
+
+ ...
+
+ 通过本文，我们应该掌握了使用Babel的基础知识。

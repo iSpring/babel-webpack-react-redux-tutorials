@@ -36,9 +36,8 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 
 - Babel
   1. Babel使用基础
-  2. Plugins
-  3. babel-polyfill
-  4. Babel vs TypeScript vs Traceur
+  2. babel-polyfill
+  3. Babel vs TypeScript vs Traceur
 
 - Webpack
   1. 用Webpack打包ES6模块
