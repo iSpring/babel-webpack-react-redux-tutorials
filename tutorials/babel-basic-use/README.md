@@ -158,7 +158,17 @@ npm install --save-dev babel-preset-es2015
 plugin1 -> plugin2 -> preset2 -> preset1
 ```
 
-`Circle.js`源码如下所示：
+npm的package.json中有一个`scripts`对象字段，我们可以在其中定义通过npm可以运行的script，我们向其中添加`build`脚本，用Babel对src目录进行编译，如下所示：
+
+```
+"scripts": {
+    "build": "babel src -d buildOutput"
+}
+```
+
+这样，在项目的根目录下执行`npm run build`即可启动Babel对源码进行编译，输出到`buildOutput`目录下。
+
+我们以src目录下的`Circle.js`对比编译前后的区别，`src/Circle.js`源码如下所示：
 
 ```
 import Shape from './Shape';
@@ -185,7 +195,185 @@ class Circle extends Shape{
 export default Circle;
 ```
 
-## presets and plugins
+在该文件中我们使用了ES6中的`import`、`class`、`extends`等基于类定义的语法。
 
-## editors
-https：//github.com/babel/babel-sublime
+编译后的`buildOutput/Circle.js`的代码如下所示：
+
+```
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _Shape2 = require('./Shape');
+
+var _Shape3 = _interopRequireDefault(_Shape2);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Circle = function (_Shape) {
+  _inherits(Circle, _Shape);
+
+  function Circle(radius) {
+    _classCallCheck(this, Circle);
+
+    var _this = _possibleConstructorReturn(this, (Circle.__proto__ || Object.getPrototypeOf(Circle)).call(this));
+
+    _this.radius = radius;
+    return _this;
+  }
+
+  _createClass(Circle, [{
+    key: 'getArea',
+    value: function getArea() {
+      return Math.PI * this.radius * this.radius;
+    }
+  }, {
+    key: 'getLength',
+    value: function getLength() {
+      return 2 * Math.PI * this.radius;
+    }
+  }, {
+    key: 'toString',
+    value: function toString() {
+      return 'Circle radius:' + this.radius + ', Circle area:' + this.getArea() + ', Circle length:' + this.getLength();
+    }
+  }]);
+
+  return Circle;
+}(_Shape3.default);
+
+exports.default = Circle;
+```
+
+可以看到，编译后的文件中`import`、`class`、`extends`等关键词不见了，原有的ES6类文件被默认编译成了CommonJS模块。
+
+CommonJS模块适合于Node.js环境中同步require使用，不适用于前端浏览器环境。我们想把ES6类文件编译成AMD模块，为此我们需要安装AMD相关的plugin：
+
+```
+npm install --save-dev babel-plugin-transform-es2015-modules-amd
+```
+
+然后将AMD插件添加到`.babelrc`的`plugins`数组中，如下所示：
+
+```
+{
+  "presets": ["es2015"],
+  "plugins": ["transform-es2015-modules-amd"]
+}
+```
+
+然后重新运行`npm run build`，新生成的`buildOutput/Circle.js`的代码如下所示：
+
+```
+define(['exports', './Shape'], function (exports, _Shape2) {
+  'use strict';
+
+  Object.defineProperty(exports, "__esModule", {
+    value: true
+  });
+
+  var _Shape3 = _interopRequireDefault(_Shape2);
+
+  function _interopRequireDefault(obj) {
+    return obj && obj.__esModule ? obj : {
+      default: obj
+    };
+  }
+
+  function _classCallCheck(instance, Constructor) {
+    if (!(instance instanceof Constructor)) {
+      throw new TypeError("Cannot call a class as a function");
+    }
+  }
+
+  var _createClass = function () {
+    function defineProperties(target, props) {
+      for (var i = 0; i < props.length; i++) {
+        var descriptor = props[i];
+        descriptor.enumerable = descriptor.enumerable || false;
+        descriptor.configurable = true;
+        if ("value" in descriptor) descriptor.writable = true;
+        Object.defineProperty(target, descriptor.key, descriptor);
+      }
+    }
+
+    return function (Constructor, protoProps, staticProps) {
+      if (protoProps) defineProperties(Constructor.prototype, protoProps);
+      if (staticProps) defineProperties(Constructor, staticProps);
+      return Constructor;
+    };
+  }();
+
+  function _possibleConstructorReturn(self, call) {
+    if (!self) {
+      throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+    }
+
+    return call && (typeof call === "object" || typeof call === "function") ? call : self;
+  }
+
+  function _inherits(subClass, superClass) {
+    if (typeof superClass !== "function" && superClass !== null) {
+      throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+    }
+
+    subClass.prototype = Object.create(superClass && superClass.prototype, {
+      constructor: {
+        value: subClass,
+        enumerable: false,
+        writable: true,
+        configurable: true
+      }
+    });
+    if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+  }
+
+  var Circle = function (_Shape) {
+    _inherits(Circle, _Shape);
+
+    function Circle(radius) {
+      _classCallCheck(this, Circle);
+
+      var _this = _possibleConstructorReturn(this, (Circle.__proto__ || Object.getPrototypeOf(Circle)).call(this));
+
+      _this.radius = radius;
+      return _this;
+    }
+
+    _createClass(Circle, [{
+      key: 'getArea',
+      value: function getArea() {
+        return Math.PI * this.radius * this.radius;
+      }
+    }, {
+      key: 'getLength',
+      value: function getLength() {
+        return 2 * Math.PI * this.radius;
+      }
+    }, {
+      key: 'toString',
+      value: function toString() {
+        return 'Circle radius:' + this.radius + ', Circle area:' + this.getArea() + ', Circle length:' + this.getLength();
+      }
+    }]);
+
+    return Circle;
+  }(_Shape3.default);
+
+  exports.default = Circle;
+});
+```
+
+可以看到编译后的`Circle.js`中在代码首行就通过`define`引入了依赖`Shape`，输出结果是一个AMD模块。
+
+## presets and plugins
