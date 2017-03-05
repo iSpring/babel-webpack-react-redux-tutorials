@@ -36,7 +36,7 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 
 - Babel
   1. [Babel使用基础](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/babel-basic-use/README.md)
-  2. babel-polyfill
+  2. [babel-polyfill](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/use-babel-polyfill/README.md)
   3. Babel vs TypeScript vs Traceur
 
 - Webpack
