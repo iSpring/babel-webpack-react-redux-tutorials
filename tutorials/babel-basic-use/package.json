@@ -4,7 +4,7 @@
     "description": "",
     "main": "index.js",
     "scripts": {
-        "build": "babel src -d buildOutput"
+        "start": "babel src -d buildOutput"
     },
     "author": "",
     "license": "ISC",
