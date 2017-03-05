@@ -31,11 +31,11 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 目录
 
 - 前言
-  1. [前端发展简史](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/web-brief-history)
+  1. [前端发展简史](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/web-brief-history/README.md)
   2. [React技术栈的使命](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/react-stack-mission/README.md)
 
 - Babel
-  1. Babel使用基础
+  1. [Babel使用基础](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/babel-basic-use/README.md)
   2. babel-polyfill
   3. Babel vs TypeScript vs Traceur
 
