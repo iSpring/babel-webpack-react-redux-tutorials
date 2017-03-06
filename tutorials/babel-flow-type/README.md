@@ -127,7 +127,7 @@ Flow支持如下内建的type类型：
    ```
    `mixed`类型的变量只能赋值给`mixed`和`any`类型的变量，不能给`boolean`、`number`、`string`、`null`、`void`类型的变量赋值，`any`类型的变量不存在这个限制，可以给任何类型的变量赋值。
 
-  - [字面量枚举](https://flowtype.org/docs/builtins.html#literal-types) Flow允许我们定义枚举类型的变量，而且枚举类型的值可以是不同的类型，通过`type`声明字面量枚举，然后通过`|`将不同值连接起来。代码如下所示：
+ - [字面量枚举](https://flowtype.org/docs/builtins.html#literal-types) Flow允许我们定义枚举类型的变量，而且枚举类型的值可以是不同的类型，通过`type`声明字面量枚举，然后通过`|`将不同值连接起来。代码如下所示：
     ```
     /*@flow*/
 
