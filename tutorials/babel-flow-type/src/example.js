@@ -1,10 +1,10 @@
 /*@flow*/
 
-var num: number = 0;
-var anyValue: any = 1;
-var mixedValue: mixed = 2;
-num = anyValue;
-num = mixedValue; //=>静态类型错误
+type Color = | [255, 0, 0] | "green" | "blue";
+
+var color1: Color = [255, 0, 0]; //没有错误
+var color2: Color = "green"; //没有错误
+var color3: Color = "yellow"; //静态类型错误
 
 
 // (function() {
