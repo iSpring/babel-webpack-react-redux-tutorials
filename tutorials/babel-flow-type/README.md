@@ -58,10 +58,6 @@ Flow判断出上面`fool(x)`期待的形参x是`number`类型，但是实际传�
 ### Flow示例2
 修改`example.js`，代码如下所示：
 
-<p align="center">
-  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/images/error2.png">
-</p>
-
 ```
 /*@flow*/
 
@@ -78,12 +74,37 @@ Flow判断出上面`fool(x)`期待的形参x是`number`类型，但是实际传�
 
 我们再次执行`npm run flow`，输出错误如下：
 
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/images/error2.png">
+</p>
+
 这是因为`return x.length * y`返回的实际值类型应该是`number`，而`function foo(): string`却声明返回的是`string`类型，所以报错。此处将方法签名改为`function foo(x: string, y: number): number`即可。
 
+Flow支持如下内建的type类型：
 
+ - [boolean](https://flowtype.org/docs/builtins.html#boolean) 声明布尔类型的变量，例如`var a: boolean = true;`。
+
+ - [number](https://flowtype.org/docs/builtins.html#number) 声明数字类型的变量，例如`var a: number = 100;`。
+
+ - [string](https://flowtype.org/docs/builtins.html#string) 声明字符串类型的变量，例如`var a: string = "Hello World !";`。
+
+ - [null](https://flowtype.org/docs/builtins.html#null-and-void) 声明`null`类型的变量，例如`var a: null = null;`。
+
+ - [void](https://flowtype.org/docs/builtins.html#null-and-void) 声明`undefined`类型的变量，例如`var a: void = undefined;`，也经常用`void`表示某函数无返回值。
+
+ - [any](https://flowtype.org/docs/builtins.html#any) 声明的变量为任意类型，如果某个方法的形参有可能是多种值类型，那么我们就可以将这个形参声明为`any`。当将某个变量声明为`any`类型时，Flow不会对该变量进行静态类型检查，例如以下代码是没有错误的：
+
+   ```
+   function foo(i: any) {
+        return i * 100 + i.length;
+    }
+   ```
+
+   我们在开发中应该尽量避免使用`any`类型，否则有可能造成Flow忽略对必要变量的类型检查。
 
 
 ## Babel与Flow结合使用
+
 
 
 examples
