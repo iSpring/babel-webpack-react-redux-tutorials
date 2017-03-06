@@ -1,4 +1,4 @@
-﻿JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译器就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
+﻿JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译期就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
 
 ## Flow使用简介
 A STATIC TYPE CHECKER FOR JAVASCRIPT
@@ -166,9 +166,50 @@ total([1, 2, 3, 'Hello']);
 我们将`total(numbers)`方法中的numbers形参声明为Array<number>，表示numbers是一个数字数组，但是实际传入的实参[1, 2, 3, 'Hello']中包含字符串`Hello`，所以报错。
 
 ## .flowconfig
-默认情况下，Flow会对`.flowconfig`所在目录下的首行包含`/*@flow*/`或`//@flow`的文件都进行静态类型检查。
+默认情况下，Flow会对[.flowconfig](https://flowtype.org/docs/advanced-configuration.html)所在目录下所有首行包含`/*@flow*/`或`//@flow`的文件进行静态类型检查。
+
+我们可以在.flowconfig中通过指定`[include]`额外指定Flow要进行类型检查的文件路径或目录路径，这些路径既可以是相对于当前项目的相对路径，也可以是绝对路径。
+
+假设我们的项目在电脑上的物理路径是/root/MyProject/，.flowconfig在MyProject目录下，且配置如下所示：
+```
+[include]
+../externalFile.js
+../externalDir/
+../otherProject/*.js
+../otherProject/**/coolStuff/
+```
+`../externalFile.js`表示Flow要对`/root/externalFile.js`进行类型检查。
+`../externalDir/`表示Flow要对`/root/externalDir/`目录进行类型检查。
+`../otherProject/*.js`表示Flow要对`/root/otherProject/`目录下的直接子文件中的JavaScript文件进行类型检查，不会检查再下一级目录中的JavaScript文件。
+`../otherProject/**/coolStuff/`表示要对`/root/otherProject/`目录下所有名为`coolStuff`目录进行类型检查。
+
+`*`表示通配符，表示任意文件名，`**`表示任意路径。
+
+.flowconfig中还可以指定`[ignore]`设置要忽略检查的文件和目录，这些文件和目录是通过设置正则表达式进行匹配的，并且这些正则表达式匹配的都是绝对路径，所以大部分情况下正则表达式要以`.*`开头。如果某个文件同时被设置为`[include]`和`[ignore]`，那么这个文件最终会被Flow忽略类型检查。
+
+假设.flowconfig中[ignore]配置如下：
+```
+[ignore]
+.*/tests/.*
+.*/src/\(foo\|bar\)/.*
+.*\.ignore\.js
+```
+
+`.*/tests/.*`表示Flow会忽略所有名为`tests`的目录。
+`.*/src/\(foo\|bar\)/.*`表示Flow会忽略`.*/src/foo`目录和`.*/src/bar`目录。
+`.*\.ignore\.js`表示Flow会忽略所有名为`.ignore.js`的文件。
+
+从Flow `v0.23.0`版本开始，我们可以在正则表达式中使用`<PROJECT_ROOT>`占位符，假设配置如下：
+```
+[ignore]
+<PROJECT_ROOT>/node_modules
+<PROJECT_ROOT>/buildOutput
+```
+
+Flow将会忽略`/root/MyProject/node_modules`和`/root/MyProject/buildOutput`两个目录。
 
 我们简单列举了一些Flow常用的使用场景，关于更多Flow的信息可参见[Getting started with Flow](https://flowtype.org/docs/getting-started.html)。
+
 
 ## Babel与Flow结合使用
 
