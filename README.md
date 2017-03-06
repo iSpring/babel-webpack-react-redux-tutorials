@@ -37,7 +37,7 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 - Babel
   1. [Babel使用基础](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/babel-basic-use/README.md)
   2. [babel-polyfill](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/use-babel-polyfill/README.md)
-  3. 静态类型检查
+  3. [使用Flow进行静态类型检查](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/README.md)
 
 - Webpack
   1. 用Webpack打包ES6模块
