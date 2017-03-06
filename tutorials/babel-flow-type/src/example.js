@@ -1,30 +1,6 @@
 /*@flow*/
 
-function total(numbers: Array < number > ) {
-    var result = 0;
-    for (var i = 0; i < numbers.length; i++) {
-        result += numbers[i];
-    }
-    return result;
+function square(n: number) {
+    return n * n;
 }
-
-total([1, 2, 3, 'Hello']);
-
-
-// (function() {
-//     function length(x) {
-//         return x.length;
-//     }
-
-//     var total = length('Hello') + length(null);
-// })
-
-// function total(numbers: Array < number > ) {
-//     var result = 0;
-//     for (var i = 0; i < numbers.length; i++) {
-//         result += numbers[i];
-//     }
-//     return result;
-// }
-
-// total([1, 2, 3, 'Hello']);
+square(50);

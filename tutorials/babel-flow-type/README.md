@@ -1,4 +1,8 @@
-﻿JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译期就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
+﻿<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/images/flow.png">
+</p>
+
+JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译期就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
 
 ## Flow使用简介
 A STATIC TYPE CHECKER FOR JAVASCRIPT
@@ -212,24 +216,166 @@ Flow将会忽略`/root/MyProject/node_modules`和`/root/MyProject/buildOutput`�
 
 
 ## Babel与Flow结合使用
+有一点要明确的是，Babel本身不认识Flow的语法，比如一个函数中定义如下：
+```
+/*@flow*/
 
+function square(n: number) {
+    return n * n;
+}
+square(50);
+```
+虽然上述函数满足`Flow`的类型检查，但是Bable不认识`n: number`这种语法，所以当执行`babel src -d buildOutput`时，Babel就以无法解析这种Flow的类型定义语法为而报错。
 
+为此，我们需要安装能够解析Flow语法的插件：
 
-examples
-https://flowtype.org/docs/five-simple-examples.html
+```
+npm install --save-dev babel-plugin-syntax-flow
+```
 
-commands
-https://flowtype.org/docs/new-project.html#_
-flow check
-flow
-flow stop
-flow check --all
+然后我们将`syntax-flow`添加到`.babelrc`的`plugins`数组中，如下所示：
 
-types
-https://flowtype.org/docs/builtins.html
+```
+{
+    "presets": [],
+    "plugins": ["syntax-flow"]
+}
+```
 
-Type Annotations
-https://flowtype.org/docs/type-annotations.html#_
+需要注意的是，安装了[syntax-flow](https://babeljs.io/docs/plugins/syntax-flow/)这一插件之后，在执行`babel src -d buildOutput`的时候也不会对代码用Flow进行静态类型检查，这是因为`syntax-flow`插件只是让Babel认识静态类型语法，而不是去检查静态类型是否正确，我们还是应该用Flow去进行检查。
 
-.flowconfig
-https://flowtype.org/docs/advanced-configuration.html#_
+我们修改`example.js`代码如下所示：
+
+```
+/*@flow*/
+
+function square(n: number) {
+    return n * n;
+}
+square("Hello World!"); //静态类型错误
+```
+
+`.babelrc`中只使用了`syntax-flow`这个插件，此时执行`babel src -d buildOutput`没有得到静态语法错误，`buildOutput/example.js`输出结果如下：
+
+```
+/*@flow*/
+
+function square(n: number) {
+    return n * n;
+}
+square("Hello World!");
+```
+
+这不满足我们的实际需求，为了能够在build的过程中使用Flow进行静态类型检查，我们修改一下`package.json`中的`scripts`脚本，如下所示：
+
+```
+"scripts": {
+    "clear": "rimraf buildOutput",
+    "flow": "flow",
+    "prebuild": "npm run clear && npm run flow",
+    "build": "babel src -d buildOutput"
+}
+```
+
+当我们执行`npm run build`时，由于npm script的hook机制，会首先自动执行`npm run prebuild`。在prebuild这一脚本中，我们先通过`npm run clear`执行build前的清理工作，删除buildOutput目录，在clear脚本执行完成后才执行`npm run flow`，flow脚本会根据`.flowconfig`对项目中的文件进行静态类型检查。当Flow检查到`src/example.js`中存在静态类型错误时，会终止脚本的执行，导致npm script中断，这样就保证了只有`npm run flow`通过之后，`npm run build`才能继续，从而保证了代码质量。
+
+即上述`npm run build`的具体执行过程如下所示：
+
+```
+rimraf buildOutput => flow => babel src -d buildOutput
+```
+
+我们修改`example.js`中的代码，如下所示：
+
+```
+/*@flow*/
+
+function square(n: number) {
+    return n * n;
+}
+square(50);
+```
+
+再次执行`npm run build`，至此可以成功输出`buildOutput/example.js`，输出结果如下所示：
+
+```
+/*@flow*/
+
+function square(n: number) {
+    return n * n;
+}
+square(50);
+```
+
+你会发现输出结果中依然保留着`n: number`这样的静态类型语法，但是浏览器和Node.js环境都不认识这种语法，这样的代码还是不可用的。
+
+为此我们可以安装[transform-flow-strip-types](https://babeljs.io/docs/plugins/transform-flow-strip-types/)插件：
+
+```
+npm install --save-dev babel-plugin-transform-flow-strip-types
+```
+
+然后向`.babelrc`中添加该插件，如下所示：
+
+```
+{
+    "presets": [],
+    "plugins": ["syntax-flow", "transform-flow-strip-types"]
+}
+```
+
+我们再次执行`npm run build`，`buildOutput/example.js`输出如下所示：
+
+```
+/*@flow*/
+
+function square(n) {
+    return n * n;
+}
+square(50);
+```
+
+这次输出结果中静态类型语法没有了，完美！
+
+我们最终的`package.json`如下所示：
+```
+{
+    "name": "use-flow-type",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clear": "rimraf buildOutput",
+        "flow": "flow",
+        "prebuild": "npm run clear && npm run flow",
+        "build": "babel src -d buildOutput"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-cli": "^6.23.0",
+        "babel-plugin-syntax-flow": "^6.18.0",
+        "babel-plugin-transform-flow-strip-types": "^6.22.0",
+        "rimraf": "^2.6.1"
+    },
+    "dependencies": {
+        "flow-bin": "^0.41.0"
+    }
+}
+```
+
+`.babelrc`配置如下所示：
+```
+{
+    "presets": [],
+    "plugins": ["syntax-flow", "transform-flow-strip-types"]
+}
+```
+
+`.flowconfig`配置如下所示：
+```
+[ignore]
+<PROJECT_ROOT>/node_modules
+<PROJECT_ROOT>/buildOutput
+```
+至此，我们就完美地将Flow与Babel结合在一起使用了。
