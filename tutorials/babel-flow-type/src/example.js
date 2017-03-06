@@ -1,20 +1,12 @@
 /*@flow*/
 
 (function() {
-    function foo(x) {
-        return x * 10;
+    function foo(x: string, y: number): string {
+        return x.length * y;
     }
 
-    foo('Hello, world!');
+    foo('Hello', 42);
 });
-
-// (function() {
-//     function foo(x: string, y: number): string {
-//         return x.length * y;
-//     }
-
-//     foo('Hello', 42);
-// });
 
 // (function() {
 //     function length(x) {
