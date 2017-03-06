@@ -165,6 +165,11 @@ total([1, 2, 3, 'Hello']);
 
 我们将`total(numbers)`方法中的numbers形参声明为Array<number>，表示numbers是一个数字数组，但是实际传入的实参[1, 2, 3, 'Hello']中包含字符串`Hello`，所以报错。
 
+## .flowconfig
+默认情况下，Flow会对`.flowconfig`所在目录下的首行包含`/*@flow*/`或`//@flow`的文件都进行静态类型检查。
+
+我们简单列举了一些Flow常用的使用场景，关于更多Flow的信息可参见[Getting started with Flow](https://flowtype.org/docs/getting-started.html)。
+
 ## Babel与Flow结合使用
 
 
