@@ -30,7 +30,7 @@ npm install --save-dev flow-bin
 }
 ```
 
-### Flow示例1
+### Flow示例1：Hello Flow
 然后在`src`目录下添加了一个名为`example.js`的文件，代码如下所示：
 
 ```
@@ -55,7 +55,7 @@ Flow判断出上面`fool(x)`期待的形参x是`number`类型，但是实际传�
 
 需要注意的是，如果想让Flow对文件进行静态类型检查，那么必须在文件的首行加入`/*@flow*/`或`//@flow`的注释。如果没有该注释，Flow默认不会对该文件进行静态类型检查。
 
-### Flow示例2
+### Flow示例2：添加类型声明
 
 Flow允许我们像静态语言那样显式地指定变量的类型，修改`example.js`，为函数的形参和返回值都指定静态类型，代码如下所示：
 
@@ -73,7 +73,7 @@ Flow允许我们像静态语言那样显式地指定变量的类型，修改`exa
 
 我们通过设置`x: string`指定了形参x是`string`类型，通过设置`y: number`指定了形参y是`number`类型，并且通过`function foo(...): string`指定了foo函数的返回值是`string`类型。
 
-我们再次执行`npm run flow`，输出错误如下：
+执行`npm run flow`，输出错误如下：
 
 <p align="center">
   <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/images/error2.png">
@@ -139,8 +139,31 @@ Flow支持如下内建的type类型：
     ```
     我们定义了Color这一字面量枚举，用Color声明的变量只能取上面三个固定值中的一个：[255, 0, 0] 或 "green" 或 "blue"。
 
-### Flow示例3
+### Flow示例3：数组
 
+Flow不仅可以指定变量属于哪个原子类型（例如`number`、`string`等），还可以为数组指定静态类型，修改`example.js`代码如下所示：
+
+```
+/*@flow*/
+
+function total(numbers: Array<number>) {
+    var result = 0;
+    for (var i = 0; i < numbers.length; i++) {
+        result += numbers[i];
+    }
+    return result;
+}
+
+total([1, 2, 3, 'Hello']);
+```
+
+执行`npm run flow`，输出错误如下：
+
+<p align="center">
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/images/error3.png">
+</p>
+
+我们将`total(numbers)`方法中的numbers形参声明为Array<number>，表示numbers是一个数字数组，但是实际传入的实参[1, 2, 3, 'Hello']中包含字符串`Hello`，所以报错。
 
 ## Babel与Flow结合使用
 
