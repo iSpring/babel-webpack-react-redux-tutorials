@@ -1,8 +1,11 @@
 /*@flow*/
 
-function foo(i: any) {
-    return i * 100 + i.length;
-}
+var num: number = 0;
+var anyValue: any = 1;
+var mixedValue: mixed = 2;
+num = anyValue;
+num = mixedValue; //=>静态类型错误
+
 
 // (function() {
 //     function length(x) {

@@ -56,7 +56,8 @@ Flow判断出上面`fool(x)`期待的形参x是`number`类型，但是实际传�
 需要注意的是，如果想让Flow对文件进行静态类型检查，那么必须在文件的首行加入`/*@flow*/`或`//@flow`的注释。如果没有该注释，Flow默认不会对该文件进行静态类型检查。
 
 ### Flow示例2
-修改`example.js`，代码如下所示：
+
+Flow允许我们像静态语言那样显式地指定变量的类型，修改`example.js`，为函数的形参和返回值都指定静态类型，代码如下所示：
 
 ```
 /*@flow*/
@@ -101,6 +102,31 @@ Flow支持如下内建的type类型：
    ```
 
    我们在开发中应该尽量避免使用`any`类型，否则有可能造成Flow忽略对必要变量的类型检查。
+
+ - [mixed](https://flowtype.org/docs/builtins.html#mixed) 声明的变量为混合类型，`mixed`和`any`类型很像，但是二者存在区别。`any`类型的变量既可以被任意其他类型的变量赋值，又可以赋值给其他任意类型的变量。`mixed`类型的变量也可以被任意其他类型的变量赋值，但是不能赋值给其他类型的变量（其他类型的变量为`mixed`或`any`的情况除外）。
+   如下代码可以通过Flow检查，没有错误：
+   ```
+   /*@flow*/
+
+    var num: number = 0;
+    var anyValue: any = 1;
+    var mixedValue: mixed = 2;
+    anyValue = num;
+    mixedValue = num;
+   ```
+   如下代码最后一行存在静态类型错误：
+   ```
+   /*@flow*/
+
+    var num: number = 0;
+    var anyValue: any = 1;
+    var mixedValue: mixed = 2;
+    num = anyValue;
+    num = mixedValue; //=>静态类型错误
+   ```
+   `mixed`类型的变量只能赋值给`mixed`和`any`类型的变量，不能给`boolean`、`number`、`string`、`null`、`void`类型的变量赋值，`any`类型的变量不存在这个限制，可以给任何类型的变量赋值。
+
+### Flow示例3
 
 
 ## Babel与Flow结合使用
