@@ -1,36 +1,64 @@
-﻿
-## [babel-polyfill](http://babeljs.io/docs/usage/polyfill/)
-我们之前一直强调ES6增加了新的语法特性，其实这种说法不严谨。严格来说，ES6相比于ES5新增了如下内容：
+﻿JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译器就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
 
- - 新的语法特性，比如箭头函数、解构等
+## Flow使用简介
+A STATIC TYPE CHECKER FOR JAVASCRIPT
 
- - 新的API方法，比Object新增加了静态方法[Object.assign()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/assign)、如Array新增加了静态方法[Array.from()](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Array/from)等。
-
- - 新的全局对象，比如Iterator、Generator、Set、Maps、Proxy、Reflect、Symbol、Promise等
-
-默认情况下，Babel只会对ES6中的语法特性进行编译，而不会对新增的API方法以及新的全局对象进行处理。比如我们使用了ES6的`Object.assign()`方法或`Promise`类，这样默认情况下Babel编译出的代码会在不支持这两个特性的浏览器中会出现问题。为了解决这个问题，我们可以使用babel-polyfill。
-
-首先通过npm引入[babel-polyfill]()：
+要想使用Flow，首先要通过npm安装它：
 
 ```
-npm install --save babel-polyfill
+npm install --save-dev flow-bin
 ```
 
-babel-polyfill可以模拟完整的ES6中的API环境，弥补缺失的API方法和全局对象。需要注意的是，在生产环境中，我们的项目是需要将babel-polyfill中的代码一起打包到最终发布的产品中的，所以通过npm安装的时候应该使用`--save`，而不是`--save-dev`等。
-
-我们在源码文件的首行引入babel-polyfill：
-```
-import 'babel-polyfill';
-// 或者
-require('babel-polyfill');
-```
-
-如果结合webpack使用，我们可以在`webpack.config.js`配置文件中将`babel-polyfill`加入到入口数组中，如下所示：
+然后在项目的`package.json`中添加名为`flow`的script，如下所示：
 
 ```
-module.exports = {
-  entry: ["babel-polyfill", "./app/js"]
-};
+"scripts": {
+    "flow": "flow"
+}
 ```
 
-这样Webpack就会将babel-polyfill打包到我们的产品代码中。关于Webpack我们会在后面的教程中详细介绍。
+然后我们在项目的根目录下添加一个名为`.flowconfig`的空文件。
+
+
+### Flow示例1
+然后在`src`目录下添加了一个名为`example.js`的文件，代码如下所示：
+
+```
+/*@flow*/
+
+(function() {
+    function foo(x) {
+        return x * 10;
+    }
+
+    foo('Hello, world!');
+});
+```
+
+然后我们在根目录下运行`npm run flow`，输出错误如下：
+
+Flow判断出上面`fool(x)`的形参x期待是`number`类型，但是实际传入的确实`string`类型，因此报错。
+
+需要注意的是，如果想让Flow对文件进行静态类型检查，那么必须在文件的首行加入`/*@flow*/`或`//@flow`的注释。如果没有该注释，Flow默认不会对该文件进行静态类型检查。
+
+## Babel与Flow结合使用
+
+
+examples
+https://flowtype.org/docs/five-simple-examples.html
+
+commands
+https://flowtype.org/docs/new-project.html#_
+flow check
+flow
+flow stop
+flow check --all
+
+types
+https://flowtype.org/docs/builtins.html
+
+Type Annotations
+https://flowtype.org/docs/type-annotations.html#_
+
+.flowconfig
+https://flowtype.org/docs/advanced-configuration.html#_
