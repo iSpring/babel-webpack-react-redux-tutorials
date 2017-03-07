@@ -4,7 +4,7 @@
 
 JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译期就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
 
-## Flow使用简介
+## Flow使用基础
 A STATIC TYPE CHECKER FOR JAVASCRIPT
 
 要想使用Flow，首先要通过npm安装它：
