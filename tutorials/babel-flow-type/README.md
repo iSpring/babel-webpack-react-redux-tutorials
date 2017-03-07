@@ -324,6 +324,8 @@ npm install --save-dev babel-plugin-transform-flow-strip-types
 }
 ```
 
+`transform-flow-strip-types`插件能够删除输出结果中静态类型的语法，例如可以将`n: number`转换为`n`。
+
 我们再次执行`npm run build`，`buildOutput/example.js`输出如下所示：
 
 ```
@@ -340,7 +342,7 @@ square(50);
 我们最终的`package.json`如下所示：
 ```
 {
-    "name": "use-flow-type",
+    "name": "babel-flow-type",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
