@@ -19,7 +19,9 @@
         "webpack": "^1.13.3"
     },
     "reference": [
+        "https://webpack.github.io/docs/list-of-loaders.html",
         "https://github.com/webpack-contrib/sass-loader/tree/archive/webpack-1",
-        "http://sass-lang.com/guide"
+        "http://sass-lang.com/guide",
+        "http://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass"
     ]
 }
