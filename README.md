@@ -40,14 +40,16 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   3. [使用Flow进行静态类型检查](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/README.md)
 
 - Webpack
-  1. 用Webpack打包ES6模块
-  2. 用Webpack打包npm包
-  3. Webpack Code Splitting
-  4. Webpack Common Chunk
-  5. HtmlWebpackPlugin
-  6. Webpack Dev Server
-  7. Webpack Source Maps
-  8. Webpack vs Browserify
+  1. 用Webpack加载打包ES6模块
+  2. 用Webpack加载打包npm包
+  3. 用Webpack加载CSS
+  4. 用Webpack加载图片
+  5. Webpack Code Splitting
+  6. Webpack Common Chunk
+  7. HtmlWebpackPlugin
+  8. Webpack Dev Server
+  9. Webpack Source Maps
+  10. Webpack vs Browserify
 
 - React
   1. React简介
