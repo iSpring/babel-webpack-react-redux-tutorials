@@ -3,7 +3,7 @@ import Rectangle from './Rectangle';
 import './index.css';
 
 const circle = new Circle(1);
-console.log(circle.toString());
+document.getElementById("circle").innerText = circle.toString();
 
 const rectangle = new Rectangle(2, 1);
-console.log(rectangle.toString());
+document.getElementById("rectangle").innerText = rectangle.toString();
