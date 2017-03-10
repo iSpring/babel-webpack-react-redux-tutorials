@@ -1,6 +1,7 @@
 import Circle from './Circle';
 import Rectangle from './Rectangle';
 import './index.css';
+import './layout.scss';
 
 const circle = new Circle(1);
 document.getElementById("circle").innerText = circle.toString();
