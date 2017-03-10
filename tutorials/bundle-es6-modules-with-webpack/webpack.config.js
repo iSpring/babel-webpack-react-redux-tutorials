@@ -16,15 +16,6 @@ module.exports = {
                 // query: {
                 //   presets: ['es2015']
                 // }
-        }, {
-            test: /\.css$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'style!css' //必须先经过css-loader处理，然后经过style-loader处理
-        }, {
-            test: /\.scss$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!sass'
-                // loaders: ["style-loader", "css-loader", "sass-loader"]
         }]
     }
 };
