@@ -1,4 +1,10 @@
-#c {
+#p3 {
     color: #ccc;
     background: linear-gradient(to right, green, blue);
+}
+
+@for $i from 1 to 3 {
+    #p$i {
+        font-size: $(i)0px
+    }
 }
