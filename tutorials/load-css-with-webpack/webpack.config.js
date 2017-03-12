@@ -10,14 +10,17 @@ module.exports = {
     },
     module: {
         loaders: [{
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel'
+        }, {
             test: /\.css$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'style!css' //必须先经过css-loader处理，然后经过style-loader处理
+            loader: 'style!css'
         }, {
             test: /\.scss$/,
             exclude: /(node_modules|bower_components)/,
             loader: 'style!css!sass'
-                // loaders: ["style-loader", "css-loader", "sass-loader"]
         }]
     }
 };
