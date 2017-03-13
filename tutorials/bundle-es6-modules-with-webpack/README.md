@@ -18,3 +18,5 @@ A Bundler for JavaScript and Friends
 Webpack，顾名思义，就是对Web资源进行打包，它是一个Web资源打包器，它可以将CommonJs、 AMD、 ES6 modules、 CSS、 图片、 JSON、 Coffeescript、 LESS等各种前端资源文件进行打包，打包成一个（或多个）JavaScript文件，这样我们在前端只需要引入一个打包好的bundler.js文件就可以了，这个文件里面包含了我们需要的全部资源信息，就是这么简单！
 
 Webpack使用灵活，而且支持自定义资源打包，已经成为主流的前端资源打包平台。
+
+Webpack目前有1.x和2.x两个主要的分支，出于兼容性考虑，本教程使用1.x对Webpack进行讲解。
