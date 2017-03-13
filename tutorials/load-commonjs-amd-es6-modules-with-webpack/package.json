@@ -1,5 +1,5 @@
 {
-    "name": "bundle-es6-amd-commonjs-modules-with-webpack",
+    "name": "load-commonjs-amd-es6-modules-with-webpack",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
