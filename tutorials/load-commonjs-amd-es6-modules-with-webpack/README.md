@@ -136,7 +136,92 @@ webpack.config.js其实是一个CommonJS模块，在Node.js的环境读取webpac
 
   - 其实`test`、`exclude`和`include`的值除了可以是正则表示外（对文件的绝对路径进行测试），还可以是包含绝对路径的字符串，甚至可以是一个方法签名为`function(absPath): bool`的方法，根据传入的绝对路径地址动态判断。设置其值还可以是一个上述三种值类型的数组，这种情况下需要同时满足数组中每个条件才能使用该loader。
 
-## package.json
+我们项目中JavaScript的主文件是`src/main.js`，代码如下所示：
+```
+//引入CommonJS模块
+import Variables from './Variables';// <=> const Variables = require('./Variables.js');
+
+//引入AMD模块
+import Logger from './Logger';// <=> const Logger = require('./Logger');
+
+//引入ES6模块
+import Circle from './Circle';
+
+//引入ES6模块
+import Rectangle from './Rectangle';
+
+const circle = new Circle(Variables.defaultCircleInfo.radius);
+const circleInfoString = circle.toString();
+Logger(circleInfoString);
+document.getElementById("circle").innerText = circleInfoString;
+
+const rectangle = new Rectangle(Variables.defaultRectangleInfo.width, Variables.defaultRectangleInfo.height);
+const rectangleInfoString = rectangle.toString();
+Logger(rectangleInfoString);
+document.getElementById("rectangle").innerText = rectangleInfoString;
+```
+
+在`src/main.js`文件中，通过`import`语句分别引入了CommonJS模块`Variables`、AMD模块`Logger`以及ES6模块`Circle`和`Rectangle`。
+
+需要注意的是，`import`是`ES6`中定义的语法。Webpack 1.x无法识别`import`语法，只能使用`require(...)`，所以可以使用`const Variables = require('./Variables.js');`和`const Logger = require('./Logger');`分别引入对应的CommonJS模块和AMD模块。
+
+为了避免在在同一个项目同时出现`import`和`require`两种引入依赖的代码，我们统一使用`import`。我可以通过使用babel-loader使得Webpack 1.x通过`import`引入所需依赖，并且我们项目中ES6模块的加载也需要使用babel-loader。
+
+*Webpack 2.x已经原生支持`import`语法。*
+
+安装babel相关的npm包：
+
+```
+npm install --save-dev babel-core babel-preset-es2015 babel-loader
+```
+
+还需要在项目的根目录下添加`.babelrc`文件，配置如下：
+```
+{
+  "presets": ["es2015"]
+}
+```
+
+为了修改`package.json`中的`scripts`字段，如下所示：
+```
+"scripts": {
+    "clear": "rimraf buildOutput",
+    "prestart": "npm run clear",
+    "start": "webpack --progress --colors --watch"
+}
+```
+这样我们就能通过`npm start`在根目录下运行Webpack了。`--progress`用于显示Webpack在打包时的进度信息，`--colors`用于用不同的颜色显示Webpack不同的输出信息，`--watch`参数用于监控项目中的文件变化，当文件变化的时候自动重新进行打包。
+
+最终我们的`package.json`如下所示：
+```
+{
+    "name": "load-commonjs-amd-es6-modules-with-webpack",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clear": "rimraf buildOutput",
+        "prestart": "npm run clear",
+        "start": "webpack --progress --colors --watch"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-core": "^6.18.2",
+        "babel-loader": "^6.2.7",
+        "babel-preset-es2015": "^6.18.0",
+        "rimraf": "^2.6.1",
+        "webpack": "^1.13.3"
+    },
+    "reference": [
+        "http://webpack.github.io/docs/usage.html",
+        "http://webpack.github.io/docs/tutorials/getting-started/",
+        "https://webpack.github.io/docs/list-of-loaders.html"
+    ]
+}
+```
+
+在项目的根目录下依次执行`npm install`和`npm start`。在Webpack打包完成后，在浏览器中打开`index.html`即可看到运行结果。
 
 
 ## 参考
