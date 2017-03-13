@@ -65,6 +65,50 @@ app.js是Webpack的入口文件，app.bundle.js是打包后的输出文件，这
 
  2. 在分析出入口文件所依赖的所有模块之后，Webpack会将这些文件打包成一个文件，并输出到指定的输出文件中。
 
+
+## 使用配置文件webpack.config.js
+当我们的项目越来越复杂的时候，我们需要为Webpack配置更多的参数，这时候使用命令行CLI就显得捉襟见肘，我们可以在项目的根目录下创建配置文件webpack.config.js，对Webpack进行配置。
+
+我们首先在项目中本地安装Webpack：
+```
+npm install --save-dev webpack@^1.13.3
+```
+
+webpack.config.js配置如下所示：
+```
+var path = require("path");
+
+module.exports = {
+    entry: "./src/main",
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "bundle.js"
+    },
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'babel'
+        }]
+    }
+};
+```
+
+webpack.config.js其实是一个CommonJS模块，在Node.js的环境读取webpack.config.js，所以我们可以在webpack.config.js中使用Node.js相关的API。
+
+ - `entry`指定了Webpack进行打包的入口文件。
+
+ - `output.path`指定了打包后的文件的输出目录，`output.filename`则指定了打包后的文件名。
+
+ - 我们可以在`module.loaders`中设置loader数组。何谓loader？loader就是用来专门加载打包某一种类型数据的加载器，比如我们用css-loader加载css文件，用json-loader加载json文件等，我们此处只指定了babel-loader。loaders数组中的每个元素可以配置如下属性：
+  - `test`：其值可以是一个正则表达式，满足该正则表达式的文件才会能使用该loader。一般都是某种扩展名的文件使用某种loader，所以此处一般采用`test: /\.后缀名$/`的形式。
+  - `exclude`：其值可以是一个正则表达式，满足该正则表达式的文件不会使用该loader。比如`exclude: /(node_modules|bower_components)/`表示不会使用该loader对npm包、bower包中的文件进行加载。
+  - `include`：其值可以是一个正则表达式，与`exclude`相反，表示满足该正则表达式的文件可以使用该loader。
+  - `loaders`：可以指定loader数组，表示用多种loader对一种类型的文件进行处理。比如对于scss文件可以设置`loaders: ["style-loader", "css-loader", "sass-loader"]`，需要注意的是，如果其执行顺序自右向左，即`scss文件 -> sass-loader -> css-loader -> style-loader`。
+  - `loader`: 可以把`loader`看做`loaders`的简写形式。很多情况下，我们只需要指定一个loader，那么只需要把名字写在这里即可，比如`loader: babel`。`loaders: ["style-loader", "css-loader", "sass-loader"]`可以简写为`loader:style!css!sass`，loader之间用`!`分隔。
+
 ## 参考
 
 [1] Webpack官网, [Webpack usage](http://webpack.github.io/docs/usage.html)
+
+[2] Webpack官网, [Webpack configuration](https://webpack.github.io/docs/configuration.html)
