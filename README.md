@@ -40,7 +40,7 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   3. [使用Flow进行静态类型检查](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/babel-flow-type/README.md)
 
 - Webpack
-  1. 用Webpack加载打包ES6模块
+  1. 用Webpack加载ES6模块、ADM模块、CommonJS模块
   2. 用Webpack加载打包npm包
   3. 用Webpack加载CSS
   4. 用Webpack加载图片

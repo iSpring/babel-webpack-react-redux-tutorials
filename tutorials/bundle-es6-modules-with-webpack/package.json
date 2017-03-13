@@ -1,12 +1,12 @@
 {
-    "name": "bundle-es6-modules-with-webpack",
+    "name": "bundle-es6-amd-commonjs-modules-with-webpack",
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
     "scripts": {
         "clear": "rimraf buildOutput",
         "prestart": "npm run clear",
-        "start": "webpack"
+        "start": "webpack --progress --colors --watch"
     },
     "author": "",
     "license": "ISC",
@@ -18,6 +18,8 @@
         "webpack": "^1.13.3"
     },
     "reference": [
+        "http://webpack.github.io/docs/usage.html",
+        "http://webpack.github.io/docs/tutorials/getting-started/",
         "https://webpack.github.io/docs/list-of-loaders.html"
     ]
 }
