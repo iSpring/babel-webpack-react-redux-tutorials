@@ -1,13 +1,29 @@
 var path = require("path");
 
 module.exports = {
+    // entry: ["./a.css","./b.scss","./c.less","./d.css"],
+    // output: {
+    //     path: path.join(__dirname, "buildOutput"),
+    //     filename: "bundle.js"
+    // },
+
+    // entry: {
+    //     main: "./index.js"
+    // },
+    // output: {
+    //     path: path.join(__dirname, "buildOutput"),
+    //     filename: "bundle.js"
+    // },
+
     entry: {
-        main: "./index.js"
+        js: "./index.js",
+        css: ["./a.css","./b.scss","./c.less","./d.css"]
     },
     output: {
         path: path.join(__dirname, "buildOutput"),
-        filename: "bundle.js"
+        filename: "[name].bundle.js"
     },
+
     module: {
         loaders: [{
             test: /\.js$/,
