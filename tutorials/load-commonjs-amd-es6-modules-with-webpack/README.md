@@ -223,6 +223,8 @@ npm install --save-dev babel-core babel-preset-es2015 babel-loader
 
 在项目的根目录下依次执行`npm install`和`npm start`。在Webpack打包完成后，在浏览器中打开`index.html`即可看到运行结果。
 
+本文只是介绍了Webpack部分配置参数的使用，我们会在后续教程中通过示例进一步全面认识Webpack。
+
 
 ## 参考
 
