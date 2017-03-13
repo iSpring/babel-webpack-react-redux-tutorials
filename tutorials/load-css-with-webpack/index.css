@@ -1,5 +1,13 @@
+@import url("a.css");
+@import url("b.scss");
 
-/*precss plugin*/
+p{
+    float: left;
+    clear: both;
+    padding: 10px;
+    font-size: 24px;
+}
+
 @define-mixin shadow $blur {
     box-shadow: 5px 5px $blur;
 }
@@ -22,16 +30,3 @@
     @mixin shadow 10px;
     @mixin gradient #FFC107, red;
 }
-
-p{
-    float: left;
-    clear: both;
-    padding: 10px;
-    font-size: 24px;
-}
-
-/*autoprefixer plugin*/
-/*#p3 {
-    color: #ccc;
-    background: linear-gradient(to right, green, blue);
-}*/

@@ -1,39 +1,40 @@
 {
-    "name": "load-css-with-webpack",
-    "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
-    "scripts": {
-        "clear": "rimraf buildOutput",
-        "prestart": "npm run clear",
-        "start": "webpack"
-    },
-    "author": "",
-    "license": "ISC",
-    "devDependencies": {
-        "babel-core": "^6.23.1",
-        "babel-loader": "^6.4.0",
-        "babel-preset-es2015": "^6.22.0",
-        "css-loader": "^0.25.0",
-        "node-sass": "^4.5.0",
-        "postcss-loader": "^1.3.3",
-        "precss": "^1.4.0",
-        "rimraf": "^2.6.1",
-        "sass-loader": "^6.0.3",
-        "style-loader": "^0.13.1",
-        "webpack": "^1.13.3"
-    },
-    "reference": [
-        "https://github.com/webpack/webpack/issues/1973#issuecomment-185744317",
-        "https://webpack.github.io/docs/list-of-loaders.html",
-        "https://github.com/webpack-contrib/sass-loader/tree/archive/webpack-1",
-        "http://sass-lang.com/guide",
-        "http://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass",
-        "http://postcss.org/",
-        "https://github.com/postcss/postcss",
-        "https://github.com/postcss/postcss-loader",
-        "https://github.com/postcss/autoprefixer",
-        "https://github.com/jonathantneal/precss",
-        "http://cssnext.io/"
-    ]
+  "name": "load-css-with-webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf buildOutput",
+    "prestart": "npm run clear",
+    "start": "webpack"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "autoprefixer": "^6.7.7",
+    "babel-core": "^6.23.1",
+    "babel-loader": "^6.4.0",
+    "babel-preset-es2015": "^6.22.0",
+    "css-loader": "^0.25.0",
+    "node-sass": "^4.5.0",
+    "postcss-loader": "^1.3.3",
+    "precss": "^1.4.0",
+    "rimraf": "^2.6.1",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3"
+  },
+  "reference": [
+    "https://github.com/webpack/webpack/issues/1973#issuecomment-185744317",
+    "https://webpack.github.io/docs/list-of-loaders.html",
+    "https://github.com/webpack-contrib/sass-loader/tree/archive/webpack-1",
+    "http://sass-lang.com/guide",
+    "http://stackoverflow.com/questions/5654447/whats-the-difference-between-scss-and-sass",
+    "http://postcss.org/",
+    "https://github.com/postcss/postcss",
+    "https://github.com/postcss/postcss-loader",
+    "https://github.com/postcss/autoprefixer",
+    "https://github.com/jonathantneal/precss",
+    "http://cssnext.io/"
+  ]
 }
