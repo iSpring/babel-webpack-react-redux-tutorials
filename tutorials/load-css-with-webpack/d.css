@@ -1,6 +1,3 @@
-@import url("a.css");
-@import url("b.scss");
-
 p{
     float: left;
     clear: both;
@@ -23,10 +20,10 @@ p{
 
 #p2 {
     @mixin shadow 5px;
-    @mixin gradient #FFC107, blue;
+    @mixin gradient #FFC107, #03A9F4;
 }
 
 #p3 {
     @mixin shadow 10px;
-    @mixin gradient #FFC107, red;
+    @mixin gradient #FFC107, #FF5722;
 }

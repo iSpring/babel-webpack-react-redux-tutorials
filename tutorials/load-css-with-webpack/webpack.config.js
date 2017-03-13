@@ -21,6 +21,10 @@ module.exports = {
             test: /\.scss$/,
             exclude: /(node_modules|bower_components)/,
             loader: 'style!css!postcss!sass'
+        }, {
+            test: /\.less$/,
+            exclude: /(node_modules|bower_components)/,
+            loader: 'style!css!postcss!less'
         }]
     }
 };
