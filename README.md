@@ -41,7 +41,7 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
 
 - Webpack
   1. [使用Webpack加载ES6模块、ADM模块、CommonJS模块](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/load-commonjs-amd-es6-modules-with-webpack)
-  2. 使用Webpack加载打包npm包
+  2. [使用Webpack加载打包npm包](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/bundle-npm-packages-with-webpack)
   3. 使用Webpack加载CSS
   4. 使用Webpack加载图片
   5. Webpack Code Splitting
