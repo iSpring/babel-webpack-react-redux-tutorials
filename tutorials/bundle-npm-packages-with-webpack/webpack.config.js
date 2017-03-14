@@ -9,13 +9,13 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            include: [
-                path.resolve(__dirname, "src"),
-                path.resolve(__dirname, "node_modules/MyShape")
-            ],
-            exclude: [
-                path.resolve(__dirname, "node_modules/MyShape/index.js")
-            ],
+            // include: [
+            //     path.resolve(__dirname, "src"),
+            //     path.resolve(__dirname, "node_modules/MyShape")
+            // ],
+            // exclude: [
+            //     path.resolve(__dirname, "node_modules/MyShape/index.js")
+            // ],
             loader: 'babel'
         }]
     }
