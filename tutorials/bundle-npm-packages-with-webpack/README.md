@@ -110,4 +110,4 @@ document.getElementById("rectangle").innerText = rectangleInfoString;
 
 我们通过`import Circle from 'MyShape/Circle';`和`import Rectangle from 'MyShape/Rectangle';`引入了`MyShape`这个npm包中相应的模块，并最终通过webpack将其打包到了最终输出的bundle.js文件中。
 
-本示例虽然比较简单，但是演示了如何在如果通过webpack加载并打包npm包中的模块资源到最终的输出文件中，几乎所有的项目都会使用这一模式，我们在以后的课程中也会通过这种方式将react包打包到bundle.js中。
+本示例虽然比较简单，但是演示了如何在如果通过webpack加载并打包npm包中的模块资源到最终的输出文件中，几乎所有的项目都会使用这一模式，我们在以后的课程中也会通过这种方式将react打包到bundle.js中。
