@@ -30,6 +30,7 @@
   "reference": [
     "https://github.com/webpack-contrib/extract-text-webpack-plugin",
     "https://github.com/webpack-contrib/extract-text-webpack-plugin/blob/webpack-1/README.md",
-    "https://survivejs.com/webpack/styling/separating-css/"
+    "https://webpack.github.io/docs/stylesheets.html",
+    "https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/50#issuecomment-73011403"
   ]
 }

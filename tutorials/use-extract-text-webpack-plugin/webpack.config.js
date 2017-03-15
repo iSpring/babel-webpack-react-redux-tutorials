@@ -2,6 +2,7 @@ var path = require("path");
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
+
 module.exports = {
     entry: "./index.js",
     output: {
@@ -17,15 +18,19 @@ module.exports = {
         }, {
             test: /\.css$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!postcss'
+            loader: ExtractTextPlugin.extract("style", "css")
         }, {
             test: /\.scss$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!postcss!sass'
+            loader: ExtractTextPlugin.extract("css!postcss!sass")
         }, {
             test: /\.less$/,
             exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!postcss!less'
+            loader: ExtractTextPlugin.extract("css!postcss!less")
         }]
-    }
+    },
+
+    plugins: [
+        new ExtractTextPlugin("bundle.css")
+    ]
 };

@@ -3,4 +3,4 @@
         require("precss")(),
         require("autoprefixer")()
     ]
-}
+};
