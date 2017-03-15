@@ -18,7 +18,7 @@ module.exports = {
         }, {
             test: /\.css$/,
             exclude: /(node_modules|bower_components)/,
-            loader: ExtractTextPlugin.extract("style", "css")
+            loader: ExtractTextPlugin.extract("css!postcss")
         }, {
             test: /\.scss$/,
             exclude: /(node_modules|bower_components)/,
