@@ -1,0 +1,29 @@
+p{
+    float: left;
+    clear: both;
+    padding: 10px;
+    font-size: 24px;
+}
+
+@define-mixin shadow $blur {
+    box-shadow: 5px 5px $blur;
+}
+
+@define-mixin gradient $startColor, $endColor{
+    background: linear-gradient(to right, $startColor, $endColor);
+}
+
+#p1 {
+    @mixin shadow 3px;
+    @mixin gradient #FFC107, green;
+}
+
+#p2 {
+    @mixin shadow 5px;
+    @mixin gradient #FFC107, #03A9F4;
+}
+
+#p3 {
+    @mixin shadow 10px;
+    @mixin gradient #FFC107, #FF5722;
+}
