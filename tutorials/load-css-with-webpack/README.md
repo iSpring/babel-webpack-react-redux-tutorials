@@ -4,7 +4,9 @@
 
 # 使用Webpack加载CSS、SASS、LESS
 
-本节将探讨如何使用Webpack加载CSS、SASS、LESS等资源，并结合PostCSS进行CSS后处理。具体涉及到以下npm包：
+本节将探讨如何使用Webpack加载CSS、SASS、LESS等资源，并结合PostCSS进行CSS后处理。
+
+具体涉及到以下npm包：
 
  - style-loader
  - css-loader
@@ -113,7 +115,7 @@ exports.push([module.id, "#p1 {\r\n    color: red;\r\n}", ""]);
 ```
 
 我们直接双击打开`index.html`文件，UI如下所示：
-<img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/1.png" />
+![image](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/1.png)
 
 
 ## 使用Webpack加载SASS
