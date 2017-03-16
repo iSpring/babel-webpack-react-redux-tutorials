@@ -13,28 +13,14 @@ module.exports = {
 
     module: {
         loaders: [{
+            test: /\.js$/,
+            loader: 'babel-loader'
+        }, {
             test: /\.(jpg|jpeg|png)$/,
             loader: 'file-loader'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
         }]
     }
 };
-
-/*
-[{
-            test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'babel'
-        }, {
-            test: /\.css$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!postcss'
-        }, {
-            test: /\.scss$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!postcss!sass'
-        }, {
-            test: /\.less$/,
-            exclude: /(node_modules|bower_components)/,
-            loader: 'style!css!postcss!less'
-        }]
-*/

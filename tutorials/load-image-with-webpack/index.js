@@ -1,11 +1,16 @@
-// import './a.css';
-// import './b.scss';
-// import './c.less';
-// import './d.css';
+import "./index.css";
 
-const logo = require("./images/logo.png");
+import github from "./images/github.png";
+import webpack from "./images/webpack.png";
 
-console.log(logo);
+// const github = require("./images/github.png");
+const img1 = document.createElement("img");
+img1.src = github;
+document.body.appendChild(img1);
+console.log(github);
 
-var img1 = document.getElementById("img1");
-img1.src = logo;
+// const webpack = require("./images/webpack.png");
+const img2 = document.createElement("img");
+img2.src = webpack;
+document.body.appendChild(img2);
+console.log(webpack);
