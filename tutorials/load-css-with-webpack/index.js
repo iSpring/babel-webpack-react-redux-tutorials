@@ -1,6 +1,6 @@
-// import './a.css';
-// import './b.scss';
-// import './c.less';
-// import './d.css';
+import './css/a.css';
+import './css/b.scss';
+import './css/c.less';
+import './css/d.css';
 
 console.log("index.js");
