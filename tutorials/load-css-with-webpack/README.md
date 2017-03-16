@@ -1,8 +1,8 @@
-﻿# 使用Webpack加载CSS、SASS、LESS
-
-<p align="center">
+﻿<p align="center">
   <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/CSS.png" />
 </p>
+
+# 使用Webpack加载CSS、SASS、LESS
 
 本节将探讨如何使用Webpack加载CSS、SASS、LESS等资源，并结合PostCSS进行CSS后处理。具体涉及到以下npm包：
 
@@ -69,7 +69,7 @@ import './css/a.css';
 console.log("index.js");
 ```
 
-Webpack本身只能加载CommonJS模块、AMD模块等，不会加载CSS文件，这时我们需要引入[css-loader](https://github.com/webpack-contrib/css-loader)和[style-loader](https://github.com/webpack-contrib/style-loader)这两个npm包：
+Webpack本身只能加载CommonJS模块、AMD模块等，但它不知道如何加载CSS文件，这时我们需要引入[css-loader](https://github.com/webpack-contrib/css-loader)和[style-loader](https://github.com/webpack-contrib/style-loader)这两个npm包：
 ```
 npm install --save-dev css-loader style-loader
 ```
@@ -100,6 +100,8 @@ module.exports = {
 `loader: 'style!css'`等价于`loaders: ['style-loader', 'css-loader']`，也就是说我们同时使用了`css-loader`和`style-loader`对`.css`文件进行加载处理。
 
 `css-loader`可以处理CSS文件中的`@import`和`url()`资源引用，并将CSS文件打包写入到JavaScript文件中，即将CSS文件中的内容内联到JavaScript文件中。`style-loader`的作用是将JavaScript输出文件中内联的CSS自动生成`<style>`标签并插入到浏览器的document中。
+
+需要注意`style-loader`和`css-loader`的顺序，`css-loader`在右侧，表示先执行，之后再让`style-loader`执行，也就是`!`右侧的loader先执行，`!`左侧的loader后执行。
 
 我们通过`npm start`进行打包，输出结果只有一个JavaScript文件`buildOutput/bundle.js`，其中内联了`a.css`中的样式，打开`bundle.js`可以查看到如下的内联CSS：
 ```
