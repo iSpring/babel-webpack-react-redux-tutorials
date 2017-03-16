@@ -1,5 +1,10 @@
-﻿#star{
+﻿#star {
     width: 48px;
     height: 48px;
     background: url(images/star.png) no-repeat center;
+}
+
+img {
+    display: block;
+    max-width: 250px;
 }

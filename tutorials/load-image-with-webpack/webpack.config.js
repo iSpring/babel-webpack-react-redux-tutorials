@@ -39,7 +39,7 @@ module.exports = {
             test: /\.js$/,
             loader: 'babel-loader'
         }, {
-            test: /\.(jpg|jpeg|png)$/,
+            test: /\.(jpg|jpeg|png|svg)$/,
             loader: 'url-loader', //url-loader?limit=10000
             query: {
                 limit: 10 * 1024 //10KB
