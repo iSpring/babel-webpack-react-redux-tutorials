@@ -40,7 +40,10 @@ module.exports = {
             loader: 'babel-loader'
         }, {
             test: /\.(jpg|jpeg|png)$/,
-            loader: 'url-loader?limit=10'
+            loader: 'url-loader', //url-loader?limit=10000
+            query: {
+                limit: 10 * 1024 //10KB
+            }
         }, {
             test: /\.css$/,
             loader: 'style!css'
