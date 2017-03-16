@@ -115,8 +115,11 @@ exports.push([module.id, "#p1 {\r\n    color: red;\r\n}", ""]);
 ```
 
 我们直接双击打开`index.html`文件，UI如下所示：
-![image](https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/1.png)
+<p>
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/1.png" />
+</p>
 
+由此可见，index.html已经使用了`a.css`中的样式。
 
 ## 使用Webpack加载SASS
 
