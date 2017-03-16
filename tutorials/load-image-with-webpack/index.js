@@ -3,4 +3,9 @@
 // import './c.less';
 // import './d.css';
 
-console.log("index.js");
+const logo = require("./images/logo.png");
+
+console.log(logo);
+
+var img1 = document.getElementById("img1");
+img1.src = logo;

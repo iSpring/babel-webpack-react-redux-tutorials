@@ -1,31 +1,26 @@
 var path = require("path");
 
+var buildFolder = "buildOutput";
+
 module.exports = {
-    // entry: ["./a.css","./b.scss","./c.less","./d.css"],
-    // output: {
-    //     path: path.join(__dirname, "buildOutput"),
-    //     filename: "bundle.js"
-    // },
+    entry: "./index.js",
 
-    // entry: {
-    //     main: "./index.js"
-    // },
-    // output: {
-    //     path: path.join(__dirname, "buildOutput"),
-    //     filename: "bundle.js"
-    // },
-
-    entry: {
-        js: "./index.js",
-        css: ["./a.css","./b.scss","./c.less","./d.css"]
-    },
     output: {
-        path: path.join(__dirname, "buildOutput"),
-        filename: "[name].bundle.js"
+        path: path.join(__dirname, buildFolder),
+        filename: "bundle.js",
+        publicPath: buildFolder + "/"
     },
 
     module: {
         loaders: [{
+            test: /\.(jpg|jpeg|png)$/,
+            loader: 'file-loader'
+        }]
+    }
+};
+
+/*
+[{
             test: /\.js$/,
             exclude: /(node_modules|bower_components)/,
             loader: 'babel'
@@ -42,5 +37,4 @@ module.exports = {
             exclude: /(node_modules|bower_components)/,
             loader: 'style!css!postcss!less'
         }]
-    }
-};
+*/
