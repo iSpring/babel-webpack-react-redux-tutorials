@@ -439,3 +439,75 @@ module.exports = {
 </p>
 
 由此可见，`index.html`已经使用了`d.css`中的样式。
+
+## 生成单独的CSS打包文件
+我们之前将所有的css文件和`index.js`一起打包输出到了`buildOutput/bundle.js`中，然后在`index.html`中通过`<script>`标签加载该文件。
+
+这样会存在一个潜在的问题：
+ 1. 如果我们将`<script src="buildOutput/bundle.js"></script>`放置到`<head>`标签内，那么文档还未加载完全，`index.js`中的JavaScript无法访问还未加载的DOM树（当然可以通过绑定load事件在做处理，那样会麻烦一些）。
+
+ 2. 如果我们将`<script src="buildOutput/bundle.js"></script>`放置到`</body>`标签后面，那时文档已经完全加载完，`index.js`中的JavaScript可以访问整个DOM树。但是，由于样式文件也被一起打包到了`bundle.js`中，所以且`bundle.js`是在document渲染完成之后才加载的，这会造成一开始打开网页时的document是没有任何样式的，后面`bundle.js`加载完之后突然换了另一种样式，这会造成闪顿的体验。
+
+为了解决以上问题，我们应该将CSS和JavaScript分别打包到两个文件中。
+
+首先我们在`index.js`中取消掉对CSS的引入，修改`index.js`如下所示：
+
+
+
+我们需要修改webpack.config.js中的`entry`和`output`属性，配置如下所示：
+```
+var path = require("path");
+
+module.exports = {
+    entry: {
+        js: "./index.js",
+        css: ["./css/a.css", "./css/b.scss", "./css/c.less", "./css/d.css"]
+    },
+
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "[name].bundle.js"
+    },
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css!postcss'
+        }, {
+            test: /\.scss$/,
+            loader: 'style!css!postcss!sass'
+        }, {
+            test: /\.less$/,
+            loader: 'style!css!postcss!less'
+        }]
+    }
+};
+```
+
+我们在`entry`中定义了两个入口：`js`和`css`，并在`output`中通过`[name].bundle.js`指定输出的文件名，此处的`[name]`就对应着`entry`中指定的两个入口的名称：`js`和`css`。
+
+执行`npm start`进行打包，输出结果是两个JavaScript文件：`buildOutput/css.bundle.js`和`buildOutput/js.bundle.js`。
+
+我们修改`index.html`如下所示：
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webpack</title>
+    <script type="text/javascript" src="buildOutput/css.bundle.js"></script>
+</head>
+
+<body>
+    <p id="p1">字体样式来自于a.css，背景样式来自于d.css</p>
+    <p id="p2">字体样式来自于b.scss，背景样式来自于d.css</p>
+    <p id="p3">字体样式来自于c.less，背景样式来自于d.css</p>
+</body>
+<script type="text/javascript" src="buildOutput/js.bundle.js"></script>
+
+</html>
+```
+
