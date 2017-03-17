@@ -203,7 +203,7 @@ module.exports = {
 };
 ```
 
-执行`npm start`进行打包，输出结果还是JavaScript文件`buildOutput/bundle.js`，其中内联了`a.css`和`b.scss`中的样式，只不过`b.scss`中的样式已经被编译成CSS格式。
+执行`npm start`进行打包，输出结果还是JavaScript文件`buildOutput/bundle.js`，其中内联了`a.css`和`b.scss`中的样式，只不过`b.scss`中的样式已经被编译成了CSS格式。
 
 我们直接双击打开`index.html`文件，UI如下所示：
 <p>
@@ -213,5 +213,79 @@ module.exports = {
 由此可见，index.html已经使用了`a.css`和`b.scss`中的样式。
 
 ## 使用Webpack加载LESS
+[LESS](http://lesscss.org/)是另一个CSS预处理器，具有跟SASS类似的功能。LESS文件的后缀名是`.less`，LESS可以将`.less`文件编译为普通的CSS文件。
+
+`c.less`文件如下所示：
+```
+@nice-blue: #5B83AD;
+@light-blue: @nice-blue + #111;
+
+#p3{
+    color: @light-blue;
+}
+```
+
+我们在`c.less`文件中使用了变量和操作符`+`这两个特性。我们修改`index.js`，在其中引入`b.scss`，`index.js`如下所示：
+```
+import './css/a.css';
+import './css/b.scss';
+import './css/c.less';
+
+console.log("index.js");
+```
+
+为了能够将`.less`文件编译为`.css`文件，我们需要安装`less`。为了能够在Webpack中集成LESS，我们还需要安装`less-loader`。
+
+```
+npm install --save-dev less less-loader
+```
+
+我们需要在webpack.config.js中为.scss文件设置对应的loader，新增如下配置：
+```
+{
+    test: /\.less$/,
+    loader: 'style!css!less'
+}
+```
+
+我们对`.less`设置的loader是`style!css!less`，等价于`loaders: ['style-loader', 'css-loader', 'sass-loader']`，也就是对于`.less`文件的处理流程是：
+```
+less-loader -> css-loader -> style-loader
+```
+
+此时webpack.config.js的整个配置如下：
+```
+var path = require("path");
+
+module.exports = {
+    entry: "./index.js",
+
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "bundle.js"
+    },
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
+        }, {
+            test: /\.scss$/,
+            loader: 'style!css!sass'
+        }, {
+            test: /\.less$/,
+            loader: 'style!css!less'
+        }]
+    }
+};
+```
+
+执行`npm start`进行打包，输出结果还是JavaScript文件`buildOutput/bundle.js`，其中内联了`a.css`、`b.scss`和`c.less`中的样式，只不过`b.scss`和`c.less`中的样式已经被编译成了CSS格式。
+
+我们直接双击打开index.html文件，UI如下所示：
+
 
 ## 在Webpack中使用PostCSS
