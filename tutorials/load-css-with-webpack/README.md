@@ -210,7 +210,7 @@ module.exports = {
   <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/2.png" />
 </p>
 
-由此可见，index.html已经使用了`a.css`和`b.scss`中的样式。
+由此可见，`index.html`已经使用了`b.scss`中的样式。
 
 ## 使用Webpack加载LESS
 [LESS](http://lesscss.org/)是另一个CSS预处理器，具有跟SASS类似的功能。LESS文件的后缀名是`.less`，LESS可以将`.less`文件编译为普通的CSS文件。
@@ -286,6 +286,10 @@ module.exports = {
 执行`npm start`进行打包，输出结果还是JavaScript文件`buildOutput/bundle.js`，其中内联了`a.css`、`b.scss`和`c.less`中的样式，只不过`b.scss`和`c.less`中的样式已经被编译成了CSS格式。
 
 我们直接双击打开index.html文件，UI如下所示：
+<p>
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/3.png" />
+</p>
 
+由此可见，`index.html`已经使用了`c.less`中的样式。
 
 ## 在Webpack中使用PostCSS
