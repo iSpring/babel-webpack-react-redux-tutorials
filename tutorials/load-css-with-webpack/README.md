@@ -132,7 +132,7 @@ $green-color: green;
 }
 ```
 
-我们在b.scss中使用了SASS的变量这一特性，我们修改index.js，在其中引入b.scss，index.js如下所示：
+我们在`b.scss`中使用了SASS的变量这一特性，我们修改`index.js`，在其中引入`b.scss`，`index.js`如下所示：
 ```
 import './css/a.css';
 import './css/b.scss';
@@ -140,7 +140,7 @@ import './css/b.scss';
 console.log("index.js");
 ```
 
-修改index.html，如下所示：
+修改`index.html`，如下所示：
 ```
 <!DOCTYPE html>
 <html>
@@ -163,7 +163,54 @@ console.log("index.js");
 npm install --save-dev node-sass sass-loader
 ```
 
+我们需要在webpack.config.js中为`.scss`文件设置对应的loader，新增如下配置：
+```
+{
+    test: /\.scss$/,
+    loader: 'style!css!sass'
+}
+```
 
+我们对`.scss`设置的loader是`style!css!sass`，等价于`loaders: ['style-loader', 'css-loader', 'sass-loader']`，也就是对于`.scss`文件的处理流程是：
+```
+sass-loader -> css-loader -> style-loader
+```
+
+此时webpack.config.js的整个配置如下：
+```
+var path = require("path");
+
+module.exports = {
+    entry: "./index.js",
+
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "bundle.js"
+    },
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css'
+        }, {
+            test: /\.scss$/,
+            loader: 'style!css!sass'
+        }]
+    }
+};
+```
+
+执行`npm start`进行打包，输出结果还是JavaScript文件`buildOutput/bundle.js`，其中内联了`a.css`和`b.scss`中的样式，只不过`b.scss`中的样式已经被编译成CSS格式。
+
+我们直接双击打开`index.html`文件，UI如下所示：
+<p>
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/2.png" />
+</p>
+
+由此可见，index.html已经使用了`a.css`和`b.scss`中的样式。
 
 ## 使用Webpack加载LESS
 
