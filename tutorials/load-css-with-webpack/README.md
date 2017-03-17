@@ -122,6 +122,48 @@ exports.push([module.id, "#p1 {\r\n    color: red;\r\n}", ""]);
 由此可见，index.html已经使用了`a.css`中的样式。
 
 ## 使用Webpack加载SASS
+与CSS相比，[SASS](http://sass-lang.com/guide)更加强大。SASS是一个CSS预处理器，在SASS中我们可以通过使用变量、嵌套、混合、继承等对CSS进行处理。SASS文件有两种类型的后缀名：`.sass`和`.scss`。`.sass`文件内部使用缩进来确定CSS层级关系，`.scss`使用花括号来确定CSS层级关系，`.scss`更接近原生CSS语法格式。SASS可以将`.sass`和`.scss`文件编译为原生的`.css`文件。
+
+b.scss如下所示：
+```
+$green-color: green;
+#p2 {
+    color: $green-color;
+}
+```
+
+我们在b.scss中使用了SASS的变量这一特性，我们修改index.js，在其中引入b.scss，index.js如下所示：
+```
+import './css/a.css';
+import './css/b.scss';
+
+console.log("index.js");
+```
+
+修改index.html，如下所示：
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webpack</title>
+</head>
+
+<body>
+    <p id="p1">字体样式来自于a.css</p>
+    <p id="p2">字体样式来自于b.scss</p>
+</body>
+<script type="text/javascript" src="buildOutput/bundle.js"></script>
+
+</html>
+```
+
+为了能够将`.scss`文件编译为`.css`文件，我们需要安装`node-sass`。为了能够在Webpack中集成SASS，我们还需要安装`sass-loader`。
+```
+npm install --save-dev node-sass sass-loader
+```
+
+
 
 ## 使用Webpack加载LESS
 
