@@ -5,11 +5,13 @@ p{
     font-size: 24px;
 }
 
+/*@define-mixin会使用press插件*/
 @define-mixin shadow $blur {
     box-shadow: 5px 5px $blur;
 }
 
 @define-mixin gradient $startColor, $endColor{
+    /*linear-gradient会使用到autoprefixer插件*/
     background: linear-gradient(to right, $startColor, $endColor);
 }
 

@@ -293,3 +293,149 @@ module.exports = {
 由此可见，`index.html`已经使用了`c.less`中的样式。
 
 ## 在Webpack中使用PostCSS
+SASS和LESS都是CSS预处理器，只能对CSS进行预处理。[PostCSS](http://postcss.org/)可以对CSS进行后处理，可以把它当做CSS后处理器使用。所谓的后处理就是对原生的CSS进行一定的修改增强，比如有些CSS在不同的浏览器下需要添加`-webkit`、`-moz`、`-ms`等前缀，通过PostCSS就可以自定添加这些前缀，使得我们的CSS兼容更多的浏览器。
+
+其实PostCSS不仅可以用作后处理器，还可以用作预处理器。也就是说，PostCSS完全可以实现SASS、LESS的功能。PostCSS = CSS预处理器 + CSS后处理器。
+
+PostCSS本身不提供任何CSS预处理和后处理的功能，PostCSS提供了很多插件，使用不同的插件可以实现不同的CSS预处理或后处理功能，本文将介绍基于PostCSS的[precss](https://github.com/jonathantneal/precss)插件和[autoprefixer](https://github.com/postcss/autoprefixer)插件。
+
+`d.css`文件如下所示：
+```
+p{
+    float: left;
+    clear: both;
+    padding: 10px;
+    font-size: 24px;
+}
+
+/*@define-mixin会使用press插件*/
+@define-mixin shadow $blur {
+    box-shadow: 5px 5px $blur;
+}
+
+@define-mixin gradient $startColor, $endColor{
+    /*linear-gradient会使用到autoprefixer插件*/
+    background: linear-gradient(to right, $startColor, $endColor);
+}
+
+#p1 {
+    @mixin shadow 3px;
+    @mixin gradient #FFC107, green;
+}
+
+#p2 {
+    @mixin shadow 5px;
+    @mixin gradient #FFC107, #03A9F4;
+}
+
+#p3 {
+    @mixin shadow 10px;
+    @mixin gradient #FFC107, #FF5722;
+}
+```
+
+我们在`d.css`中使用了`@define-mixin`、变量以及`@mixin`语法，这些语法其实都是PostCSS的precss插件支持的。`linear-gradient`是CSS3支持的属性，但是不同浏览器的支持程度不同，为了兼容主流浏览器，我们需要添加各种浏览器前缀，但是在`d.css`中我们并没有这样做，这是因为我们可以通过使用PostCSS的autoprefixer插件进行CSS后处理，自动补齐对应的浏览器前缀。
+
+我们修改`index.html`，如下所示：
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webpack</title>
+</head>
+
+<body>
+    <p id="p1">字体样式来自于a.css，背景样式来自于d.css</p>
+    <p id="p2">字体样式来自于b.scss，背景样式来自于d.css</p>
+    <p id="p3">字体样式来自于c.less，背景样式来自于d.css</p>
+</body>
+<script type="text/javascript" src="buildOutput/bundle.js"></script>
+
+</html>
+```
+
+在`index.js`中引入`d.css`，`index.js`如下所示：
+```
+import './css/a.css';
+import './css/b.scss';
+import './css/c.less';
+import './css/d.css';
+
+console.log("index.js");
+```
+
+为了使用PostCSS，我们需要安装`postcss-loader`，为了使用插件precss和autoprefixer，我们也需要安装对应的npm包：
+```
+npm install --save-dev postcss-loader precss autoprefixer
+```
+
+PostCSS可以对CSS进行处理，由于SASS和LESS编译生成的也是CSS文件，所以PostCSS可以结合SASS和LESS使用，不过首先要使用SASS/LESS进行处理，之后才能使用PostCSS处理。
+
+我们修改webpack.config.js中的loader，对`.css`、`.sass`、`.less`文件添加`postcss-loader`的处理流程，如下所示：
+```
+var path = require("path");
+
+module.exports = {
+    entry: "./index.js",
+
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "bundle.js"
+    },
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel'
+        }, {
+            test: /\.css$/,
+            loader: 'style!css!postcss'
+        }, {
+            test: /\.scss$/,
+            loader: 'style!css!postcss!sass'
+        }, {
+            test: /\.less$/,
+            loader: 'style!css!postcss!less'
+        }]
+    }
+};
+```
+
+`.css`文件的处理流程：
+```
+postcss-loader -> css-loader -> style-loader
+```
+
+`.sass`文件的处理流程：
+```
+sass-loader -> postcss-loader -> style-loader
+```
+
+`.less`文件的处理流程：
+```
+less-loader -> postcss-loader -> style-loader
+```
+
+上面的配置告诉Webpack在处理CSS相关的资源文件时要使用`postcss-loader`，但是PostCSS如何对这些文件进行处理呢？
+
+我们需要在项目的根目录下添加`postcss.config.js`文件，配置如下：
+```
+module.exports = {
+    plugins: [
+        require("precss")(),
+        require("autoprefixer")()
+    ]
+};
+```
+
+我们在其中配置了precss和autoprefixer这两个插件，`postcss-loader`会使使用这两个插件对CSS相关的资源文件进行预处理和后处理。
+
+执行`npm start`进行打包，输出结果还是JavaScript文件`buildOutput/bundle.js`，其中内联了a.css、b.scss、c.less和d.css中的样式，只不过b.scss、c.less和d.css中的样式已经被编译成了CSS格式。
+
+我们直接双击打开index.html文件，UI如下所示：
+<p>
+  <img src="https://github.com/iSpring/react-step-by-step-tutorials/blob/master/tutorials/load-css-with-webpack/images/4.png" />
+</p>
+
+由此可见，`index.html`已经使用了`d.css`中的样式。
