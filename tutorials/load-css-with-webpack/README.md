@@ -451,7 +451,14 @@ module.exports = {
 为了解决以上问题，我们应该将CSS和JavaScript分别打包到两个文件中。
 
 首先我们在`index.js`中取消掉对CSS的引入，修改`index.js`如下所示：
+```
+// import './css/a.css';
+// import './css/b.scss';
+// import './css/c.less';
+// import './css/d.css';
 
+console.log("index.js");
+```
 
 
 我们需要修改webpack.config.js中的`entry`和`output`属性，配置如下所示：
