@@ -496,7 +496,8 @@ module.exports = {
 
 我们在`entry`中定义了两个入口：`js`和`css`，并在`output`中通过`[name].bundle.js`指定输出的文件名，此处的`[name]`就对应着`entry`中指定的两个入口的名称：`js`和`css`。
 
-执行`npm start`进行打包，输出结果是两个JavaScript文件：`buildOutput/css.bundle.js`和`buildOutput/js.bundle.js`。
+执行`npm start`进行打包，输出结果是两个JavaScript文件：`buildOutput/css.bundle.js`和`buildOutput/js.bundle.js`。`buildOutput/css.bundle.js`中包含了所有CSS文件内容，包括`a.css`、`b.sass`、`c.less`、`d.css`。
+`buildOutput/js.bundle.js`中包含了`index.js`中JavaScript文件内容。这样，CSS和JavaScript的输出结果已经分离。
 
 我们修改`index.html`如下所示：
 ```
@@ -518,3 +519,4 @@ module.exports = {
 </html>
 ```
 
+我们在`index.html`的`<head>`标签中引入了`css.bundle.js`，这样在document文档加载完成之前就已经加载了所有的CSS样式。在`index.html`的`</body>`标签之后引入了`js.bundle.js`，这样在document文档加载完成之后才加载并执行JavaScript代码。
