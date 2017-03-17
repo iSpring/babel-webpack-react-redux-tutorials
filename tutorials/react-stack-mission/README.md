@@ -22,7 +22,7 @@ React为前端开发人员提供了一种新的思路，它的使用流程是:
 ## [Babel](https://babeljs.io/)
 A Compiler for Writing Next Generation JavaScript
 
-我们在[《前端发展简史》](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/web-brief-history#ecmascript6)中曾讲到ECMAScript 2015（ECMAScript 6）和ECMAScript 2016标准已经发布。这两个版本的ECMAScript（尤其是ECMAScript 6）为ECMAScript增加了许多新特性，极大拓展了JavaScript语法和能力，以至于许多浏览器都只能支持部分ES6中的新特性。随之，Babel和TypeScript逐渐流行起来，编写ES6代码，然后用Babel或TypeScript将其编译为ES5等主流浏览器支持的JavaScript。本教程以Babel为主，也会涉及部分TypeScript的内容。
+我们在[《前端发展简史》](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/web-brief-history#ecmascript6)中曾讲到ECMAScript 2015（ECMAScript 6）和ECMAScript 2016标准已经发布。这两个版本的ECMAScript（尤其是ECMAScript 6）为ECMAScript增加了许多新特性，极大拓展了JavaScript语法和能力，以至于许多浏览器都只能支持部分ES6中的新特性。随之，Babel和TypeScript逐渐流行起来，编写ES6代码，然后用Babel或TypeScript将其编译为ES5等主流浏览器支持的JavaScript。本教程以Babel为主，也会涉及部分TypeScript的内容。
 
 新的前端项目一般都用Babel（或TypeScript）编写，这样可以利用下一代JavaScript的各种语法糖，更加精简高效的完成工作。Babel提供了几十种插件用以将ES6和ES7的诸多语法转换成ES5等语言。可以单独引入某几种插件使用，Babel还将多种插件组合成一组，形成一个preset，比如将ES2015相关的插件组合成了es2015这个preset，在使用的时候只需要引入es2015这个preset，就可以玩转ES2015所有的语法糖。React提供了一种`JSX`语法，该语法可以将HTML与JavaScript混写，浏览器本身是不支持`JSX`语法的。为此，Babel提供了`react`这个preset，用于将Ract的`JSX`代码编译成普通的JavaScript。TypeScript也支持`JSX`语法。
 
@@ -36,9 +36,9 @@ A Bundler for JavaScript and Friends
 这样的处理对于小项目尚可接受，但是在一些庞大的单页应用（SPA）中这种资源加载的方式存在两个问题：
 
  - 为了加载某个模块就要严格保证该模块所依赖的其他资源都要加载，这就使得资源加载的顺序要严格控制，无形中增大了开发的难度。
- 
+
  - 每个资源文件的加载都需要一次HTTP请求，加载多个小文件会导致触发浏览器最大链接并发数的限制，使得许多资源文件延迟加载，资源的下载速度下降。
- 
+
 幸运的是，Webpack可以解决这些难题。
 
 Webpack，顾名思义，就是对Web资源进行打包，它是一个Web资源打包器，它可以将CommonJs、 AMD、 ES6 modules、 CSS、 图片、 JSON、 Coffeescript、 LESS等各种前端资源文件进行打包，打包成一个（或多个）JavaScript文件，这样我们在前端只需要引入一个打包好的bundler.js文件就可以了，这个文件里面包含了我们需要的全部资源信息，就是这么简单！

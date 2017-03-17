@@ -91,7 +91,7 @@ babel example.js -o compolied-example.js --presets es2015
 npm uninstall --g babel-cli
 ```
 
-在项目的[src](https://github.com/iSpring/react-step-by-step-tutorials/tree/master/tutorials/babel-basic-use/src)目录下存放着使用了ES6语法的多个源文件，目录结构如下所示：
+在项目的[src](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/babel-basic-use/src)目录下存放着使用了ES6语法的多个源文件，目录结构如下所示：
 
 ```
 src
@@ -396,7 +396,7 @@ Babel官方提供了如下七种预设:
  - [flow](https://babeljs.io/docs/plugins/transform-flow-strip-types/) 该预设只是用来删除掉代码中的类型声明，在以后的文章中会进行介绍。
 
  - [env](https://babeljs.io/docs/plugins/preset-env/) 该预设根据项目需要支持的环境自动选择Babel插件。
- 
+
 我们此处只列举部分插件：
  - [es2015-modules-amd](https://babeljs.io/docs/plugins/transform-es2015-modules-amd/) 该插件用于将ES6模块转换为AMD模块。
 
