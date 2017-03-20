@@ -1,6 +1,6 @@
 var path = require("path");
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 
 
 module.exports = {
@@ -18,19 +18,19 @@ module.exports = {
         }, {
             test: /\.css$/,
             exclude: /(node_modules|bower_components)/,
-            loader: ExtractTextPlugin.extract("css!postcss")
+            loader: ExtractTextWebpackPlugin.extract("css!postcss")
         }, {
             test: /\.scss$/,
             exclude: /(node_modules|bower_components)/,
-            loader: ExtractTextPlugin.extract("css!postcss!sass")
+            loader: ExtractTextWebpackPlugin.extract("css!postcss!sass")
         }, {
             test: /\.less$/,
             exclude: /(node_modules|bower_components)/,
-            loader: ExtractTextPlugin.extract("css!postcss!less")
+            loader: ExtractTextWebpackPlugin.extract("css!postcss!less")
         }]
     },
 
     plugins: [
-        new ExtractTextPlugin("bundle.css")
+        new ExtractTextWebpackPlugin("bundle.css")
     ]
 };
