@@ -1,4 +1,6 @@
-﻿<p align="center">
+﻿# [使用Webpack加载ES6模块、ADM模块、CommonJS模块](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/README.md)
+
+<p align="center">
   <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/images/logo.png">
 </p>
 

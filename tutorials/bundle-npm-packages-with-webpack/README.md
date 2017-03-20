@@ -1,3 +1,5 @@
+# [使用Webpack加载打包NPM模块](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/bundle-npm-packages-with-webpack/README.md)
+
 <p align="center">
   <img width="50%" src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/bundle-npm-packages-with-webpack/images/npm.png">
 </p>
