@@ -16,19 +16,19 @@ module.exports = {
             loader: 'babel'
         }, {
             test: /\.css$/,
-            loader: 'style!css'
+            loader: 'css'
         }]
     },
     plugins: [
-        // new HtmlWebpackPlugin()
+        new HtmlWebpackPlugin()
 
-        new HtmlWebpackPlugin({
-            title: 'Use HtmlWebpackPlugin',
-            filename: 'index.html',
-            favicon: './images/logo.png',
-            inject: 'body',
-            hash: true
-        })
+        // new HtmlWebpackPlugin({
+        //     title: 'Use HtmlWebpackPlugin',
+        //     filename: 'index.html',
+        //     favicon: './images/logo.png',
+        //     inject: 'body',
+        //     hash: true
+        // })
 
         // new HtmlWebpackPlugin({
         //   template: '!!ejs!./template.html',
