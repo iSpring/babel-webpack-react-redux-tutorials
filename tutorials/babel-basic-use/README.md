@@ -1,4 +1,5 @@
 ﻿# [Babel使用基础](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/babel-basic-use/README.md)
+
 Babel原名叫做`6to5`，顾名思义，它的使命就是把ES6的代码编译成ES5，使得我们可以使用ES6的新特性与语法编写代码。
 
 针对ES6的每一种新语法特性，Babel都提供了对应的插件以便将使用该语法的代码向下编译。比如ES6中新增了箭头函数语法，Babel提供了对应的插件[transform-es2015-arrow-functions](https：//babeljs.io/docs/plugins/transform-es2015-arrow-functions/)Babel提供了几十种插件用以将ES6和ES7的诸多语法转换成ES5等语言。可以单独引入某几种插件使用，Babel还将多种插件组合成一组，形成一个`预设(preset)`，比如将ES2015相关的插件组合成了es2015这个预设，在使用的时候只需要引入es2015这个preset，就可以玩转ES2015所有的语法糖。
