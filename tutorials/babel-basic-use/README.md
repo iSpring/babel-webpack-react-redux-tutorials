@@ -1,4 +1,4 @@
-﻿# [Babel使用基础](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/babel-basic-use/README.md)
+# [Babel使用基础](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/babel-basic-use/README.md)
 
 Babel原名叫做`6to5`，顾名思义，它的使命就是把ES6的代码编译成ES5，使得我们可以使用ES6的新特性与语法编写代码。
 
