@@ -124,14 +124,14 @@ module.exports = {
 运行`npm start`进行打包，在`buildOutput`目录下输出结果如下所示：
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/output.png" />
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/output.png" />
 </div>
 
 我们可以看到，图片和SVG的文件名变成了hash值，默认情况下，`file-loader`使用文件的hash值作为文件名。需要注意的是，这些图片文件没有打包到`bundle.js`中。`file-loader`的作用不是把图片等文件打包到一个JavaScript文件中，而是通过`file-loader`方便地获得要使用的图片等资源的URL。
 
 我们双击打开`index.html`文件，发现界面上没有显示任何图片，图片加载不成功肯定是URL路径不对。我们在`index.js`中将这几个图片和SVG的路径进行了输出，我们打开控制台，输出如下：
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/url1.png" />
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/url1.png" />
 </div>
 
 `index.html`和`buildOutput`目录之间的相对位置如下所示：
@@ -181,12 +181,12 @@ module.exports = {
 
 我们为配置了`output.publicPath`的值为`buildFolder + "/"`，我们执行`npm start`再次执行打包，刷新`index.html`页面，这次控制台输出如下所示：
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/url2.png" />
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/url2.png" />
 </div>
 
 这次URL输出路径是正确的，界面也能正确显示所有的图片，如下所示：
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/UI.png" />
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/UI.png" />
 </div>
 
 ## [url-loader](https://github.com/webpack-contrib/url-loader)
@@ -244,14 +244,14 @@ query: {
 重新执行`npm start`进行打包，在`buildOutput`目录下输出结果如下所示：
 
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/output2.png" />
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/output2.png" />
 </div>
 
 `github.png`、`star.png`、`npm.svg`都小于10KB，这三个文件被打包到了`buildOutput/bundle.js`中，而`webpack.png`大于10KB，所以没有被打包到`buildOutput/bundle.js`中。
 
 刷新`index.html`页面，依然能正确显示图片，控制台输出如下：
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/url3.png" />
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/url3.png" />
 </div>
 
 由此可以看出，`github.png`和`npm.svg`已经被打包成了base64字符串存储在`bundle.js`中了。
