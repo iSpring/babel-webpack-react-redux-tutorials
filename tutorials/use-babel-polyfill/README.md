@@ -1,4 +1,4 @@
-﻿# [babel-polyfill](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-babel-polyfill/README.md)
+# [babel-polyfill](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-babel-polyfill/README.md)
 
 我们之前一直强调ES6增加了新的语法特性，其实这种说法不严谨。严格来说，ES6相比于ES5新增了如下内容：
 
