@@ -230,6 +230,14 @@ JavaScript语言是ECMAScript标准的一种实现，截止到2017年2月，ECMA
 
 ECMAScript以后每年将会发布一个新版本，这无疑将持续促使浏览器厂商不断为JavaScript注入新的功能与特性，JavaScript走上了快速发展的正轨。
 
+## 今天
+今天的前端已经不再是网页诞生之初的样子，每天都有新的技术框架涌现。
+
+```
+GitHub + Babel/TypeScript + ES6 + HTML5 + CSS3 + SASS/LESS/PostCSS + React/Vue/Angular + Hybrid + Node.js + NPM
+```
+
+这就是今天的前端。
 
 ## 参考：
 
