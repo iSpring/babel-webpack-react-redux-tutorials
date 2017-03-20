@@ -1,7 +1,7 @@
 # [使用Flow进行静态类型检查](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/README.md)
 
 <div align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/images/flow.png">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/babel-flow-type/images/flow.png">
 </div>
 
 JavaScript是一门动态语言，它不像Java或C#等静态语言那样在编译期就可以知道变量类型。JavaScript是解释执行的，浏览器或Node.js在运行到某一行代码的时候才能确定该变量的具体类型。JavaScript动态语言的特性使得开发者可以灵活使用该语言，但是也使得构建大型Web应用更加困难，因为我们要确保传递的实参的类型与函数签名中形参的类型相一致。这种问题很难单纯靠开发者Code Review解决，为此Facebook开源了[Flow](https://flowtype.org/)，用于对JavaScript进行静态类型检查。
@@ -54,7 +54,7 @@ npm install --save-dev flow-bin
 然后我们在根目录下运行`npm run flow`，输出错误如下：
 
 <p align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/images/error1.png">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/babel-flow-type/images/error1.png">
 </p>
 
 Flow判断出上面`fool(x)`期待的形参x是`number`类型，但是实际传入的确实`string`类型，因此报错。
@@ -82,7 +82,7 @@ Flow允许我们像静态语言那样显式地指定变量的类型，修改`exa
 执行`npm run flow`，输出错误如下：
 
 <p align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/images/error2.png">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/babel-flow-type/images/error2.png">
 </p>
 
 这是因为`return x.length * y`返回的实际值类型应该是`number`，而`function foo(): string`却声明返回的是`string`类型，所以报错。此处将方法签名改为`function foo(x: string, y: number): number`即可。
@@ -166,7 +166,7 @@ total([1, 2, 3, 'Hello']);
 执行`npm run flow`，输出错误如下：
 
 <p align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/images/error3.png">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/babel-flow-type/images/error3.png">
 </p>
 
 我们将`total(numbers)`方法中的numbers形参声明为Array<number>，表示numbers是一个数字数组，但是实际传入的实参[1, 2, 3, 'Hello']中包含字符串`Hello`，所以报错。
