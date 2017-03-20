@@ -1,27 +1,25 @@
 {
-  "name": "webpack-htmlwebpackplugin",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "prestart": "rimraf buildOutput",
-    "start": "webpack"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "babel-core": "^6.18.2",
-    "babel-loader": "^6.2.7",
-    "babel-preset-es2015": "^6.18.0",
-    "css-loader": "^0.25.0",
-    "ejs-loader": "^0.3.0",
-    "html-webpack-plugin": "^2.24.1",
-    "rimraf": "^2.5.4",
-    "style-loader": "^0.13.1",
-    "webpack": "^1.13.3"
-  },
-  "reference": [
-    "https://github.com/ampedandwired/html-webpack-plugin",
-    "https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md"
-  ]
+    "name": "webpack-htmlwebpackplugin",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "prestart": "rimraf buildOutput",
+        "start": "webpack"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "babel-core": "^6.18.2",
+        "babel-loader": "^6.2.7",
+        "babel-preset-es2015": "^6.18.0",
+        "ejs-loader": "^0.3.0",
+        "html-webpack-plugin": "^2.24.1",
+        "rimraf": "^2.5.4",
+        "webpack": "^1.13.3"
+    },
+    "reference": [
+        "https://github.com/ampedandwired/html-webpack-plugin",
+        "https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md"
+    ]
 }
