@@ -2,7 +2,7 @@
   <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/CSS.png" />
 </p>
 
-# 使用Webpack加载CSS、SASS、LESS
+# 使用Webpack加载CSS、SASS、LESS资源并集成PostCSS
 
 本节将探讨如何使用Webpack加载CSS、SASS、LESS等资源，并结合PostCSS进行CSS后处理。
 
@@ -17,7 +17,7 @@
  - autoprefixer
  - precss
 
-本文的Demo项目最终结构如下所示：
+本文项目最终结构如下所示：
 ```
 Project
   |--buildOutput

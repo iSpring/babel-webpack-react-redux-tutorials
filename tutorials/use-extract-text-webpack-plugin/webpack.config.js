@@ -13,19 +13,15 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            exclude: /(node_modules|bower_components)/,
             loader: 'babel'
         }, {
             test: /\.css$/,
-            exclude: /(node_modules|bower_components)/,
             loader: ExtractTextWebpackPlugin.extract("css!postcss")
         }, {
             test: /\.scss$/,
-            exclude: /(node_modules|bower_components)/,
             loader: ExtractTextWebpackPlugin.extract("css!postcss!sass")
         }, {
             test: /\.less$/,
-            exclude: /(node_modules|bower_components)/,
             loader: ExtractTextWebpackPlugin.extract("css!postcss!less")
         }]
     },
