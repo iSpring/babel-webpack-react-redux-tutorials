@@ -1,4 +1,4 @@
-﻿# 使用HtmlWebpackPlugin自动生成html文件
+# 使用HtmlWebpackPlugin自动生成html文件
 
 本节将探讨如何使用HtmlWebpackPlugin自动生成html文件，并向生成的html文件中注入打包后的文件。
 
