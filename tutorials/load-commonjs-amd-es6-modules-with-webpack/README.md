@@ -1,7 +1,7 @@
 # [使用Webpack加载ES6模块、ADM模块、CommonJS模块](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/README.md)
 
 <p align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/images/logo.png">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/images/logo.png">
 </p>
 
 ## Webpack
@@ -60,7 +60,7 @@ app.js是Webpack的入口文件，app.bundle.js是打包后的输出文件，这
 其具体执行过程如下所示：
 
 <p align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/images/how-it-works.png">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-commonjs-amd-es6-modules-with-webpack/images/how-it-works.png">
 </p>
 
  1. Webpack会读取入口文件app.js，并分析其所依赖的模块（CommonJS模块、AMD模块、ES6模块等），以及其所依赖模块所依赖的模块。

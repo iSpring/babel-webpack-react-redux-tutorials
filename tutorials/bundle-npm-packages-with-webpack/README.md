@@ -1,7 +1,7 @@
 # [使用Webpack加载打包NPM模块](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/bundle-npm-packages-with-webpack/README.md)
 
 <p align="center">
-  <img width="50%" src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/bundle-npm-packages-with-webpack/images/npm.png">
+  <img width="50%" src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/bundle-npm-packages-with-webpack/images/npm.png">
 </p>
 
 我们在[《使用Webpack加载ES6模块、ADM模块、CommonJS模块》](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/load-commonjs-amd-es6-modules-with-webpack)一文中学习了如何使用Webpack打包各种CommonJS模块、AMD模块以及ES6模块，我们在示例代码中演示的各种模块都是我们自己编写的。在实际项目中，我们需要依赖很多npm包，并且需要将这些npm模块通过Webpack打包到我们最终的输出文件中。
