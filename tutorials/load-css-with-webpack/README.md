@@ -1,7 +1,7 @@
 # 使用Webpack加载CSS、SASS、LESS资源并集成PostCSS
 
 <p align="center">
-  <img with="80%" src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/CSS.png" />
+  <img with="80%" src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-css-with-webpack/images/CSS.png" />
 </p>
 
 本节将探讨如何使用Webpack加载CSS、SASS、LESS等资源，并结合PostCSS进行CSS后处理。
@@ -116,7 +116,7 @@ exports.push([module.id, "#p1 {\r\n    color: red;\r\n}", ""]);
 
 我们直接双击打开`index.html`文件，UI如下所示：
 <p>
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/1.png" />
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-css-with-webpack/images/1.png" />
 </p>
 
 由此可见，index.html已经使用了`a.css`中的样式。
@@ -207,7 +207,7 @@ module.exports = {
 
 我们直接双击打开`index.html`文件，UI如下所示：
 <p>
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/2.png" />
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-css-with-webpack/images/2.png" />
 </p>
 
 由此可见，`index.html`已经使用了`b.scss`中的样式。
@@ -287,7 +287,7 @@ module.exports = {
 
 我们直接双击打开index.html文件，UI如下所示：
 <p>
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/3.png" />
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-css-with-webpack/images/3.png" />
 </p>
 
 由此可见，`index.html`已经使用了`c.less`中的样式。
@@ -435,7 +435,7 @@ module.exports = {
 
 我们直接双击打开index.html文件，UI如下所示：
 <p>
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/4.png" />
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-css-with-webpack/images/4.png" />
 </p>
 
 由此可见，`index.html`已经使用了`d.css`中的样式。
