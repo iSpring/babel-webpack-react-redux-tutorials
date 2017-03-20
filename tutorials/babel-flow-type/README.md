@@ -1,4 +1,4 @@
-﻿# [使用Flow进行静态类型检查](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/README.md)
+# [使用Flow进行静态类型检查](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/README.md)
 
 <div align="center">
   <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/babel-flow-type/images/flow.png">
