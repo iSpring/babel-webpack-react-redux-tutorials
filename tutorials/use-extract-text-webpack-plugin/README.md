@@ -42,3 +42,107 @@ import './d.css';
 
 console.log("index.js");
 ```
+
+初始的`webpack.config.js`配置如下所示：
+```
+var path = require("path");
+
+module.exports = {
+    entry: "./index.js",
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "bundle.js"
+    },
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel'
+        }, {
+            test: /\.css$/,
+            loader: "css!postcss"
+        }, {
+            test: /\.scss$/,
+            loader: "css!postcss!sass"
+        }, {
+            test: /\.less$/,
+            loader: "css!postcss!less"
+        }]
+    },
+
+    plugins: [
+        new ExtractTextWebpackPlugin("bundle.css")
+    ]
+};
+```
+
+以上配置会把所有CSS文件打包到`bundle.js`中。
+
+`extract-text-webpack-plugin`插件能够将JavaScript中引入的文件分离出来并打包到一个文件中。
+
+首先我们安装`extract-text-webpack-plugin`插件：
+```
+npm install --save-dev extract-text-webpack-plugin
+```
+
+然后修改`webpack.config.js`如下所示：
+```
+var path = require("path");
+
+var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
+
+module.exports = {
+    entry: "./index.js",
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "bundle.js"
+    },
+
+    module: {
+        loaders: [{
+            test: /\.js$/,
+            loader: 'babel'
+        }, {
+            test: /\.css$/,
+            loader: ExtractTextWebpackPlugin.extract("css!postcss")
+        }, {
+            test: /\.scss$/,
+            loader: ExtractTextWebpackPlugin.extract("css!postcss!sass")
+        }, {
+            test: /\.less$/,
+            loader: ExtractTextWebpackPlugin.extract("css!postcss!less")
+        }]
+    },
+
+    plugins: [
+        new ExtractTextWebpackPlugin("bundle.css")
+    ]
+};
+```
+
+使用插件`ExtractTextWebpackPlugin`分离CSS文件：
+ 1. 我们对`.css`文件、`.sass`、`.less`文件的loader都用`ExtractTextWebpackPlugin`进行了处理，将原有的loader信息传递给了`ExtractTextWebpackPlugin.extract()`方法。
+
+ 2. 我们通过`new ExtractTextWebpackPlugin("bundle.css")`实例化了一个ExtractTextWebpackPlugin插件实例，`bundle.css`指的是输出文件的文件名，并将该插件实例放置于`plugins`数组中。
+
+执行`npm start`进行打包，输出结果有两个文件：`buildOutput/bundle.js`和`buildOutput/bundle.css`。`index.js`打包到了`buildOutput/bundle.js`文件中，该文件不包含CSS。`index.js`中所有依赖的CSS文件打包到了`buildOutput/bundle.css`文件中，只有1KB大小。
+
+`index.html`文件需要分别引入这两个文件，如下所示：
+```
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Webpack</title>
+    <link rel="stylesheet" type="text/css" href="buildOutput/bundle.css">
+</head>
+
+<body>
+    <p id="p1">字体样式来自于a.css，背景样式来自于d.css</p>
+    <p id="p2">字体样式来自于b.scss，背景样式来自于d.css</p>
+    <p id="p3">字体样式来自于c.less，背景样式来自于d.css</p>
+</body>
+<script type="text/javascript" src="buildOutput/bundle.js"></script>
+
+</html>
+```
