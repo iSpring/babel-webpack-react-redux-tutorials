@@ -1,4 +1,4 @@
-﻿# 使用Webpack加载图片和SVG
+# 使用Webpack加载图片和SVG
 
 本节将探讨如何使用[file-loader](https://github.com/webpack-contrib/file-loader)和[url-loader](https://github.com/webpack-contrib/url-loader)打包图片和SVG等资源。
 
