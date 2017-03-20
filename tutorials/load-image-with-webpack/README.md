@@ -1,4 +1,4 @@
-# 使用Webpack加载图片和SVG
+# [使用Webpack加载图片和SVG](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-image-with-webpack/README.md)
 
 本节将探讨如何使用[file-loader](https://github.com/webpack-contrib/file-loader)和[url-loader](https://github.com/webpack-contrib/url-loader)打包图片和SVG等资源。
 
@@ -81,7 +81,7 @@ console.log(npmSvg);
 
 我们在`index.js`中通过`import`（或`require()`）加载了`github.png`、`webpack.png`和`npm.svg`，根据这些资源创建了相应的DOM，并输出了资源的路径。
 
-为了能够在Webpack中使用这些图片资源文件，我们需要使用[file-loader](https://github.com/webpack-contrib/file-loader)。
+为了能够在Webpack中使用这些图片资源文件，我们需要使用[file-loader](https://github.com/webpack-contrib/file-loader)。**`file-loader`的作用不是把图片等文件打包到一个JavaScript文件中，而是通过`file-loader`方便地获得要使用的图片等资源的URL。**
 
 首先我们要安装`file-loader`：
 ```
@@ -125,7 +125,7 @@ module.exports = {
     <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/output.png" />
 </div>
 
-我们可以看到，图片和SVG的文件名变成了hash值，默认情况下，`file-loader`使用文件的hash值作为文件名。
+我们可以看到，图片和SVG的文件名变成了hash值，默认情况下，`file-loader`使用文件的hash值作为文件名。需要注意的是，这些图片文件没有打包到`bundle.js`中。`file-loader`的作用不是把图片等文件打包到一个JavaScript文件中，而是通过`file-loader`方便地获得要使用的图片等资源的URL。
 
 我们双击打开`index.html`文件，发现界面上没有显示任何图片，图片加载不成功肯定是URL路径不对。我们在`index.js`中将这几个图片和SVG的路径进行了输出，我们打开控制台，输出如下：
 <div align="center">
@@ -184,5 +184,5 @@ module.exports = {
 
 这次URL输出路径是正确的，界面也能正确显示所有的图片，如下所示：
 <div align="center">
-    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/ui.png" />
+    <img src="https://raw.githubusercontent.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/load-image-with-webpack/images/UI.png" />
 </div>
