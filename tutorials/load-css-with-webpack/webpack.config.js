@@ -1,11 +1,11 @@
 var path = require("path");
 
 module.exports = {
-    entry: "./index.js",
-    output: {
-        path: path.join(__dirname, "buildOutput"),
-        filename: "bundle.js"
-    },
+    // entry: "./index.js",
+    // output: {
+    //     path: path.join(__dirname, "buildOutput"),
+    //     filename: "bundle.js"
+    // },
 
 
     // entry: ["./a.css","./b.scss","./c.less","./d.css"],
@@ -15,15 +15,15 @@ module.exports = {
     // },
 
 
-    // entry: {
-    //     js: "./index.js",
-    //     css: ["./css/a.css", "./css/b.scss", "./css/c.less", "./css/d.css"]
-    // },
+    entry: {
+        js: "./index.js",
+        css: ["./css/a.css", "./css/b.scss", "./css/c.less", "./css/d.css"]
+    },
 
-    // output: {
-    //     path: path.join(__dirname, "buildOutput"),
-    //     filename: "[name].bundle.js"
-    // },
+    output: {
+        path: path.join(__dirname, "buildOutput"),
+        filename: "[name].bundle.js"
+    },
 
     module: {
         loaders: [{

@@ -31,6 +31,8 @@
         "https://github.com/webpack-contrib/extract-text-webpack-plugin",
         "https://github.com/webpack-contrib/extract-text-webpack-plugin/blob/webpack-1/README.md",
         "https://github.com/webpack-contrib/extract-text-webpack-plugin/tree/webpack-1/example",
-        "https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/50#issuecomment-73011403"
+        "https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/50#issuecomment-73011403",
+        "https://rawgit.com/",
+        "http://stackoverflow.com/questions/13808020/include-an-svg-hosted-on-github-in-markdown"
     ]
 }
