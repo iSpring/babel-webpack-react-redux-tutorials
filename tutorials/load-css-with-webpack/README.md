@@ -1,8 +1,8 @@
-﻿<p align="center">
-  <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/CSS.png" />
-</p>
+﻿# 使用Webpack加载CSS、SASS、LESS资源并集成PostCSS
 
-# 使用Webpack加载CSS、SASS、LESS资源并集成PostCSS
+<p align="center">
+  <img with="80%" src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/images/CSS.png" />
+</p>
 
 本节将探讨如何使用Webpack加载CSS、SASS、LESS等资源，并结合PostCSS进行CSS后处理。
 
