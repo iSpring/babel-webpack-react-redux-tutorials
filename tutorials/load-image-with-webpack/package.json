@@ -24,8 +24,8 @@
   },
   "reference": [
     "https://survivejs.com/webpack/loading/images/",
-    "https://github.com/webpack-contrib/url-loader",
     "https://github.com/webpack-contrib/file-loader",
+    "https://github.com/webpack-contrib/url-loader",
     "http://tomasalabes.me/blog/_site/web-development/2016/12/10/Webpack-and-the-public-path.html",
     "https://stackoverflow.com/questions/28846814/what-does-publicpath-in-webpack-do"
   ]
