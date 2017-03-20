@@ -2,6 +2,9 @@ var path = require("path");
 
 var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
 
+var extractCSS = new ExtractTextWebpackPlugin("bundle.css");
+
+var extractTXT = new ExtractTextWebpackPlugin("bundle.txt");
 
 module.exports = {
     entry: "./index.js",
@@ -13,20 +16,24 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loader: 'babel'
+            loader: "babel"
         }, {
             test: /\.css$/,
-            loader: ExtractTextWebpackPlugin.extract("css!postcss")
+            loader: extractCSS.extract("css!postcss")
         }, {
             test: /\.scss$/,
-            loader: ExtractTextWebpackPlugin.extract("css!postcss!sass")
+            loader: extractCSS.extract("css!postcss!sass")
         }, {
             test: /\.less$/,
-            loader: ExtractTextWebpackPlugin.extract("css!postcss!less")
+            loader: extractCSS.extract("css!postcss!less")
+        }, {
+            test: /\.txt$/,
+            loader: extractTXT.extract("raw")
         }]
     },
 
     plugins: [
-        new ExtractTextWebpackPlugin("bundle.css")
+        extractCSS,
+        extractTXT
     ]
 };
