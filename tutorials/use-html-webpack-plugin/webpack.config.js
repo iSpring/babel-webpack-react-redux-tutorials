@@ -24,7 +24,8 @@ module.exports = {
         }]
     },
     plugins: [
-        extractPlugin
+        extractPlugin,
+        htmlPlugin
     ]
 };
 
