@@ -6,22 +6,22 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
         <tr>
             <td width="25%" border="0">
                 <a href="https://github.com/facebook/react">
-                    <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/images/React2.png" />
+                    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/images/React2.png" />
                 </a>
             </td>
             <td width="25%" border="0">
                 <a href="https://github.com/babel/babel">
-                    <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/images/Babel.png" />
+                    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/images/Babel.png" />
                 </a>
             </td>
             <td width="25%" border="0">
                 <a href="https://github.com/reactjs/redux">
-                    <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/images/Redux3.png" />
+                    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/images/Redux3.png" />
                 </a>
             </td>
             <td width="25%" border="0">
                 <a href="https://github.com/webpack/webpack">
-                    <img src="https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/images/Webpack1.png" />
+                    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/images/Webpack1.png" />
                 </a>
             </td>
         </tr>
