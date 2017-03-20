@@ -3,13 +3,13 @@ var path = require("path");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-    entry: {
-        main: "./src/main"
-    },
+    entry: "./src/index.js",
+
     output: {
         path: path.join(__dirname, "buildOutput"),
         filename: "bundle.js"
     },
+
     module: {
         loaders: [{
             test: /\.js$/,
