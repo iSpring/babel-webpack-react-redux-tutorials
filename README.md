@@ -45,7 +45,7 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   3. [使用Webpack加载CSS、SASS、LESS资源并集成PostCSS](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-css-with-webpack/README.md)
   4. [使用ExtractTextPlugin分离CSS以及文本文件](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-extract-text-webpack-plugin/README.md)
   5. [使用Webpack加载图片和SVG](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-image-with-webpack/README.md)
-  6. HtmlWebpackPlugin
+  6. [使用HtmlWebpackPlugin自动生成html文件](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-html-webpack-plugin/README.md)
   7. Webpack Code Splitting
   8. Webpack Common Chunk
   9. Webpack Dev Server
