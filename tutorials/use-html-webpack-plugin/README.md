@@ -74,7 +74,7 @@ module.exports = {
 
 我们通过`var htmlPlugin = new HtmlWebpackPlugin();`实例化了一个HtmlWebpackPlugin插件实例，并将其添加到`plugins`数组中。
 
-执行`npm start`进行打包，`buildOutput`输出目录下产生了三个文件：`bundle.js`、`bundle.css`和`index.html`。
+执行`npm start`进行打包，`bundleOutput`输出目录下产生了三个文件：`bundle.js`、`bundle.css`和`index.html`。
 
 `index.js`被打包成了`bundle.js`，`index.css`被ExtractTextWebpackPlugin插件打包成了`bundle.css`，`index.html`文件是HtmlWebpackPlugin插件自动生成的。
 
@@ -94,5 +94,46 @@ module.exports = {
 我们可以看到，`index.html`中包含了打包生成的`bundle.css`和`bundle.js`。
 
 ## 参数配置
+我们在实例化HtmlWebpackPlugin插件的时候，可以向其传递参数。
+
+我们修改如下所示：
+```
+var htmlPlugin = new HtmlWebpackPlugin({
+    title: 'Use HtmlWebpackPlugin',
+    filename: 'index.html',
+    favicon: './images/logo.png',
+    inject: 'body',
+    hash: true
+});
+```
+
+其他代码保持不变，再次执行`npm start`进行打包，`bundleOutput`输出目录下产生了四个文件：`bundle.js`、`bundle.css`、`index.html`和`logo.png`。
+
+生成的`index.html`内容如下所示：
+```
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Use HtmlWebpackPlugin</title>
+  <link rel="shortcut icon" href="logo.png"><link href="bundle.css?8c55e2b1a35ab37d37df" rel="stylesheet"></head>
+  <body>
+  <script type="text/javascript" src="bundle.js?8c55e2b1a35ab37d37df"></script></body>
+</html>
+```
+
+我们分别解释一下传递给`new HtmlWebpackPlugin(options)`的几个参数：
+
+ - title: 用于设置生成的html文件的`<title>`的值，默认是`Webpack App`
+ - filename: 指定生成的html文件的名字，默认是`index.html`
+ - favicon: 指定生成的html文件的`shortcut icon`，用于浏览器显示当前页面的小图标
+ - inject: 指定将`<script>`标签注入到html文件的什么位置
+   - 值为`true`或`'body'`时，会将`<script>`标签放置于`<body>`标签之后
+   - 值为`head`时，会将`<script>`标签放置于`<head>`标签内
+   - 值为`false`是，产生的JavaScript文件和CSS文件都不会注入到html中
+ - hash: `true|false` 当值为`true`时，在向html中注入JavaScript和CSS时，会将Webpack编译的hash值挂在打包的文件名后，而且所有的JavaScript和CSS使用同一个hash值，如`bundle.css?8c55e2b1a35ab37d37df`和`bundle.js?8c55e2b1a35ab37d37df`，只要需要编译的资源文件没有变化，那么无论进行多少次Webpack打包，hash值都不变，除非JavaScript或CSS等待打包资源被修改，那么Webpack打包会使用新的hash值。当值为`false`时，不设置hash值。
+
+ 以上只是`HtmlWebpackPlugin`插件的部分常用参数，更多信息可参考[完整配置](https://github.com/jantimon/html-webpack-plugin#configuration)。
+
 
 ## 使用模板
