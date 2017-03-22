@@ -24,6 +24,7 @@
         "http://webpack.github.io/docs/list-of-plugins.html",
         "https://github.com/ampedandwired/html-webpack-plugin",
         "https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md",
-        "https://webpack.js.org/plugins/html-webpack-plugin/"
+        "https://webpack.js.org/plugins/html-webpack-plugin/",
+        "https://github.com/okonet/ejs-loader"
     ]
 }

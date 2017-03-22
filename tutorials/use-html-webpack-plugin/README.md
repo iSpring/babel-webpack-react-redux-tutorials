@@ -137,3 +137,57 @@ var htmlPlugin = new HtmlWebpackPlugin({
 
 
 ## 使用模板
+我们还可以基于一个已经存在html模板生成我们最终的html文件。
+
+我们项目中有一个模板文件`template.html`，如下所示：
+```
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= htmlWebpackPlugin.options.description %></title>
+  <link rel="stylesheet" type="text/css" href="<%= htmlWebpackPlugin.options.bootstrap %>">
+  <script type="text/javascript" href="<%= htmlWebpackPlugin.options.jQuery %>"></script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
+```
+
+这个模板文件中想使用bootstrap和jQuery，已经写好了相应的`<link>`标签和`<script>`标签，但是还没有谁知具体的`href`，我们可以通过`HtmlWebpackPlugin`对其进行设置，我们再次修改实例化插件的代码，如下所示：
+```
+var htmlPlugin = new HtmlWebpackPlugin({
+    template: '!!ejs!./template.html',
+    description: 'Use HtmlWebpackPlugin',
+    bootstrap: 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css',
+    jQuery: 'http://code.jquery.com/jquery-1.12.4.min.js'
+});
+```
+
+首先，我们需要使用[ejs-loader](https://github.com/okonet/ejs-loader)编译模板文件，安装如下：
+```
+npm install --save-dev ejs-loader
+```
+
+将`template`的值设置为`'!!ejs!./template.html'`，表示使用`ejs-loader`编译模板文件。
+
+然后我们设置了三个自定义属性并为其赋值：`description`、`bootstrap`和`jQuery`。这三个值都会替换模板中的变量，生成最终的html文件。
+
+执行`npm start`进行打包，`bundleOutput`输出目录下产生了三个文件：`bundle.js`、`bundle.css`和`index.html`。
+
+生成的`index.html`文件如下所示：
+```
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Use HtmlWebpackPlugin</title>
+  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script type="text/javascript" href="http://code.jquery.com/jquery-1.12.4.min.js"></script>
+<link href="bundle.css" rel="stylesheet"></head>
+<body>
+  <div id="root"></div>
+<script type="text/javascript" src="bundle.js"></script></body>
+</html>
+```
+
+由此可见，模板`template.html`结合我们传入的变量正确生成了最终的html文件。
