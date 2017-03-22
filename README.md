@@ -50,19 +50,16 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   8. Webpack Common Chunk
   9. Webpack Dev Server
   10. Webpack Source Maps
-  11. Webpack vs Browserify
 
 - React
-  1. React简介
-  2. JSX语法
-  3. React组件
-  4. React组件状态与生命周期
-  5. React组件事件
-  6. React组件ref
+  1. JSX语法
+  2. React组件
+  3. React组件状态与生命周期
+  4. React组件事件
+  5. React组件ref
 
 - Redux
-  1. Redux简介
-  2. Redux使用基础
+  1. Redux使用基础
   2. Redux中间件
   3. Redux异步中间件
   4. redux-combineReducers
