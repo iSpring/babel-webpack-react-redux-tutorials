@@ -234,7 +234,7 @@ ECMAScript以后每年将会发布一个新版本，这无疑将持续促使浏�
 今天的前端已经不再是网页诞生之初的样子，每天都有新的技术框架涌现。
 
 ```
-GitHub + NPM/BOWER ES6/ES7/Babel/TypeScript + HTML5 + CSS3/SASS/LESS/PostCSS + React/Vue/Angular + Webpack/Browserify/Gulp/Grunt + Node.js/Express/KOA + Hybrid
+GitHub + NPM/BOWER + ES6/ES7/Babel/TypeScript + HTML5 + CSS3/SASS/LESS/PostCSS + React/Vue/Angular + Webpack/Browserify/Gulp/Grunt + Node.js/Express/KOA + Hybrid
 ```
 
 这就是今天的前端。
