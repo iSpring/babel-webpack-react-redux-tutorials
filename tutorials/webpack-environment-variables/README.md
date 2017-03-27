@@ -164,7 +164,7 @@ if(process.env.NODE_ENV === 'production'){
 
 上面的代码判断是用Node.js运行时的环境变量`NODE_ENV`进行判断的，对应`process.env.NODE_ENV`。
 
-如果此时执行`npm run build:prod`用Webpack进行打包，我们会在`bundle.js`中看到如下的代码：
+如果此时执行`npm run build:prod`用Webpack进行打包，产生的`bundle.js`中`utils.js`代码如下所示：
 ```
 ...
 /* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -210,5 +210,95 @@ if(process.env.NODE_ENV === 'production'){
 
 为了让我们的源代码在编译打包时能够读取Node.js环境变量，我们可以使用`DefinePlugin`插件。
 
+我们修改`webpack.config.js`配置，如下所示：
+```
+...
+var path = require("path");
+
+var webpack = require('webpack');
+
+module.exports = {
+  entry: "./src/index.js",
+
+  output: {
+    path: path.join(__dirname, "buildOutput"),
+    filename: "bundle.js"
+  },
+
+  module: {
+    loaders: [{
+      test: /\.js$/,
+      loader: 'babel'
+    }]
+  },
+
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV | "development")
+    })
+  ]
+};
+```
+
+我们为实例化了一个`webpack.DefinePlugin`类型的插件，并将其放入了`plugins`数组中。
+
+该插件接收一个对象参数，key表示的是要被替换的字面量，value表示用什么值替换该字面量。比如，当执行`npm run build:prod`时，环境变量`NODE_ENV`的值为`production`，那么Webpack会将源码`index.js`、`utils.js`中所有用到`progress.env.NODE_ENV`的地方都被替换成`"production"`，注意两边有引号。
+
+执行`npm run build:prod`后产生的`bundle.js`中`utils.js`代码如下所示：
+```
+...
+/***/ function(module, exports, __webpack_require__) {
+
+  'use strict';
+
+  if (true) {
+    //for production
+    exports.max = function () {
+      return Math.max.apply(null, arguments);
+    };
+
+    exports.min = function () {
+      return Math.min.apply(null, arguments);
+    };
+  } else {
+    //for development
+    exports.max = function () {
+      var result = Infinity;
+      for (var i = 0; i < arguments.length; i++) {
+        if (arguments[i] < result) {
+          result = arguments[i];
+        }
+      }
+      return result;
+    };
+
+    exports.min = function () {
+      var result = -Infinity;
+      for (var i = 0; i < arguments.length; i++) {
+        if (arguments[i] > result) {
+          result = arguments[i];
+        }
+      }
+      return result;
+    };
+  }
+...
+```
+
+我们在`DefinePlugin`中配置了`'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV | "development")`，
+因此
+
+```
+if(process.env.NODE_ENV === 'production')
+```
+会被Webpack修改为
+```
+if('production' === 'production')
+```
+
+所以在`bundle.js`中会看到代码
+```
+if(true)
+```
 
 ## EnvironmentPlugin
