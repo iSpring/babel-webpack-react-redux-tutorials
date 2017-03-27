@@ -1,0 +1,16 @@
+{
+  "name": "build-tools-comparison",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "reference": [
+    "https://survivejs.com/webpack/appendices/comparison/",
+    "https://www.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/",
+    "http://www.ruanyifeng.com/blog/2016/10/npm_scripts.html"
+  ]
+}
