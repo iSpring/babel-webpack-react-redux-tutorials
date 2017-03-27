@@ -23,6 +23,7 @@
   },
   "reference": [
     "https://survivejs.com/webpack/optimizing/setting-environment-variables/",
+    "https://webpack.js.org/plugins/define-plugin/",
     "https://webpack.js.org/plugins/environment-plugin/",
     "https://babeljs.io/docs/plugins/transform-inline-environment-variables/"
   ]
