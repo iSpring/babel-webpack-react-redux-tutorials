@@ -1,0 +1,29 @@
+{
+  "name": "webpack-environment-variables",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf buildOutput",
+    "prebuild:dev": "npm run clear",
+    "build:dev": "cross-env NODE_ENV=development webpack --progress --colors",
+    "prebuild:prod": "npm run clear",
+    "build:prod": "cross-env NODE_ENV=production webpack --progress --colors",
+    "start": "npm run build:dev"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.18.2",
+    "babel-loader": "^6.2.7",
+    "babel-preset-es2015": "^6.18.0",
+    "cross-env": "^3.2.4",
+    "rimraf": "^2.5.4",
+    "webpack": "^1.13.3"
+  },
+  "reference": [
+    "https://survivejs.com/webpack/optimizing/setting-environment-variables/",
+    "https://webpack.js.org/plugins/environment-plugin/",
+    "https://babeljs.io/docs/plugins/transform-inline-environment-variables/"
+  ]
+}

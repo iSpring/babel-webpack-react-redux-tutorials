@@ -34,6 +34,8 @@
         "https://github.com/webpack-contrib/extract-text-webpack-plugin/issues/50#issuecomment-73011403",
         "https://github.com/webpack-contrib/raw-loader",
         "https://rawgit.com/",
-        "http://stackoverflow.com/questions/13808020/include-an-svg-hosted-on-github-in-markdown"
+        "http://stackoverflow.com/questions/13808020/include-an-svg-hosted-on-github-in-markdown",
+        "https://survivejs.com/webpack/styling/separating-css/",
+        "https://survivejs.com/webpack/optimizing/adding-hashes-to-filenames/"
     ]
 }
