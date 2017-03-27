@@ -1,7 +1,7 @@
 ﻿
 # Webpack中使用环境变量
 
-本文将介绍如何使用DefinePlugin、cross-env、EnvironmentPlugin为Webpack定义环境变量。
+本文将介绍如何使用cross-env、DefinePlugin、EnvironmentPlugin为Webpack定义环境变量。
 
 项目目录结构如下所示：
 ```
@@ -104,6 +104,29 @@ if(process.env.NODE_ENV === 'production'){
 ```
 
 我们想通过`process.env.NODE_ENV`判断当前运行在生产环境（线上部署）还是开发环境。
+
+在Linux平台上，我们可以定义如下npm script设置环境变量：
+```
+start_linux: NODE_ENV=production webpack
+```
+
+在Windows平台上，上面的脚本不能使用，我们可以定义如下npm script设置环境变量：
+```
+start_windows:set NODE_ENV=production && webpack
+```
+
+不同操作系统设置环境变量的方法不同，为此我们可以使用[cross-env](https://www.npmjs.com/package/cross-env)这个npm模块，它可以为我们解决跨平台设置环境变量的问题。
+
+安装如下所示：
+
+```
+npm install --save-dev cross-env
+```
+
+在使用时，我们只需要定义如下的npm script即可跨平台设置环境变量：
+```
+start: cross-env NODE_ENV=production webpack
+```
 
 ## DefinePlugin
 
