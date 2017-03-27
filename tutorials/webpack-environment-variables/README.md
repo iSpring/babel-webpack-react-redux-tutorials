@@ -18,53 +18,6 @@ Project
   |  |--utils.js
 ```
 
-`index.js`是入口文件，其引入了`utils.js`，如下所示：
-```
-import utils from './utils';
-
-var max = utils.max(1, 2, 3, 4, 5, 6, 7, 8, 9);
-console.log("max: ", max);
-
-var min = utils.min(1, 2, 3, 4, 5, 6, 7, 8, 9);
-console.log("min: ", min);
-
-```
-
-`utils.js`代码如下所示：
-```
-if(process.env.NODE_ENV === 'production'){
-  //for production
-  exports.max = function(){
-    return Math.max.apply(null, arguments);
-  };
-
-  exports.min = function(){
-    return Math.min.apply(null, arguments);
-  };
-}else{
-  //for development
-  exports.max = function(){
-    var result = Infinity;
-    for(var i = 0; i < arguments.length; i++){
-      if(arguments[i] < result){
-        result = arguments[i];
-      }
-    }
-    return result;
-  };
-
-  exports.min = function(){
-    var result = -Infinity;
-    for(var i = 0; i < arguments.length; i++){
-      if(arguments[i] > result){
-        result = arguments[i];
-      }
-    }
-    return result;
-  };
-}
-```
-
 ## cross-env
 
 我们知道，Webpack的配置文件是`webpack.config.js`，它是一个普通的CommonJS模块，当我们用Webpack进行打包时，Webpack会在Node.js运行环境中读取该模块。
@@ -160,12 +113,60 @@ if(process.env.NODE_ENV === 'production'){
 
 ## DefinePlugin
 
-在实际开发中build出的代码与线上部署的代码是有不同的，比如线上部署的代码要求进行混淆、压缩等优化处理，但是这些优化对于开发环境作用不明显，但是却会增加开发调试的难度。再比如在开发环境中，我们会对一些操作进行控制台输出，但是线上环境却不能这样。为了让开发过程build出的代码和线上部署的代码不同，我们需要有一个或多个开关对代码进行控制标识，告诉Webpack要在什么环境下进行打包。
+`index.js`是项目的入口文件，其引入了`utils.js`，如下所示：
+```
+import utils from './utils';
+
+var max = utils.max(1, 2, 3, 4, 5, 6, 7, 8, 9);
+console.log("max: ", max);
+
+var min = utils.min(1, 2, 3, 4, 5, 6, 7, 8, 9);
+console.log("min: ", min);
+
+```
+
+`utils.js`代码如下所示：
+```
+if(process.env.NODE_ENV === 'production'){
+  //for production
+  exports.max = function(){
+    return Math.max.apply(null, arguments);
+  };
+
+  exports.min = function(){
+    return Math.min.apply(null, arguments);
+  };
+}else{
+  //for development
+  exports.max = function(){
+    var result = Infinity;
+    for(var i = 0; i < arguments.length; i++){
+      if(arguments[i] < result){
+        result = arguments[i];
+      }
+    }
+    return result;
+  };
+
+  exports.min = function(){
+    var result = -Infinity;
+    for(var i = 0; i < arguments.length; i++){
+      if(arguments[i] > result){
+        result = arguments[i];
+      }
+    }
+    return result;
+  };
+}
+```
 
 我们在`utils.js`中，分别为production环境和development环境分别定义了不同的模块实现，这样就可以在production环境中运行生产环境的代码，在development中运行开发环境的代码。
 
-上面的代码判断是用Node.js运行时的环境变量`NODE_ENV`进行判断的，对应`process.env.NODE_ENV`。如果此时进行Webpack打包，我们会在`bundle.js`中看到如下的代码：
+上面的代码判断是用Node.js运行时的环境变量`NODE_ENV`进行判断的，对应`process.env.NODE_ENV`。
+
+如果此时执行`npm run build:prod`用Webpack进行打包，我们会在`bundle.js`中看到如下的代码：
 ```
+...
 /* WEBPACK VAR INJECTION */(function(process) {'use strict';
 
   if (process.env.NODE_ENV === 'production') {
@@ -200,6 +201,14 @@ if(process.env.NODE_ENV === 'production'){
     };
   }
   /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+...
 ```
+
+这样build出来的代码是错误的，在打开`index.html`页面的时候，`bundle.js`中的代码会读取`window.progress.env.NODE_ENV`，但是`window`不存在`progress`属性。
+
+我们想用`progress.env.NODE_ENV`进行打包判断的真正意图是让Webpack在打包时进行区分，但是由于源代码`index.js`、`utils.js`不是运行在Node.js环境中的，所以其无法读取Node.js环境变量。
+
+为了让我们的源代码在编译打包时能够读取Node.js环境变量，我们可以使用`DefinePlugin`插件。
+
 
 ## EnvironmentPlugin
