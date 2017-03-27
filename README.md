@@ -46,10 +46,11 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   4. [使用ExtractTextPlugin分离CSS以及文本文件](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-extract-text-webpack-plugin/README.md)
   5. [使用Webpack加载图片和SVG](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-image-with-webpack/README.md)
   6. [使用HtmlWebpackPlugin自动生成html文件](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-html-webpack-plugin/README.md)
-  7. Webpack Code Splitting
-  8. Webpack Common Chunk
-  9. Webpack Dev Server
-  10. Webpack Source Maps
+  7. [Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
+  8. Webpack Code Splitting
+  9. Webpack Common Chunk
+  10. Webpack Dev Server
+  11. Webpack Source Maps
 
 - React
   1. JSX语法

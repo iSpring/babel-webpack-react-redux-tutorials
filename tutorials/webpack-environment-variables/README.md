@@ -1,5 +1,5 @@
 ﻿
-# Webpack中使用环境变量
+# [Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
 
 本文将介绍如何使用cross-env、DefinePlugin、EnvironmentPlugin为Webpack定义环境变量。
 
@@ -22,7 +22,7 @@ Project
 
 我们知道，Webpack的配置文件是`webpack.config.js`，它是一个普通的CommonJS模块，当我们用Webpack进行打包时，Webpack会在Node.js运行环境中读取该模块。
 
-在`webpack.config.js`中，可以通过`progress.env`读取Node.js运行环境中的环境变量。
+在`webpack.config.js`中，可以通过`process.env`读取Node.js运行环境中的环境变量。
 
 `webpack.config.js`配置如下：
 ```
@@ -204,9 +204,9 @@ if(process.env.NODE_ENV === 'production'){
 ...
 ```
 
-这样build出来的代码是错误的，在打开`index.html`页面的时候，`bundle.js`中的代码会读取`window.progress.env.NODE_ENV`，但是`window`不存在`progress`属性。
+这样build出来的代码是错误的，在打开`index.html`页面的时候，`bundle.js`中的代码会读取`window.process.env.NODE_ENV`，但是`window`不存在`process`属性。
 
-我们想用`progress.env.NODE_ENV`进行打包判断的真正意图是让Webpack在打包时进行区分，但是由于源代码`index.js`、`utils.js`不是运行在Node.js环境中的，所以其无法读取Node.js环境变量。
+我们想用`process.env.NODE_ENV`进行打包判断的真正意图是让Webpack在打包时进行区分，但是由于源代码`index.js`、`utils.js`不是运行在Node.js环境中的，所以其无法读取Node.js环境变量。
 
 为了让我们的源代码在编译打包时能够读取Node.js环境变量，我们可以使用`DefinePlugin`插件。
 
@@ -242,7 +242,7 @@ module.exports = {
 
 我们为实例化了一个`webpack.DefinePlugin`类型的插件，并将其放入了`plugins`数组中。
 
-该插件接收一个对象参数，key表示的是要被替换的字面量，value表示用什么值替换该字面量。比如，当执行`npm run build:prod`时，环境变量`NODE_ENV`的值为`production`，那么Webpack会将源码`index.js`、`utils.js`中所有用到`progress.env.NODE_ENV`的地方都被替换成`"production"`，注意两边有引号。
+该插件接收一个对象参数，key表示的是要被替换的字面量，value表示用什么值替换该字面量。比如，当执行`npm run build:prod`时，环境变量`NODE_ENV`的值为`production`，那么Webpack会将源码`index.js`、`utils.js`中所有用到`process.env.NODE_ENV`的地方都被替换成`"production"`，注意两边有引号。
 
 执行`npm run build:prod`后产生的`bundle.js`中`utils.js`代码如下所示：
 ```
@@ -318,8 +318,18 @@ function(n,t,r){"use strict";t.max=function(){return Math.max.apply(null,argumen
 ...
 ```
 
+需要注意的是，由于Webpack只是简单将字面量替换成我们给定的值，所以对于字符串类型的值，我们需要调用`JSON.stringify()`，如果传入的是字符串`production`，那么得到带引号的`"production"`。如果不调用`JSON.stringify()`，那么`bundle.js`中会出现如下的代码
+```
+if ((production) === 'production')
+```
+这显然是不对的，所以对于字符串类型的值，需要使用`JSON.stringify()`。
+
+对于boolean值，我们不能调用`JSON.stringify()`，否则会导致`JSON.stringify("false")` => `"false"`，这样Webpack在计算字符串`"false"`的值是会得到`true`，这是错误的，所以对于boolean值，不能调用`JSON.stringify()`。
+
+同样，对于number值，我们也不能调用`JSON.stringify()`。
+
 ## EnvironmentPlugin
-Webpack还提供了`EnvironmentPlugin`插件，该插件是对`DefinePlugin`插件的包装，它可以方便地将Node.js环境变量的值直接替换掉项目源代码中`progress.env.XXX`等字面量。
+Webpack还提供了`EnvironmentPlugin`插件，该插件是对`DefinePlugin`插件的包装，它可以方便地将Node.js环境变量的值直接替换掉项目源代码中`process.env.XXX`等字面量。
 
 比如
 ```

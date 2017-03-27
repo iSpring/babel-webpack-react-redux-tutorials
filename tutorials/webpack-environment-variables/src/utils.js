@@ -29,3 +29,10 @@
     return result;
   };
 }
+
+if(__DEV__ > 10){
+  console.log("development environment");
+}else{
+  console.log("production environment");
+}
+
