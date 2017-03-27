@@ -1,5 +1,5 @@
 ﻿
-# [Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
+# [在Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
 
 本文将介绍如何使用cross-env、DefinePlugin、EnvironmentPlugin为Webpack定义环境变量。
 
