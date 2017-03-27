@@ -20,14 +20,12 @@ module.exports = {
   plugins: []
 };
 
-console.log(process.env.NODE_ENV);
 
-
-// if(process.env.NODE_ENV === 'production'){
-//   console.log("production environment");
-// }else{
-//   console.log("development environment");
-// }
+if(process.env.NODE_ENV === 'production'){
+  console.log("production environment");
+}else{
+  console.log("development environment");
+}
 
 // new webpack.DefinePlugin({
     //   'process.env.NODE_ENV': JSON.stringify('production')

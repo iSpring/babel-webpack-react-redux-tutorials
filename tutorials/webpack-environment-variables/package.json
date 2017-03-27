@@ -25,6 +25,7 @@
     "https://survivejs.com/webpack/optimizing/setting-environment-variables/",
     "https://webpack.js.org/plugins/define-plugin/",
     "https://webpack.js.org/plugins/environment-plugin/",
+    "http://stackoverflow.com/questions/30030031/passing-environment-dependent-variables-in-webpack",
     "https://babeljs.io/docs/plugins/transform-inline-environment-variables/"
   ]
 }

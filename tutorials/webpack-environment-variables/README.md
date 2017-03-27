@@ -67,9 +67,9 @@ if(process.env.NODE_ENV === 'production'){
 
 ## cross-env
 
-我们知道，Webpack的配置文件是`webpack.config.js`，它是一个普通的CommonJS模块，当我们用Webpack进行打包时，Webpack会在Node.js运行环境中读模块。
+我们知道，Webpack的配置文件是`webpack.config.js`，它是一个普通的CommonJS模块，当我们用Webpack进行打包时，Webpack会在Node.js运行环境中读取该模块。
 
-`webpack.config.js`中可以通过`progress.env`读取Node.js运行环境中的环境变量。
+在`webpack.config.js`中，可以通过`progress.env`读取Node.js运行环境中的环境变量。
 
 `webpack.config.js`配置如下：
 ```
@@ -127,6 +127,36 @@ npm install --save-dev cross-env
 ```
 start: cross-env NODE_ENV=production webpack
 ```
+
+我们配置`package.json`中的`scripts`如下所示：
+```
+"scripts": {
+  "clear": "rimraf buildOutput",
+  "prebuild:dev": "npm run clear",
+  "build:dev": "cross-env NODE_ENV=development webpack --progress --colors",
+  "prebuild:prod": "npm run clear",
+  "build:prod": "cross-env NODE_ENV=production webpack --progress --colors",
+  "start": "npm run build:dev"
+}
+```
+
+我们为`build:dev`这个npm script设置了`NODE_ENV=development`，该npm script用于开发环境打包；为`build:prod`这个npm script设置了`NODE_ENV=production`，该npm script用于生产环境打包。
+
+我们执行`npm run build:dev`，进行开发环境打包，在控制台中可以看到如下输出结果：
+<div align="center">
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-environment-variables/images/1.png" />
+</div>
+
+由此可以看到通过`cross-env`，我们正确设置了环境变量。
+
+我们可以在`webpack.config.js`中根据根据环境变量进行不同的设置，比如
+```
+if(process.env.NODE_ENV === 'production'){
+    module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
+```
+
+以上代码表示在为生产环境进行打包时，我们需要将代码进行混淆压缩，对于开发环境不需要进行此项设置。
 
 ## DefinePlugin
 
