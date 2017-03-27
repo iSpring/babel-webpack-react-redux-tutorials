@@ -97,7 +97,7 @@ start: cross-env NODE_ENV=production webpack
 
 我们执行`npm run build:dev`，进行开发环境打包，在控制台中可以看到如下输出结果：
 <div align="center">
-  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-environment-variables/images/1.png" />
+  <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/webpack-environment-variables/images/1.png" />
 </div>
 
 由此可以看到通过`cross-env`，我们正确设置了环境变量。
@@ -296,9 +296,38 @@ if(process.env.NODE_ENV === 'production')
 if('production' === 'production')
 ```
 
-所以在`bundle.js`中会看到代码
+所以在`bundle.js`中会看到最终代码
 ```
 if(true)
 ```
 
+这样在生产环境中运行的就是生产环境相关的代码。
+
+但是还有一个问题，我们在生产环境中也包含了开发环境相关的代码，这些开发环境相关的代码在生产环境中不会使用到，属于`dead code`，我们在打包时最好将这些`dead code`去掉，这样可以减小打包后的代码体积。
+
+为此，我们可以使用之前提到过的`UglifyJsPlugin`，使用如下所示：
+
+```
+module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
+```
+
+这样build出来的代码不会包含`dead code`这样的无用代码，而且代码还会被压缩混淆，如下所示：
+```
+...
+function(n,t,r){"use strict";t.max=function(){return Math.max.apply(null,arguments)},t.min=function(){return Math.min.apply(null,arguments)}}
+...
+```
+
 ## EnvironmentPlugin
+Webpack还提供了`EnvironmentPlugin`插件，该插件是对`DefinePlugin`插件的包装，它可以方便地将Node.js环境变量的值直接替换掉项目源代码中`progress.env.XXX`等字面量。
+
+比如
+```
+new webpack.EnvironmentPlugin(['NODE_ENV'])
+```
+等价于
+```
+new webpack.DefinePlugin({
+  'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+})
+```

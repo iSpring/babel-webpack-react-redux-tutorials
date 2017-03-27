@@ -18,25 +18,15 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || "development")
-    })
+    // new webpack.DefinePlugin({
+    //   'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || "development")
+    // })
+
+    new webpack.EnvironmentPlugin(['NODE_ENV'])
   ]
 };
 
 
-
-// new webpack.DefinePlugin({
-    //   'process.env.NODE_ENV': JSON.stringify('production')
-    // })
-
-
-    // new webpack.EnvironmentPlugin(['NODE_ENV'])
-
-    // new webpack.EnvironmentPlugin({
-    //   NODE_ENV: 'development'
-    // })
-
-// if(process.env.NODE_ENV === 'production'){
-//     module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
-// }
+if(process.env.NODE_ENV === 'production'){
+    module.exports.plugins.push(new webpack.optimize.UglifyJsPlugin());
+}
