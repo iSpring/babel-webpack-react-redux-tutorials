@@ -1,23 +1,24 @@
 {
-  "name": "webpack-code-splitting",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "clear": "rimraf buildOutput",
-    "prebuild": "npm run clear",
-    "build": "webpack",
-    "start": "npm run build"
-  },
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "html-webpack-plugin": "^2.28.0",
-    "rimraf": "^2.5.4",
-    "webpack": "^1.13.3"
-  },
-  "reference": [
-    "https://webpack.github.io/docs/code-splitting.html",
-    "https://github.com/webpack/webpack/tree/master/examples/code-splitting"
-  ]
+    "name": "webpack-code-splitting",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "clear": "rimraf buildOutput",
+        "prebuild": "npm run clear",
+        "build": "webpack",
+        "start": "npm run build"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "html-webpack-plugin": "^2.28.0",
+        "rimraf": "^2.5.4",
+        "webpack": "^1.13.3"
+    },
+    "reference": [
+        "https://webpack.github.io/docs/code-splitting.html",
+        "http://webpack.github.io/docs/configuration.html#entry",
+        "https://github.com/webpack/webpack/tree/master/examples/code-splitting"
+    ]
 }
