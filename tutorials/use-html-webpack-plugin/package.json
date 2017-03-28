@@ -22,6 +22,7 @@
     },
     "reference": [
         "http://webpack.github.io/docs/list-of-plugins.html",
+        "https://webpack.js.org/plugins/extract-text-webpack-plugin/",
         "https://github.com/ampedandwired/html-webpack-plugin",
         "https://github.com/ampedandwired/html-webpack-plugin/blob/master/docs/template-option.md",
         "https://webpack.js.org/plugins/html-webpack-plugin/",

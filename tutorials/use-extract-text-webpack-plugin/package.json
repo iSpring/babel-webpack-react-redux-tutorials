@@ -28,6 +28,7 @@
     },
     "reference": [
         "https://webpack.github.io/docs/stylesheets.html",
+        "https://webpack.js.org/plugins/extract-text-webpack-plugin/",
         "https://github.com/webpack-contrib/extract-text-webpack-plugin",
         "https://github.com/webpack-contrib/extract-text-webpack-plugin/blob/webpack-1/README.md",
         "https://github.com/webpack-contrib/extract-text-webpack-plugin/tree/webpack-1/example",
