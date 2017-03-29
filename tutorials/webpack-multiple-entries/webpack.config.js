@@ -7,26 +7,30 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 var htmlPlugin = new HtmlWebpackPlugin();
 
 module.exports = {
+    //output.filename always must be set because it set entry chunk file name.
+    //output.chunkFilename is only used for non-entry chunk and will be ignored for entry chunk.
+
     /*
-    //if entry is a single string, only one chunk file created, must set output.filename and output.chunkFilename is ignored
+    //If entry is a single string, only one chunk file created, must set output.filename. In this case, output.chunkFilename is ignored.
     entry: "./src/page1.js",
     output: {
         path: path.join(__dirname, "buildOutput"),
-        filename: "page1.bundle.js",//=>page1.bundle.js
-        // filename: "[name].bundle.js"//=>main.bundle.js
-        // filename: "[id].bundle.js"//=>0.bundle.js
+        filename: "page1.bundle.js",//=>page1.bundle.js(chunk id: 0, chunk name: main)
+        // filename: "[id].[name].bundle.js"//=>0.main.bundle.js(chunk id: 0, chunk name: main)
     },*/
 
+
     /*
-    //if entry is an array, still only create one chunk file, must set output.filename and output.chunkFilename is ignored
+    //If entry is an array, still only create one chunk file, must set output.filename. In this case, output.chunkFilename is ignored.
     entry: ["./src/page1.js", "./src/page2.js"],
     output: {
         path: path.join(__dirname, "buildOutput"),
-        filename: "page12.bundle.js"//=>page12.bundle.js
-        // filename: "[name].bundle.js"//=>main.bundle.js
-        // filename: "[id].bundle.js"//=>0.bundle.js
+        filename: "page12.bundle.js"//=>page12.bundle.js(chunk id: 0, chunk name: main)
+        // filename: "[id].[name].bundle.js"//=>0.main.bundle.js(chunk id: 0, chunk name: main)
     },*/
 
+
+    //If entry is an object, every key/value will create a chunk file. We can use key as [name]. We must set output.filename. In this case, output.chunkFilename is ignored.
     entry: {
         page1: ["./src/page1.js"],
         page2: ["./src/page2.js"]
