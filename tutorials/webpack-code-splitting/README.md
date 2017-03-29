@@ -49,7 +49,7 @@ module.exports = "module d";
 
 我们首先看一下最简单的`entry chunk`。
 
-## entry chunk
+## 1. entry chunk
 `page1.js`中引入了`a.js`和`b.js`模块，如下所示：
 ```
 import a from "./a.js";
@@ -68,7 +68,7 @@ console.log("module c: ", c);
 console.log("module d: ", d);
 ```
 
-### string entry
+### 1.1 string entry
 `webpack.config.js`中的`entry`用于设置打包的入口文件，即要将哪些资源进行打包。`output.path`、`output.filename`分别用于设置打包的输出目录和输出文件。
 
 我们将`webpack.config.js`配置如下所示：
@@ -89,13 +89,13 @@ output: {
 `page1.bundle.js` = webpack runtime + a.js + b.js
 ```
 
-我们再次做点修改，将filename设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有entry chunk这一种chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可。
+我们对`filename`做点修改，将设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有entry chunk这一种chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可。
 
-### array entry
+### 1.2 array entry
 
-### object entry
+### 1.3 object entry
 
-## normal chunk
+## 2. normal chunk
 `page3.js`文件如下所示：
 ```
 import a from "./a.js";
