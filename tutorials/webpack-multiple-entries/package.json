@@ -23,6 +23,7 @@
   "reference": [
     "https://github.com/webpack/docs/wiki/configuration#entry",
     "http://webpack.github.io/docs/configuration.html#entry",
-    "http://webpack.github.io/docs/code-splitting.html"
+    "http://webpack.github.io/docs/code-splitting.html",
+    "https://github.com/webpack/webpack/tree/master/examples/code-splitting"
   ]
 }
