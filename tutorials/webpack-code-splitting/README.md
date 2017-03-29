@@ -68,8 +68,10 @@ console.log("module c: ", c);
 console.log("module d: ", d);
 ```
 
-### 1.1 string entry
+### 1.1 entry为字符串
 `webpack.config.js`中的`entry`用于设置打包的入口文件，即要将哪些资源进行打包。`output.path`、`output.filename`分别用于设置打包的输出目录和输出文件。
+
+当`entry`的值为字符串路径时，这个`entry`属于单一入口(single entry)。
 
 我们将`webpack.config.js`配置如下所示：
 ```
@@ -80,7 +82,7 @@ output: {
 }
 ```
 
-`page1.js`中引入了`a.js`和`b.js`模块，执行`npm start`进行打包，在`buildOutput`目录下生成打包文件`page1.bundle.js`，该文件就是一个入口chunk(entry chunk)，即根据entry生成的打包文件。
+此处，我们将`entry`配置成一个stirng值，即一个文件路径。`page1.js`中引入了`a.js`和`b.js`模块，执行`npm start`进行打包，在`buildOutput`目录下生成打包文件`page1.bundle.js`，该文件就是一个入口chunk(entry chunk)，即根据entry生成的打包文件。
 
 打开`page1.bundle.js`文件我们可以看到包含很多类似于`__webpack_require__()`之类的函数，通过这些方法可以在浏览器中加载相应的模块资源，我们把这些方法叫做`webpack runtime`，即webpack运行时代码逻辑。
 
@@ -89,11 +91,55 @@ output: {
 `page1.bundle.js` = webpack runtime + a.js + b.js
 ```
 
-我们对`filename`做点修改，将设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有entry chunk这一种chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可。
+我们对`filename`做点修改，将设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有一个entry chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可，我们会后面的multiple entry中讲解`"[id].[name].bundle.js"`的使用场景。
 
-### 1.2 array entry
+### 1.2 entry为字符串数组
+`entry`还可以配置为一个string数组，这种`entry`也属于单一入口(single entry)。
 
-### 1.3 object entry
+修改`webpack.config.js`如下所示：
+```
+entry: ["./src/page1.js", "./src/page2.js"],
+output: {
+    path: path.join(__dirname, "buildOutput"),
+    filename: "page12.bundle.js"
+}
+```
+
+我们将`entry`设置为string数组，每个string表示一个路径，Webpack会将每个路径所对应的文件一起打包，生成一个打包文件。执行`npm start`，在`buildOutput`目录下生成打包文件`page12.bundle.js`。
+
+```
+page12.bundle.js = webpack runtime + a.js + b.js + c.js + d.js
+```
+
+`page12.bundle.js`是一个entry chunk，其chunk id为0，chunk name为`main`，可以设置`filename: "[id].[name].bundle.js"`进行验证。
+
+### 1.3 entry为Object对象
+当`entry`的值为字符串路径或者是字符串路径数组时，这种`entry`也属于单一入口(single entry)。一般情况下，single entry打包会生成一个输出文件（不考虑Code Splitting）。
+
+当`entry`的值为Object对象时，这种`entry`叫做多入口(multiple entry)。一般情况下，multiple entry打包会生成多个输出文件。
+
+我们修改`webpack.config.js`如下所示：
+```
+entry: {
+    page1: ["./src/page1.js"],
+    page2: ["./src/page2.js"]
+},
+output: {
+    path: path.join(__dirname, "buildOutput"),
+    filename: "[id].[name].bundle.js
+}
+```
+
+执行`npm start`进行打包，在`buildOutput`目录下生成打包文件`0.page1.bundle.js`和`1.page2.bundle.js`。
+
+当`entry`的值为Object对象时，该对象中的每个key-value键值对都会创建一个entry chunk，其key值相当于chunk name，value值表示该entry chunk要打包哪些资源文件，value值可以为字符串路径或字符串路径数组。在本例中，key分别为`page1`和`page2`，所以会产生两个entry chunk。
+
+```
+0.page1.bundle.js = webpack runtime + a.js + b.js
+
+1.page2.bundle.js = webpack runtime + c.js + d.js
+```
+
 
 ## 2. normal chunk
 `page3.js`文件如下所示：
