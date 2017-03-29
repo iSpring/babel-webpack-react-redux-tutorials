@@ -14,8 +14,8 @@ Project
   |--index.html
   |--webpack.config.js
   |--src
-  |  |--index.js
-  |  |--utils.js
+     |--index.js
+     |--utils.js
 ```
 
 ## cross-env
