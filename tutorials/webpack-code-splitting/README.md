@@ -43,6 +43,11 @@ module.exports = "module d";
 
 如上所示，`a.js`、`b.js`、`c.js`、`d.js`这四个文件都是普通的CommonJS模块。
 
+`chunk`，英文直译过来是`数据块`的意思，我们可以把一个`chunk`看做是一个文件，这个文件里可以包含一个或多个模块（比如a.js、b.js等）。
+
+`chunk`总的来说可以分为`entry chunk`和`normal chunk`，`normal chunk`指的就是`non-entry chunk`。
+
+我们首先看一下最简单的`entry chunk`。
 
 ## entry chunk
 `page1.js`中引入了`a.js`和`b.js`模块，如下所示：
@@ -63,13 +68,28 @@ console.log("module c: ", c);
 console.log("module d: ", d);
 ```
 
-`chunk`，英文直译过来是`数据块`的意思，我们可以把一个`chunk`看做是一个文件，这个文件里可以包含一个或多个模块（比如a.js、b.js等）。
-
-`chunk`总的来说可以分为`entry chunk`和`normal chunk`，`normal chunk`指的就是`non-entry chunk`。
-
-我们首先看一下最简单的`entry chunk`。
-
 ### string entry
+`webpack.config.js`中的`entry`用于设置打包的入口文件，即要将哪些资源进行打包。`output.path`、`output.filename`分别用于设置打包的输出目录和输出文件。
+
+我们将`webpack.config.js`配置如下所示：
+```
+entry: "./src/page1.js",
+output: {
+    path: path.join(__dirname, "buildOutput"),
+    filename: "page1.bundle.js"
+}
+```
+
+`page1.js`中引入了`a.js`和`b.js`模块，执行`npm start`进行打包，在`buildOutput`目录下生成打包文件`page1.bundle.js`，该文件就是一个入口chunk(entry chunk)，即根据entry生成的打包文件。
+
+打开`page1.bundle.js`文件我们可以看到包含很多类似于`__webpack_require__()`之类的函数，通过这些方法可以在浏览器中加载相应的模块资源，我们把这些方法叫做`webpack runtime`，即webpack运行时代码逻辑。
+
+所以
+```
+`page1.bundle.js` = webpack runtime + a.js + b.js
+```
+
+我们再次做点修改，将filename设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有entry chunk这一种chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可。
 
 ### array entry
 
