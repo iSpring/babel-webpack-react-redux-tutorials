@@ -144,7 +144,7 @@ output: {
 ## 2. normal chunk
 通过上面的示例，我想大家已经明白了什么是entry chunk，下面开始今天的正题Code Splitting。
 
-Webpack允许我们在代码中创建分离点，在此处分离点处将会产生一个新的chunk文件。
+Webpack允许我们在代码中创建分离点，在分离点处将会产生一个新的chunk文件。
 
 `page3.js`文件如下所示：
 ```
