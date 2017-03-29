@@ -15,9 +15,10 @@ module.exports = {
     entry: "./src/page1.js",
     output: {
         path: path.join(__dirname, "buildOutput"),
-        filename: "page1.bundle.js",//=>page1.bundle.js(chunk id: 0, chunk name: main)
-        // filename: "[id].[name].bundle.js"//=>0.main.bundle.js(chunk id: 0, chunk name: main)
-    },*/
+        filename: "page1.bundle.js", //=>page1.bundle.js(chunk id: 0, chunk name: main)
+        // filename: "[id].[name].bundle.js" //=>0.main.bundle.js(chunk id: 0, chunk name: main)
+    },
+    */
 
 
     /*
@@ -42,12 +43,15 @@ module.exports = {
         filename: "[id].[name].bundle.js"//=>0.page1.bundle.js(chunk id: 0, chunck name: page1)  1.page2.bundle.js(chunck id:1, chunck name:page2)
     },*/
 
+
+    //If use require.ensure() to split code, we can use chunkFilename to set name for new created normal chunk.
     entry: "./src/page3.js",
     output: {
         path: path.join(__dirname, "buildOutput"),
         // filename: "page3.bundle.js"//page3.bundle.js(chunk id: 0, chunck name: main) includes webpack runtime, 1.page3.bundle.js(chunk id: 1, chunk name: cd) doesn't include webpack runtime
         // filename: "[id]-[name].js"//0-main.js(chunk id: 0, chunk name: main) 1.1-cd.js(chunk id: 1, chunk name: cd)
-        filename: "page3.bundle.js", chunkFilename: "[id].[name].js"//page3.bundle.js(chunk id: 0, chunck name: main) 1.cd.js(chunk id: 1, chunk name: cd)
+        filename: "page3.bundle.js",
+        chunkFilename: "[id].[name].js" //page3.bundle.js(chunk id: 0, chunck name: main) 1.cd.js(chunk id: 1, chunk name: cd)
     },
 
     module: {

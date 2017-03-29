@@ -94,7 +94,7 @@ output: {
 我们对`filename`做点修改，将设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有一个entry chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可，我们会后面的multiple entry中讲解`"[id].[name].bundle.js"`的使用场景。
 
 ### 1.2 entry为字符串数组
-`entry`还可以配置为一个string数组，这种`entry`也属于单一入口(single entry)。
+`entry`还可以配置为一个字符串路径数组，这种`entry`也属于单一入口(single entry)。
 
 修改`webpack.config.js`如下所示：
 ```
@@ -105,7 +105,7 @@ output: {
 }
 ```
 
-我们将`entry`设置为string数组，每个string表示一个路径，Webpack会将每个路径所对应的文件一起打包，生成一个打包文件。执行`npm start`，在`buildOutput`目录下生成打包文件`page12.bundle.js`。
+我们将`entry`设置为字符串数组，每个字符串都表示一个路径，Webpack会将每个路径所对应的文件一起打包，生成一个打包文件。执行`npm start`，在`buildOutput`目录下生成打包文件`page12.bundle.js`。
 
 ```
 page12.bundle.js = webpack runtime + a.js + b.js + c.js + d.js
@@ -142,6 +142,10 @@ output: {
 
 
 ## 2. normal chunk
+通过上面的示例，我想大家已经明白了什么是entry chunk，下面开始今天的正题Code Splitting。
+
+Webpack允许我们在代码中创建分离点，在此处分离点处将会产生一个新的chunk文件。
+
 `page3.js`文件如下所示：
 ```
 import a from "./a.js";
@@ -150,10 +154,13 @@ import b from "./b.js";
 console.log("module a: ", a);
 console.log("module b: ", b);
 
-require.ensure(["./c.js", "./d.js"], function(){
-  const c = require("./c.js");
-  const d = require("./d.js");
-  console.log("module c: ", c);
-  console.log("module d: ", d);
-}, "cd");
+require.ensure([], function() {
+    const c = require("./c.js");
+    const d = require("./d.js");
+    const Person = require("./e.js");
+    const person = new Person("ZhangSan", 28);
+    console.log("module c: ", c);
+    console.log("module d: ", d);
+    console.log("person: ", person.toString());
+}, "cde");
 ```
