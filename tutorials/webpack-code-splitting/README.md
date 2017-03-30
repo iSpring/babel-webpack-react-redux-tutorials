@@ -16,6 +16,7 @@ Project
      |--b.js
      |--c.js
      |--d.js
+     |--e.js
      |--page1.js
      |--page2.js
      |--page3.js
@@ -84,7 +85,7 @@ output: {
 
 此处，我们将`entry`配置成一个stirng值，即一个文件路径。`page1.js`中引入了`a.js`和`b.js`模块，执行`npm start`进行打包，在`buildOutput`目录下生成打包文件`page1.bundle.js`，该文件就是一个入口chunk(entry chunk)，即根据entry生成的打包文件。
 
-打开`page1.bundle.js`文件我们可以看到包含很多类似于`__webpack_require__()`之类的函数，通过这些方法可以在浏览器中加载相应的模块资源，我们把这些方法叫做`webpack runtime`，即webpack运行时代码逻辑。
+打开`page1.bundle.js`文件我们可以看到其中定义了`webpackJsonp()`、`__webpack_require__()`之类的函数，通过这些方法可以在浏览器中加载相应的模块资源，我们把这些在运行时Webpack加载资源的逻辑代码叫做`webpack runtime`。就像`require.js`用于加载AMD模块资源一样，`webpack runtime`是用于加载Webpack打包后的资源的，它是在浏览器环境中加载和使用Webpack资源的关键。
 
 所以
 ```
@@ -144,7 +145,39 @@ output: {
 ## 2. normal chunk
 通过上面的示例，我想大家已经明白了什么是entry chunk，下面开始今天的正题Code Splitting。
 
-Webpack允许我们在代码中创建分离点，在分离点处将会产生一个新的chunk文件。
+Webpack允许我们在代码中创建分离点(Code Splitting Point)，在分离点处将会产生一个新的normal chunk文件。
+
+我们在`e.js`中用ES6语法定义了一个`Person`类，如下所示：
+```
+class Person {
+    constructor(name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    setName(name) {
+        this.name = name;
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    setAge(age) {
+        this.age = age;
+    }
+
+    getAge() {
+        return this.age;
+    }
+
+    toString() {
+        return `name: ${this.name}, age: ${this.age}`;
+    }
+}
+
+export default Person;
+```
 
 `page3.js`文件如下所示：
 ```
@@ -154,7 +187,8 @@ import b from "./b.js";
 console.log("module a: ", a);
 console.log("module b: ", b);
 
-require.ensure([], function() {
+//创建代码分离点
+require.ensure(["./c.js", "./d.js", "./e.js"], function() {
     const c = require("./c.js");
     const d = require("./d.js");
     const Person = require("./e.js");
@@ -164,3 +198,53 @@ require.ensure([], function() {
     console.log("person: ", person.toString());
 }, "cde");
 ```
+
+我们在`page3.js`中通过`require.ensure([], function(){}, chunkName)`创建了一个代码分离点，`require.ensure(dependencies, callback, chunkName)`方法能够保证`dependencies`这些依赖可以在`callback`回调中同步加载require，Webpack会将`c.js`、`d.js`、`e.js`一起打包形成一个新的normal chunk文件（这个文件有可能很大），在浏览器中，满足某些条件的情况下，我们的代码会运行到分离点处时，此时Webpack就会异步加载之前打包生成的normal chunk文件，这样就实现了将某些功能从首屏资源文件中拆分出去，在浏览器中根据用户操作按需动态加载资源文件，这样可以加快首屏显示的速度，提升用户体验。
+
+`require.ensure(dependencies, callback, chunkName)`方法中的`dependencies`可以保留空数组[]，Webpack一样能智能地分析`callback`回调方法，从中找出`callback`回调中需要同步加载的资源文件并打包成normal chunck。
+
+`require.ensure(dependencies, callback, chunkName)`方法最后有一个可选的`chunkName`参数，通过该参数可以给新生成的normal chunk设置chunk name，给其设置chunk name有两个好处：
+ - 可以通过`output.chunkName`配置为`[name]`设置生成的normal chunk的文件名
+ - 具有相同chunk name的多个normal chunk会合并为一个文件
+
+修改`webpack.config.js`，配置如下所示：
+```
+entry: "./src/page3.js",
+output: {
+    path: path.join(__dirname, "buildOutput"),
+    filename: "page3.bundle.js",
+    chunkFilename: "[id].[name].js"
+}
+```
+
+执行npm start进行打包，在`buildOutput`目录下生成打包文件`page3.bundle.js`和`1.cde.bundle.js`。
+
+`page3.bundle.js`包含了`webpack runtime`和代码分离点处callback回调内部的代码逻辑，但是不包含`c.js`、`d.js`和`e.js`。`1.cde.bundle.js`中包含了`c.js`、`d.js`和`e.js`的代码，不包含`webpack runtime`。
+
+即
+```
+page3.bundle.js = webpack runtime + 异步callback逻辑
+
+1.cde.bundle.js = `c.js` + `d.js` + `e.js`
+
+```
+
+`page3.bundle.js`部分代码截图如下所示：
+<div align="center">
+    <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/webpack-code-splitting/images/page3.bundle.js.png" />
+</div>
+
+从上面的例子中我们可以看到通过`require.ensure()`方法可以异步加载CommonJS和ES6模块资源文件。其实通过`require(dependencies, callback)`也可以异步加载AMD模块，例如：
+```
+require(["module-a", "module-b"], function(a, b) {
+  // ...
+});
+```
+这种写法跟`require.js`中异步按需动态加载AMD模块的方式很类似，在此不再赘述。
+
+## 3. 总结
+1. chunk分为entry chunk和normal chunk。
+
+2. entry chunk是入口文件，它的名字一般通过`output.filename`指定。一般情况下，entry chunk = webpack runtime + modules.
+
+3. 通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。一般情况下，normal chunk不包含webpack runtime，只包含一些modules代码。
