@@ -4,12 +4,12 @@ var webpack = require("webpack");
 
 module.exports = {
 	entry: {
-		pageA: "./pageA",//a-b-c + a-b + a-c
-		pageB: "./pageB",//a-b-c + a-b + b-c
-		pageC: "./pageC",//a-b-c + a-c + b-c
-		adminPageA: "./adminPageA",//a-b-c + admin
-		adminPageB: "./adminPageB",//a-b-c + admin
-		adminPageC: "./adminPageC",//a-b-c + admin
+		pageA: "./src/pageA",//a-b-c + a-b + a-c
+		pageB: "./src/pageB",//a-b-c + a-b + b-c
+		pageC: "./src/pageC",//a-b-c + a-c + b-c
+		adminPageA: "./src/adminPageA",//a-b-c + admin
+		adminPageB: "./src/adminPageB",//a-b-c + admin
+		adminPageC: "./src/adminPageC",//a-b-c + admin
 	},
 
 	output: {
