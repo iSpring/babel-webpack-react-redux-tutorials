@@ -245,6 +245,6 @@ require(["module-a", "module-b"], function(a, b) {
 ## 3. 总结
 1. chunk分为entry chunk和normal chunk。
 
-2. entry chunk是入口文件，它的名字一般通过`output.filename`指定。一般情况下，entry chunk = webpack runtime + modules.
+2. entry chunk是入口文件，一般情况下（不考虑Code Splitting），single entry只会生成一个chunk，即一个entry chunk，可通过`output.fileName`指定输出的文件名。 multiple entry会产生多个entry chunk，需要通过`ouput.chunkName`指定各个chunk的文件名。一般情况下，entry chunk = webpack runtime + modules.
 
-3. 通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。一般情况下，normal chunk不包含webpack runtime，只包含一些modules代码。
+3. normal chunk一般是被entry chunk在运行时动态加载的文件，通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。一般情况下，normal chunk不包含webpack runtime，只包含一些modules代码。生成的normal chunk的文件名可以通过`output.chunkName`设定，在代码分离点处我们可以传入一个chunk name以便在`output.chunkName`中使用`[name]`作为输出的文件名。
