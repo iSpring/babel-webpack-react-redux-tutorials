@@ -25,7 +25,9 @@
         "https://github.com/webpack/docs/wiki/configuration#entry",
         "http://webpack.github.io/docs/configuration.html#entry",
         "http://webpack.github.io/docs/code-splitting.html",
-        "https://github.com/webpack/webpack/tree/master/examples/code-splitting",
+        "https://github.com/webpack/webpack/tree/webpack-1/examples",
+        "https://github.com/webpack/webpack/tree/webpack-1/examples/named-chunks",
+        "http://react-china.org/t/webpack-output-filename-output-chunkfilename/2256",
         "http://stackoverflow.com/questions/33505992/babel-6-changes-how-it-exports-default",
         "https://github.com/59naga/babel-plugin-add-module-exports"
     ]
