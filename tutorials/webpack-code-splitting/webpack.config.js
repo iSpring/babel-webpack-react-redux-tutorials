@@ -48,10 +48,10 @@ module.exports = {
     entry: "./src/page3.js",
     output: {
         path: path.join(__dirname, "buildOutput"),
-        // filename: "page3.bundle.js"//page3.bundle.js(chunk id: 0, chunck name: main) includes webpack runtime, 1.page3.bundle.js(chunk id: 1, chunk name: cd) doesn't include webpack runtime
-        // filename: "[id]-[name].js"//0-main.js(chunk id: 0, chunk name: main) 1.1-cd.js(chunk id: 1, chunk name: cd)
+        // filename: "page3.bundle.js"//page3.bundle.js(chunk id: 0, chunck name: main) includes webpack runtime, 1.page3.bundle.js(chunk id: 1, chunk name: cde) doesn't include webpack runtime
+        // filename: "[id]-[name].js"//0-main.js(chunk id: 0, chunk name: main) 1.1-cde.js(chunk id: 1, chunk name: cde)
         filename: "page3.bundle.js",
-        chunkFilename: "[id].[name].js" //page3.bundle.js(chunk id: 0, chunck name: main) 1.cd.js(chunk id: 1, chunk name: cd)
+        chunkFilename: "[id].[name].js" //page3.bundle.js(chunk id: 0, chunck name: main) 1.cde.js(chunk id: 1, chunk name: cde)
     },
 
     module: {

@@ -1,4 +1,4 @@
-﻿# Webpack Code Splitting
+﻿# [通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
 
 对于大型Web项目来说，把所有代码打包成一个JavaScript文件并不明智，因为这会导致生成的`bundle.js`非常庞大，需要花费更多的时间来加载它，导致用户体验下降。本文将介绍Webpack强大的代码分离(Code Splitting)功能，通过该特性我们可以将一个`bundle.js`文件拆分为多个chunk文件，实现在运行时按需异步加载相关资源。本文将从chunk的角度讲解Webpack的代码分离特性。
 
@@ -234,6 +234,8 @@ page3.bundle.js = webpack runtime + 异步callback逻辑
     <img src="https://rawgit.com/iSpring/babel-webpack-react-redux-tutorials/master/tutorials/webpack-code-splitting/images/page3.bundle.js.png" />
 </div>
 
+在`page3.js`创建代码分离点的时，如果我们不传入chunkName参数，那么最终通过`chunkFilename: "[id].[name].js"`生成的normal chunk的文件名为`1.1.js`，可读性较差。
+
 从上面的例子中我们可以看到通过`require.ensure()`方法可以异步加载CommonJS和ES6模块资源文件。其实通过`require(dependencies, callback)`也可以异步加载AMD模块，例如：
 ```
 require(["module-a", "module-b"], function(a, b) {
@@ -245,6 +247,6 @@ require(["module-a", "module-b"], function(a, b) {
 ## 3. 总结
 1. chunk分为entry chunk和normal chunk。
 
-2. entry chunk是入口文件，一般情况下（不考虑Code Splitting），single entry只会生成一个chunk，即一个entry chunk，可通过`output.fileName`指定输出的文件名。 multiple entry会产生多个entry chunk，需要通过`ouput.chunkName`指定各个chunk的文件名。一般情况下，entry chunk = webpack runtime + modules.
+2. entry chunk是入口文件，在不考虑Code Splitting的情况下，single entry只会生成一个chunk，即一个entry chunk，可通过`output.fileName`指定输出的文件名。 如果single entry中有代码分离点，那么需要通过`output.chunkName`设置新生成的normal chunk文件名。multiple entry会产生多个entry chunk，需要通过`ouput.chunkName`指定各个chunk的文件名。一般情况下，entry chunk = webpack runtime + modules.
 
 3. normal chunk一般是被entry chunk在运行时动态加载的文件，通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。一般情况下，normal chunk不包含webpack runtime，只包含一些modules代码。生成的normal chunk的文件名可以通过`output.chunkName`设定，在代码分离点处我们可以传入一个chunk name以便在`output.chunkName`中使用`[name]`作为输出的文件名。
