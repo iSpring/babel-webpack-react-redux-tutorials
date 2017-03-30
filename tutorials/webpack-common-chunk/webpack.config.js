@@ -16,23 +16,23 @@ module.exports = {
 
 	// plugins: [
 	// 	new webpack.optimize.CommonsChunkPlugin({
-	// 		// webpack-runtime.js用于存储webpack runtime的代码以及被所有entry都是用的公共模块，本例中webpack-runtime.js = webpack runtime
-	// 		name: "webpack-runtime"
+	// 		// init.js用于存储webpack runtime的代码以及被所有entry都是用的公共模块，本例中init.js = webpack runtime
+	// 		name: "init"
 	// 	})
 	// ]
 
 	// plugins: [
 	// 	new webpack.optimize.CommonsChunkPlugin({
-	// 		// webpack-runtime.js用于存储webpack runtime的代码以及至少被3个entry都使用的公共模块，即webpack-runtime.js = webpack runtime + utility2.js
-	// 		name: "webpack-runtime",
+	// 		// init.js用于存储webpack runtime的代码以及至少被3个entry都使用的公共模块，即init.js = webpack runtime + utility2.js
+	// 		name: "init",
 	// 		minChunks: 3
 	// 	})
 	// ]
 
 	// plugins: [
 	// 	new webpack.optimize.CommonsChunkPlugin({
-	// 		// webpack-runtime.js用于存储webpack runtime的代码以及至少被2个entry都使用的公共模块，即webpack-runtime.js = webpack runtime + utility2.js + utility3.js
-	// 		name: "webpack-runtime",
+	// 		// init.js用于存储webpack runtime的代码以及至少被2个entry都使用的公共模块，即init.js = webpack runtime + utility2.js + utility3.js
+	// 		name: "init",
 	// 		minChunks: 2
 	// 	})
 	// ]
@@ -41,8 +41,8 @@ module.exports = {
 	// 	new webpack.optimize.CommonsChunkPlugin({
 	// 		//顺序很重要
 	// 		//common.js用于至少被2个entry都使用的公共模块，即common.js = utility2.js + utility3.js
-	// 		//webpack-runtime.js用于存储webpack runtime的代码，即webpack-runtime.js = webpack runtime
-	// 		names: ["common", "webpack-runtime"],
+	// 		//init.js用于存储webpack runtime的代码，即init.js = webpack runtime
+	// 		names: ["common", "init"],
 	// 		minChunks: 2
 	// 	})
 	// ]
