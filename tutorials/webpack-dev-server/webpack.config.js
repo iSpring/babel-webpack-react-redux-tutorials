@@ -4,7 +4,7 @@ var webpack = require('webpack');
 
 module.exports = {
   entry: {
-    main: "./src/main"
+    main: "./src/index.js"
   },
   output: {
     path: path.join(__dirname, "buildOutput"),
@@ -13,11 +13,9 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js$/,
-      exclude: /node_modules/,
       loader: 'babel'
     }, {
       test: /\.css$/,
-      exclude: /node_modules/,
       loader: 'style!css'
     }]
   },
