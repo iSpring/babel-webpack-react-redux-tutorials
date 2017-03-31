@@ -1,0 +1,5 @@
+﻿THIS SERVER SHOULD BE USED FOR DEVELOPMENT ONLY!
+
+DO NOT USE IT IN PRODUCTION!
+
+It's a live reloading server for webpack.

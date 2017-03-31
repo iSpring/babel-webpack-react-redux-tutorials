@@ -22,6 +22,8 @@
     "webpack-dev-server": "^1.16.2"
   },
   "reference": [
-    "https://webpack.github.io/docs/webpack-dev-server.html"
+    "https://github.com/webpack/webpack-dev-server/tree/webpack-1",
+    "https://webpack.github.io/docs/webpack-dev-server.html",
+    "https://webpack.github.io/docs/hot-module-replacement.html"
   ]
 }
