@@ -1,0 +1,16 @@
+{
+  "name": "webpack-source-map",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "reference": [
+    "https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/",
+    "https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps",
+    "https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map"
+  ]
+}
