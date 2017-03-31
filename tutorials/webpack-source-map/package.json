@@ -10,6 +10,11 @@
   "license": "ISC",
   "reference": [
     "https://www.html5rocks.com/en/tutorials/developertools/sourcemaps/",
+    "https://survivejs.com/webpack/building/source-maps/",
+    "https://github.com/rstacruz/webpack-tricks#source-maps-webpack-1",
+    "https://webpack.github.io/docs/configuration.html#devtool",
+    "https://webpack.js.org/configuration/devtool/",
+    "http://dev.fontdragr.com/",
     "https://developers.google.com/web/tools/chrome-devtools/javascript/source-maps",
     "https://developer.mozilla.org/en-US/docs/Tools/Debugger/How_to/Use_a_source_map"
   ]
