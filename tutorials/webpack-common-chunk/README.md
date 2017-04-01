@@ -1,1 +1,5 @@
 ﻿# CommonsChunkPlugin
+
+CommonsChunkPlugin插件会生成公共chunk，这个公共chunk会变成entry chunk，即包含webpack runtime，而且会包含其他公共的模块。
+
+应尽量将长期不变动的类库打包到一个vendor chunk文件中，而且这个文件中不应该包含webpack runtime以及其他公共模块，因为webpack runtime和公共模块的代码都会变化，这会导致vendor chunk缓存失效。

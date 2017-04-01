@@ -21,6 +21,7 @@
   "reference": [
     "https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin",
     "http://stackoverflow.com/questions/39548175/can-someone-explain-webpacks-commonschunkplugin",
+    "http://stackoverflow.com/questions/35908253/webpack-how-to-bundle-entries-to-multiple-common-chunks-with-commonschunkplugin",
     "https://webpack.js.org/plugins/commons-chunk-plugin/",
     "https://github.com/webpack/webpack/tree/master/examples/common-chunk-and-vendor-chunk",
     "https://github.com/webpack/webpack/tree/master/examples/multiple-entry-points-commons-chunk-css-bundle",

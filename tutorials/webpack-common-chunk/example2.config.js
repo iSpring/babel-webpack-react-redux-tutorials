@@ -15,14 +15,14 @@ module.exports = {
 
 	// plugins: [
 	// 	new webpack.optimize.CommonsChunkPlugin({
-	// 		//本例中init.js = webpack runtime + polyfill + utility2
+	// 		//init.js = webpack runtime + polyfill + utility2
 	// 		name: "init"
 	// 	})
 	// ]
 
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
-			//本例中init.js = webpack runtime
+			//init.js = webpack runtime
 			name: "init",
 			minChunks: Infinity
 		})

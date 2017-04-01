@@ -13,7 +13,7 @@ var webpack = require("webpack");
 
 module.exports = {
 	entry: {
-		vendor: ["./src/polyfill", "./src/vendor1", "./src/vendor2"],
+		vendor: ["./src/polyfill", "./src/jQuery", "./src/underscore"],
 		pageA: "./src/pageA",
 		pageB: "./src/pageB",
 		pageC: "./src/pageC"
@@ -49,26 +49,34 @@ module.exports = {
 	// 	})
 	// ]
 
-	//http://stackoverflow.com/questions/39548175/can-someone-explain-webpacks-commonschunkplugin
-	plugins: [
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "common",
-			minChunks: 2
-		}),
-
-		new webpack.optimize.CommonsChunkPlugin({
-			name: "init",
-			minChunks: 2
-		})
-	]
+	// plugins: [
+	// 	new webpack.optimize.CommonsChunkPlugin({
+	// 		// init.js只用于存储webpack runtime的代码，即init.js = webpack runtime
+	// 		name: "init",
+	// 		minChunks: Infinity
+	// 	})
+	// ]
 
 	// plugins: [
 	// 	new webpack.optimize.CommonsChunkPlugin({
 	// 		//顺序很重要
-    //  	//If an array of strings is passed this is equal to invoking the plugin multiple times for each chunk name.
+  //    //If an array of strings is passed this is equal to invoking the plugin multiple times for each chunk name.
 	// 		//common.js用于至少被2个entry都使用的公共模块，即common.js = polyfill + utility2.js + utility3.js
 	// 		//init.js用于存储webpack runtime的代码，即init.js = webpack runtime
 	// 		names: ["common", "init"],
+	// 		minChunks: 2
+	// 	})
+	// ]
+
+	//http://stackoverflow.com/questions/39548175/can-someone-explain-webpacks-commonschunkplugin
+	// plugins: [
+	// 	new webpack.optimize.CommonsChunkPlugin({
+	// 		name: "common",
+	// 		minChunks: 2
+	// 	}),
+
+	// 	new webpack.optimize.CommonsChunkPlugin({
+	// 		name: "init",
 	// 		minChunks: 2
 	// 	})
 	// ]
@@ -82,4 +90,16 @@ module.exports = {
 	// 		minChunks: 2
 	// 	})
 	// ]
+
+	//http://stackoverflow.com/questions/35908253/webpack-how-to-bundle-entries-to-multiple-common-chunks-with-commonschunkplugin
+	plugins: [
+		new webpack.optimize.CommonsChunkPlugin({
+			name: "vendor",
+			chunks: ["vendor"]
+		}),
+		new webpack.optimize.CommonsChunkPlugin({
+			name: "init",
+			chunks: ["pageA", "pageB", "pageC"]
+		})
+	]
 };
