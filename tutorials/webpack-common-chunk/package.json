@@ -7,7 +7,9 @@
     "clear": "rimraf buildOutput",
     "prebuild": "npm run clear",
     "build": "webpack",
-    "start": "npm run build"
+    "start": "npm run build",
+    "example1": "rimraf buildOutput && webpack --config example1.config.js",
+    "example2": "rimraf buildOutput && webpack --config example2.config.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,7 +19,8 @@
     "webpack": "^1.13.3"
   },
   "reference": [
-    "https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin"
+    "https://webpack.github.io/docs/list-of-plugins.html#commonschunkplugin",
+    "http://stackoverflow.com/questions/39548175/can-someone-explain-webpacks-commonschunkplugin",
     "https://webpack.js.org/plugins/commons-chunk-plugin/",
     "https://github.com/webpack/webpack/tree/master/examples/common-chunk-and-vendor-chunk",
     "https://github.com/webpack/webpack/tree/master/examples/multiple-entry-points-commons-chunk-css-bundle",

@@ -56,8 +56,8 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   1. JSX语法
   2. React组件
   3. React组件状态与生命周期
-  4. React组件事件
-  5. React组件ref
+  4. React组件事件和ref
+  5. 在React中使用CSS Module
 
 - Redux
   1. Redux使用基础
