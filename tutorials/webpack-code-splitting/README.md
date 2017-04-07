@@ -1,4 +1,4 @@
-﻿# [通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
+﻿# [Webpack中Chunk概念详解以及通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
 
 对于大型Web项目来说，把所有代码打包成一个JavaScript文件并不明智，因为这会导致生成的`bundle.js`非常庞大，需要花费更多的时间来加载它，导致用户体验下降。本文将介绍Webpack强大的代码分离(Code Splitting)功能，通过该特性我们可以将一个`bundle.js`文件拆分为多个chunk文件，实现在运行时按需异步加载相关资源。本文将从chunk的角度讲解Webpack的代码分离特性。
 

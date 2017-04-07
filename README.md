@@ -47,8 +47,8 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   5. [使用Webpack加载图片和SVG](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/load-image-with-webpack/README.md)
   6. [使用HtmlWebpackPlugin自动生成html文件](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-html-webpack-plugin/README.md)
   7. [在Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
-  8. [通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
-  9. Webpack Common Chunk
+  8. [Webpack中Chunk概念详解以及通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
+  9. Webpack中使用CommonsChunkPlugin
   10. Webpack Dev Server
   11. Webpack Source Maps
 
@@ -57,7 +57,15 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   2. React组件
   3. React组件状态与生命周期
   4. React组件事件和ref
-  5. 在React中使用CSS Module
+  5. Conditional Rendering
+  6. 在React中使用classnames和CSS Module
+  7. Route
+  8. React Developer Tools
+  9. Performance
+  10. Animation
+  11. PureRender
+  12. Two-way Binding
+  13. Test
 
 - Redux
   1. Redux使用基础
@@ -65,7 +73,8 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   3. Redux异步中间件
   4. redux-combineReducers
   5. react-redux-binding
-  6. react-redux-binding
-  7. 异步加载组件
+  6. 异步加载组件
+  7. Immutable.js
+  8. Chrome Redux Plugin
 
 未完待续...
