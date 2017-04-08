@@ -48,9 +48,10 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   6. [使用HtmlWebpackPlugin自动生成html文件](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/use-html-webpack-plugin/README.md)
   7. [在Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
   8. [Webpack中Chunk概念详解以及通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
-  9. Webpack中使用CommonsChunkPlugin
-  10. Webpack Dev Server
-  11. Webpack Source Maps
+  9. 使用bundle-loader异步加载资源文件
+  10. Webpack中使用CommonsChunkPlugin
+  11. Webpack Dev Server
+  12. Webpack Source Maps
 
 - React
   1. JSX语法

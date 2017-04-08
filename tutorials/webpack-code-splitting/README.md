@@ -85,14 +85,14 @@ output: {
 
 此处，我们将`entry`配置成一个stirng值，即一个文件路径。`page1.js`中引入了`a.js`和`b.js`模块，执行`npm start`进行打包，在`buildOutput`目录下生成打包文件`page1.bundle.js`，该文件就是一个入口chunk(entry chunk)，即根据entry生成的打包文件。
 
-打开`page1.bundle.js`文件我们可以看到其中定义了`webpackJsonp()`、`__webpack_require__()`之类的函数，通过这些方法可以在浏览器中加载相应的模块资源，我们把这些在运行时Webpack加载资源的逻辑代码叫做`webpack runtime`。就像`require.js`用于加载AMD模块资源一样，`webpack runtime`是用于加载Webpack打包后的资源的，它是在浏览器环境中加载和使用Webpack资源的关键。
+打开`page1.bundle.js`文件我们可以看到其中定义了`webpackJsonp()`、`__webpack_require__()`之类的函数，通过这些方法可以在浏览器中加载相应的模块资源，我们把这些在运行时Webpack加载资源的逻辑代码叫做`webpack runtime`。就像`require.js`用于加载AMD模块资源一样，`webpack runtime`用于加载Webpack打包后的资源，它是在浏览器环境中加载和使用Webpack资源的关键。
 
 所以
 ```
-`page1.bundle.js` = webpack runtime + a.js + b.js
+page1.bundle.js = webpack runtime + a.js + b.js
 ```
 
-我们对`filename`做点修改，将设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有一个entry chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`的值意义不大，大家知道其输出文件名的含义即可，我们会后面的multiple entry中讲解`"[id].[name].bundle.js"`的使用场景。
+我们对`filename`做点修改，将设置为`filename: "[id].[name].bundle.js"`，此处的`[id]`表示chunk id，`[name]`表示chunk name，执行`npm start`重新进行打包，在`buildOutput`目录下生成打包文件`0.main.js`，也就是说我们生成的entry chunk的id为0，chunk name为`main`。在只有一个entry chunk的情况下，将`filename`设置为类似于`"[id].[name].bundle.js"`这样的值意义不大，大家知道其输出文件名的含义即可，我们会后面的multiple entry中讲解`"[id].[name].bundle.js"`的使用场景。
 
 ### 1.2 entry为字符串数组
 `entry`还可以配置为一个字符串路径数组，这种`entry`也属于单一入口(single entry)。
@@ -115,9 +115,9 @@ page12.bundle.js = webpack runtime + a.js + b.js + c.js + d.js
 `page12.bundle.js`是一个entry chunk，其chunk id为0，chunk name为`main`，可以设置`filename: "[id].[name].bundle.js"`进行验证。
 
 ### 1.3 entry为Object对象
-当`entry`的值为字符串路径或者是字符串路径数组时，这种`entry`也属于单一入口(single entry)。一般情况下，single entry打包会生成一个输出文件（不考虑Code Splitting）。
+当`entry`的值为字符串路径或者是字符串路径数组时，这种`entry`属于single entry(单一入口)。一般情况下，single entry打包会生成一个输出文件（不考虑Code Splitting）。
 
-当`entry`的值为Object对象时，这种`entry`叫做多入口(multiple entry)。一般情况下，multiple entry打包会生成多个输出文件。
+当`entry`的值为Object对象时，这种`entry`叫做multiple entry(多入口)。一般情况下，multiple entry打包会生成多个输出文件。
 
 我们修改`webpack.config.js`如下所示：
 ```
@@ -143,9 +143,9 @@ output: {
 
 
 ## 2. normal chunk
-通过上面的示例，我想大家已经明白了什么是entry chunk，下面开始今天的正题Code Splitting。
+通过上面的示例，我想大家已经明白了什么是entry chunk，entry chunk包含webpack runtime，下面开始今天的正题Code Splitting。
 
-Webpack允许我们在代码中创建分离点(Code Splitting Point)，在分离点处将会产生一个新的normal chunk文件。
+Webpack允许我们在代码中创建分离点(Code Splitting Point)，在分离点处将会产生一个新的normal chunk文件，normal chunk不包含webpack runtime。
 
 我们在`e.js`中用ES6语法定义了一个`Person`类，如下所示：
 ```
@@ -247,6 +247,21 @@ require(["module-a", "module-b"], function(a, b) {
 ## 3. 总结
 1. chunk分为entry chunk和normal chunk。
 
-2. entry chunk是入口文件，在不考虑Code Splitting的情况下，single entry只会生成一个chunk，即一个entry chunk，可通过`output.fileName`指定输出的文件名。 如果single entry中有代码分离点，那么需要通过`output.chunkName`设置新生成的normal chunk文件名。multiple entry会产生多个entry chunk，需要通过`ouput.fileName`指定各个entry chunk的文件名，且要通过`[id]`、`[name]`等设置`ouput.fileName`的值，这样使得不同的entry chunk具有不同的文件名。一般情况下，entry chunk = webpack runtime + modules.
+2. entry chunk是入口文件，根据entry的数量，可以分为single entry和multiple entry。
 
-3. normal chunk一般是被entry chunk在运行时动态加载的文件，通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。一般情况下，normal chunk不包含webpack runtime，只包含一些modules代码。生成的normal chunk的文件名可以通过`output.chunkName`设定，在代码分离点处我们可以传入一个chunk name以便在`output.chunkName`中使用`[name]`作为输出的文件名。
+   - 一般情况下，entry chunk = webpack runtime + modules。
+
+   - 在不考虑Code Splitting的情况下，single entry只会生成一个chunk，即一个entry chunk，可通过`output.fileName`指定输出的文件名。
+
+   - multiple entry会产生多个entry chunk，需要通过`ouput.fileName`指定各个entry chunk的文件名，而且一般会使用`[id]`、`[name]`等设置`ouput.fileName`的值，这样使得不同的entry chunk具有不同的文件名。
+
+   - 如果使用Code Splitting创建了代码分离点，那么需要通过`output.chunkName`设置新生成的normal chunk文件名。
+ 
+
+3. normal chunk一般是被entry chunk在运行时动态加载的文件。
+
+   - 一般情况下，normal chunk不包含webpack runtime，只包含一些modules代码。
+
+   - 通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。
+
+   - 生成的normal chunk的文件名可以通过`output.chunkName`设定，在代码分离点处我们可以传入一个chunk name以便在`output.chunkName`中使用`[name]`作为输出的文件名。
