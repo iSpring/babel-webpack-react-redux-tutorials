@@ -49,9 +49,10 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   7. [在Webpack中使用环境变量](https://github.com/iSpring/babel-webpack-react-redux-tutorials/blob/master/tutorials/webpack-environment-variables/README.md)
   8. [Webpack中Chunk概念详解以及通过Webpack Code Splitting实现异步按需加载](https://github.com/iSpring/babel-webpack-react-redux-tutorials/tree/master/tutorials/webpack-code-splitting/README.md)
   9. 使用bundle-loader异步加载资源文件
-  10. Webpack中使用CommonsChunkPlugin
-  11. Webpack Dev Server
-  12. Webpack Source Maps
+  10. 使用webpack-md5-hash
+  11. Webpack中使用CommonsChunkPlugin
+  12. Webpack Dev Server
+  13. Webpack Source Maps
 
 - React
   1. JSX语法
@@ -59,14 +60,23 @@ React技术栈系列教程，涉及React、Redux、Babel、Webpack等相关技�
   3. React组件状态与生命周期
   4. React组件事件和ref
   5. Conditional Rendering
-  6. 在React中使用classnames和CSS Module
-  7. Route
+  6. Lists and Keys
+  7. 在React中使用classnames和CSS Module
   8. React Developer Tools
   9. Performance
-  10. Animation
-  11. PureRender
-  12. Two-way Binding
-  13. Test
+  10. Context
+  11. Animation
+  12. PureRender
+  13. Two-way Binding
+  14. Test
+
+- react-router
+  1. react-router使用基础
+  2. Route配置
+  3. history
+  4. location对象以及路由切换时的参数传递
+  5. 通过Route向Component传递props
+  6. 在react-router中使用代码分离实现动态路由
 
 - Redux
   1. Redux使用基础

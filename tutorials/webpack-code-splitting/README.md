@@ -204,7 +204,7 @@ require.ensure(["./c.js", "./d.js", "./e.js"], function() {
 `require.ensure(dependencies, callback, chunkName)`方法中的`dependencies`可以保留空数组[]，Webpack一样能智能地分析`callback`回调方法，从中找出`callback`回调中需要同步加载的资源文件并打包成normal chunck。
 
 `require.ensure(dependencies, callback, chunkName)`方法最后有一个可选的`chunkName`参数，通过该参数可以给新生成的normal chunk设置chunk name，给其设置chunk name有两个好处：
- - 可以通过`output.chunkName`配置为`[name]`设置生成的normal chunk的文件名
+ - 可以通过`output.chunkFilename`配置为`[name]`设置生成的normal chunk的文件名
  - 具有相同chunk name的多个normal chunk会合并为一个文件
 
 修改`webpack.config.js`，配置如下所示：
@@ -255,7 +255,7 @@ require(["module-a", "module-b"], function(a, b) {
 
    - multiple entry会产生多个entry chunk，需要通过`ouput.fileName`指定各个entry chunk的文件名，而且一般会使用`[id]`、`[name]`等设置`ouput.fileName`的值，这样使得不同的entry chunk具有不同的文件名。
 
-   - 如果使用Code Splitting创建了代码分离点，那么需要通过`output.chunkName`设置新生成的normal chunk文件名。
+   - 如果使用Code Splitting创建了代码分离点，那么需要通过`output.chunkFilename`设置新生成的normal chunk文件名。
  
 
 3. normal chunk一般是被entry chunk在运行时动态加载的文件。
@@ -264,4 +264,4 @@ require(["module-a", "module-b"], function(a, b) {
 
    - 通过代码`require.ensure([], function(...){})`或`require([amd1, amd2], function(amd1, amd2){})`可以设置代码的分离点(Code Splitting Point)，Webpack会将其创建一个新的normal chunk。
 
-   - 生成的normal chunk的文件名可以通过`output.chunkName`设定，在代码分离点处我们可以传入一个chunk name以便在`output.chunkName`中使用`[name]`作为输出的文件名。
+   - 生成的normal chunk的文件名可以通过`output.chunkFilename`设定，在代码分离点处我们可以传入一个chunk name以便在`output.chunkFilename`中使用`[name]`作为输出的文件名。

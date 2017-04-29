@@ -1,0 +1,24 @@
+{
+  "name": "webpack-bundle-loader",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear": "rimraf buildOutput",
+    "prebuild": "npm run clear",
+    "build": "webpack --progress --colors",
+    "start": "npm run build"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.24.1",
+    "babel-loader": "^6.4.1",
+    "babel-preset-es2015": "^6.24.1",
+    "rimraf": "^2.6.1",
+    "webpack": "^1.14.0"
+  },
+  "reference": [
+    "https://github.com/webpack-contrib/bundle-loader/blob/master/README.md"
+  ]
+}

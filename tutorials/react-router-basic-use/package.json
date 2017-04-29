@@ -1,0 +1,15 @@
+{
+  "name": "react-router-basic-use",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "reference": [
+    "https://github.com/ReactTraining/react-router/blob/v3/docs/Introduction.md",
+    "https://github.com/ReactTraining/react-router/blob/v3/docs/guides/RouteConfiguration.md"
+  ]
+}
