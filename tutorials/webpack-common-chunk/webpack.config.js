@@ -7,9 +7,9 @@ var webpack = require("webpack");
 //utility1
 //utility2
 //utility3
-//pageA = polyfill + utility1 + utility2
-//pageB = polyfill + utility2 + utility3
-//pageC = polyfill + utility2 + utility3
+//pageA = polyfill + jQuery + underscore + utility1 + utility2
+//pageB = polyfill + jQuery + underscore + utility2 + utility3
+//pageC = polyfill + jQuery + underscore + utility2 + utility3
 
 module.exports = {
 	entry: {
@@ -60,7 +60,7 @@ module.exports = {
 	// plugins: [
 	// 	new webpack.optimize.CommonsChunkPlugin({
 	// 		//顺序很重要
-  //    //If an array of strings is passed this is equal to invoking the plugin multiple times for each chunk name.
+    //      //If an array of strings is passed this is equal to invoking the plugin multiple times for each chunk name.
 	// 		//common.js用于至少被2个entry都使用的公共模块，即common.js = polyfill + utility2.js + utility3.js
 	// 		//init.js用于存储webpack runtime的代码，即init.js = webpack runtime
 	// 		names: ["common", "init"],
@@ -93,6 +93,7 @@ module.exports = {
 
 	//http://stackoverflow.com/questions/35908253/webpack-how-to-bundle-entries-to-multiple-common-chunks-with-commonschunkplugin
 	plugins: [
+		//vender不经常变化，为了使用缓存，通过指定chunks把它单独弄出来，init包含webpack runtime和其他公共模块
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
 			chunks: ["vendor"]
