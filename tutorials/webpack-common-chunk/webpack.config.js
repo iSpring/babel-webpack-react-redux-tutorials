@@ -93,7 +93,7 @@ module.exports = {
 
 	//http://stackoverflow.com/questions/35908253/webpack-how-to-bundle-entries-to-multiple-common-chunks-with-commonschunkplugin
 	plugins: [
-		//vender不经常变化，为了使用缓存，通过指定chunks把它单独弄出来，init包含webpack runtime和其他公共模块
+		//vendor不经常变化，为了使用缓存，通过指定chunks把它单独弄出来，init包含webpack runtime和其他公共模块
 		new webpack.optimize.CommonsChunkPlugin({
 			name: "vendor",
 			chunks: ["vendor"]
