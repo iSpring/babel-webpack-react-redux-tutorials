@@ -85,7 +85,7 @@ AJAX使得浏览器客户端可以更方便地向服务器发送数据信息，�
   <p align="center">Google Trend: AJAX从2005年开始得到开发人员的广泛关注</p>
 </p>
 
-## 前端兼容性Framework的出现
+## 前端兼容性框架的出现
 IE在第一次浏览器大战中击败Netscape赢得胜利，垄断了浏览器市场。作为独裁者，IE并不遵循W3C的标准，IE成了事实标准。
 
 Netscape于1998年被AOL收购前创建了Mozilla社区，Firefox于2004年11月首次发布，并且9个月内下载量超过6000万，获取了巨大的成功，IE的主导地位首次受到了挑战，Firefox被认为是Netscape的精神续作。
