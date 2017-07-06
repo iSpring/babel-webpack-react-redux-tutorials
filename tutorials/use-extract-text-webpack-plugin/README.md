@@ -11,7 +11,7 @@
  1. 生成的`css.bundle.js`文件中存储了CSS字符串，在html页面中需要用用`<script>`标签引入该`css.bundle.js`文件，而且它会自动向该html文件中生成多个`<style>`标签，但是IE8等浏览器对document中的`<style>`标签有上限要求。所以这种自动注入`<style>`标签的方式兼容性不够，而且将CSS字符串转变成`<style>`标签也需要一定的解析执行的过程，速度有一定影响。
  2. 将原生的CSS文件打包成JavaScript文件时，会在生成的JavaScript文件中生成很多额外的函数用于在运行时将这些字符串注入成`<style>`标签。举例来说，一个1KB的未被压缩的CSS文件生成的对应的JavaScript文件大约有16KB，这导致了输出文件过于庞大，影响传输速度。
 
-为了解决这两个问题，本文将介绍如何从JavaScript文件中分离出多有CSS资源并将这些CSS资源打包成一个CSS文件。
+为了解决这两个问题，本文将介绍如何从JavaScript文件中分离出多余CSS资源并将这些CSS资源打包成一个CSS文件。
 
 ## 使用ExtractTextPlugin分离CSS
 
