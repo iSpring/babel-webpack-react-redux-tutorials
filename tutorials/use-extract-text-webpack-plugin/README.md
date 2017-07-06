@@ -54,6 +54,8 @@ console.log("index.js");
 ```
 var path = require("path");
 
+var ExtractTextWebpackPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
     entry: "./index.js",
     output: {
