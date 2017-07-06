@@ -9,7 +9,7 @@ Project
   |--images
   |  |--npm.svg (0.24KB)
   |  |--github.png (6.17KB)
-  |  |--star.png (9.14)
+  |  |--star.png (9.14KB)
   |  |--webpack.png (52.7KB)
   |
   |--node_modules
