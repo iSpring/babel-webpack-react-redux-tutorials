@@ -132,7 +132,7 @@ webpack.config.js其实是一个CommonJS模块，在Node.js的环境读取webpac
 
   - `include`：其值可以是一个正则表达式，与`exclude`相反，表示满足该正则表达式的文件可以使用该loader。
 
-  - `loaders`：可以指定loader数组，表示用多种loader对一种类型的文件进行处理。比如对于scss文件可以设置`loaders: ["style-loader", "css-loader", "sass-loader"]`，需要注意的是，如果其执行顺序自右向左，即`scss文件 -> sass-loader -> css-loader -> style-loader`。
+  - `loaders`：可以指定loader数组，表示用多种loader对一种类型的文件进行处理。比如对于scss文件可以设置`loaders: ["style-loader", "css-loader", "sass-loader"]`，需要注意的是，其执行顺序自右向左，即`scss文件 -> sass-loader -> css-loader -> style-loader`。
 
   - `loader`: 可以把`loader`看做`loaders`的简写形式。很多情况下，我们只需要指定一个loader，那么只需要把名字写在这里即可，比如`loader: babel`。`loaders: ["style-loader", "css-loader", "sass-loader"]`可以简写为`loader:style!css!sass`，loader之间用`!`分隔。
 
