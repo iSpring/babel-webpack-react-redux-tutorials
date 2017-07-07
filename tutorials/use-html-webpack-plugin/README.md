@@ -154,7 +154,7 @@ var htmlPlugin = new HtmlWebpackPlugin({
 </html>
 ```
 
-这个模板文件中想使用bootstrap和jQuery，已经写好了相应的`<link>`标签和`<script>`标签，但是还没有谁知具体的`href`，我们可以通过`HtmlWebpackPlugin`对其进行设置，我们再次修改实例化插件的代码，如下所示：
+这个模板文件中想使用bootstrap和jQuery，已经写好了相应的`<link>`标签和`<script>`标签，但是还没有设置具体的`href`，我们可以通过`HtmlWebpackPlugin`对其进行设置，我们再次修改实例化插件的代码，如下所示：
 ```
 var htmlPlugin = new HtmlWebpackPlugin({
     template: '!!ejs!./template.html',
