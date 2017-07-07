@@ -239,7 +239,7 @@ query: {
     limit: 10 * 1024 //10KB
 }
 ```
-为`url-loader`配置了`limit`参数为10KB，也可以通过`url-loader?limit=10000`的形式为其指定`limit`等参数。如果不配置`limit`参数，那么`url-loader`会将`index.js`中用到的所有图片和资源打包到`buildOutput/bundle.js`中。我们此处配置`limit`参数为10KB，`url-loader`只会将10KB一下的图片等资源打包到`buildOutput/bundle.js`中，超过10KB的图片只是拷贝到`buildOutput`目录下（当然，文件名会改成hash）。
+为`url-loader`配置了`limit`参数为10KB，也可以通过`url-loader?limit=10000`的形式为其指定`limit`等参数。如果不配置`limit`参数，那么`url-loader`会将`index.js`中用到的所有图片和资源打包到`buildOutput/bundle.js`中。我们此处配置`limit`参数为10KB，`url-loader`只会将10KB以下的图片等资源打包到`buildOutput/bundle.js`中，超过10KB的图片只是拷贝到`buildOutput`目录下（当然，文件名会改成hash）。
 
 重新执行`npm start`进行打包，在`buildOutput`目录下输出结果如下所示：
 
