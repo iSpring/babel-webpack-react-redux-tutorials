@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --content-base buildOutput --port=3344 --colors --inline --hot --open"
+    "start1": "webpack-dev-server --config webpack.config1.js",
+    "start2": "webpack-dev-server --config webpack.config2.js --content-base buildOutput --port=3344 --colors --inline --hot --open"
   },
   "author": "",
   "license": "ISC",

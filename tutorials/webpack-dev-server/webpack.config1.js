@@ -23,19 +23,19 @@ module.exports = {
   },
 
   plugins: [
-    new HtmlWebpackPlugin()
-    // new webpack.HotModuleReplacementPlugin()
-  ]
+    new HtmlWebpackPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ],
 
   //webpack-dev-server --content-base buildOutput --port=3344 --colors --inline --hot --open
-  // devServer: {
-  //   contentBase: './buildOutput',
-  //   port: '3344',
-  //   stats: {
-  //     colors: true
-  //   },
-  //   inline: true,
-  //   hot: true,
-  //   open: true
-  // }
+  devServer: {
+    contentBase: './buildOutput',
+    port: '3344',
+    stats: {
+      colors: true
+    },
+    inline: true,
+    hot: true,
+    open: true
+  }
 };
