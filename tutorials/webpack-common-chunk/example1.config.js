@@ -16,7 +16,7 @@ module.exports = {
 
 	plugins: [
 		new webpack.optimize.CommonsChunkPlugin({
-			// init.js用于存储webpack runtime的代码以及被所有entry都是用的公共模块，本例中init.js = webpack runtime
+			// init.js用于存储webpack runtime的代码以及被所有entry都使用的公共模块，本例中init.js = webpack runtime
 			name: "init"
 		})
 	]
