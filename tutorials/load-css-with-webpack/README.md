@@ -248,7 +248,7 @@ npm install --save-dev less less-loader
 }
 ```
 
-我们对`.less`设置的loader是`style!css!less`，等价于`loaders: ['style-loader', 'css-loader', 'sass-loader']`，也就是对于`.less`文件的处理流程是：
+我们对`.less`设置的loader是`style!css!less`，等价于`loaders: ['style-loader', 'css-loader', 'less-loader']`，也就是对于`.less`文件的处理流程是：
 ```
 less-loader -> css-loader -> style-loader
 ```
